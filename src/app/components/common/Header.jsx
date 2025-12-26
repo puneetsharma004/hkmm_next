@@ -8,6 +8,7 @@ import { FaHandHoldingHeart } from "react-icons/fa";
 import { GiByzantinTemple } from "react-icons/gi";
 import ThemeToggle from "./ThemeToggle";
 import clsx from "clsx";
+import Image from "next/image";
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -89,9 +90,9 @@ export default function Header() {
             transition={{ duration: 0.2 }}
           >
             <div 
-              className="w-10 h-10 rounded-full flex items-center justify-center shadow-md"
+              className="w-20 h-20 rounded-full flex items-center justify-center"
             >
-              <GiByzantinTemple className={isScrolled?"dark:text-white text-[#003366]": "text-[#003366] dark:text-[#003366]"} />
+              <Image src={"/icons/logodes.svg"} width={400} height={100} />
             </div>
             <div>
               <motion.h1 
