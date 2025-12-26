@@ -87,6 +87,10 @@ export default function HeroSlider() {
           color: #FF6B35;
           transition: all 0.3s ease;
         }
+          .swiper-button-prev > svg,
+        .swiper-button-next > svg {
+          width: 12px;
+        }
         
         .swiper-button-prev:hover,
         .swiper-button-next:hover {
