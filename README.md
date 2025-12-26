@@ -34,3 +34,81 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+```
+hkm_frontend_next
+├─ eslint.config.mjs
+├─ jsconfig.json
+├─ next.config.mjs
+├─ package-lock.json
+├─ package.json
+├─ postcss.config.mjs
+├─ public
+│  ├─ icons
+│  ├─ images
+│  │  ├─ about
+│  │  │  ├─ HeartoftheCommunity.jpg
+│  │  │  ├─ HeroDesktop.jpg
+│  │  │  ├─ HeroMobile.jpg
+│  │  │  ├─ TempleArchitecture.jpg
+│  │  │  └─ WorldwideHKM.png
+│  │  ├─ banners
+│  │  │  ├─ Banner-1-1.jpg
+│  │  │  ├─ Banner-2-1.jpg
+│  │  │  ├─ Banner-3-1.jpg
+│  │  │  ├─ Banner-4-1.jpg
+│  │  │  ├─ Banner-5-1.jpg
+│  │  │  ├─ Banner-6-1.jpg
+│  │  │  └─ mobile
+│  │  │     ├─ Banner-1.jpg
+│  │  │     ├─ Banner-2.jpg
+│  │  │     ├─ Banner-3.jpg
+│  │  │     ├─ Banner-4.jpg
+│  │  │     ├─ Banner-5.jpg
+│  │  │     └─ Banner-6.jpg
+│  │  ├─ contribution-mob.jpg
+│  │  ├─ contribution.jpg
+│  │  ├─ gallery
+│  │  │  ├─ gallery-1.jpg
+│  │  │  ├─ gallery-2.jpg
+│  │  │  ├─ gallery-3.jpg
+│  │  │  └─ gallery-4.jpg
+│  │  └─ srila-prabhupada-hkm.webp
+│  └─ videos
+│     └─ flood.mp4
+├─ README.md
+└─ src
+   └─ app
+      ├─ common
+      │  ├─ AnnouncementBar.jsx
+      │  ├─ ContributeSection.jsx
+      │  ├─ Footer.jsx
+      │  ├─ Header.jsx
+      │  ├─ HeroSlider.jsx
+      │  ├─ Loader.jsx
+      │  ├─ PageHeader.jsx
+      │  ├─ QuickLinks.jsx
+      │  ├─ SmoothScrolling.jsx
+      │  ├─ ThankYouPage.jsx
+      │  ├─ ThankYouPageAdv.jsx
+      │  ├─ ThemeToggle.jsx
+      │  └─ Whatsapp.jsx
+      ├─ components
+      ├─ favicon.ico
+      ├─ globals.css
+      ├─ home
+      │  ├─ EventsAndDarshan.jsx
+      │  ├─ GalleryPreview.jsx
+      │  ├─ Testimonials.jsx
+      │  └─ WelcomeSection.jsx
+      ├─ layout.js
+      ├─ lib
+      │  └─ supabase.js
+      ├─ page.js
+      └─ utils
+         ├─ api.js
+         ├─ formatDate.js
+         ├─ ScrollToAnchor.js
+         └─ scrollToTop.js
+
+```
