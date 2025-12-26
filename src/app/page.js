@@ -1,12 +1,12 @@
 // src/pages/Home.jsx
 
-import Announcements from "./common/AnnouncementBar";
-import HeroSlider from "./common/HeroSlider";
-import Loader from "./common/Loader";
-import EventsAndDarshan from "./home/EventsAndDarshan";
-import GalleryPreview from "./home/GalleryPreview";
-import Testimonials from "./home/Testimonials";
-import WelcomeSection from "./home/WelcomeSection";
+import Announcements from "./components/common/AnnouncementBar";
+import HeroSlider from "./components/common/HeroSlider";
+import Loader from "./components/common/Loader";
+import EventsAndDarshan from "./components/home/EventsAndDarshan";
+import GalleryPreview from "./components/home/GalleryPreview";
+import Testimonials from "./components/home/Testimonials";
+import WelcomeSection from "./components/home/WelcomeSection";
 
 
 function Home() {

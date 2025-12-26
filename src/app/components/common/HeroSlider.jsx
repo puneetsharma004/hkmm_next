@@ -76,7 +76,7 @@ export default function HeroSlider() {
 
   return (
     <div className="relative w-full h-screen overflow-hidden bg-amber-50 dark:bg-gray-900">
-      <style jsx>{`
+      <style jsx global>{`
         .swiper-button-prev,
         .swiper-button-next {
           background: rgba(255, 255, 255, 0.2);
