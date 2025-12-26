@@ -302,32 +302,56 @@ export default function EventsAndDarshan() {
               {darshan.map((aarti, i) => (
                 <motion.div
                   key={i}
-                  initial={{ opacity: 0, x: -30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6, delay: i * 0.1 }}
+                  initial={{ opacity: 0, y: 24 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: i * 0.08, ease: "easeOut" }}
                   viewport={{ once: true }}
-                  whileHover={{ scale: 1.02 }}
-                  className="flex items-center justify-between p-6 bg-white/10 dark:bg-gradient-to-r dark:from-indigo-900/80 dark:to-purple-900/80 rounded-xl shadow-xl border border-orange-200 dark:border-gold border-opacity-60 dark:border-opacity-20 backdrop-blur-sm hover:border-saffron hover:border-opacity-80 dark:hover:border-opacity-40 hover:shadow-lg hover:shadow-saffron/10 transition-all duration-300 group"
+                  whileHover={{ scale: 1.015 }}
+                  className="
+                    flex items-center justify-between
+                    p-5 md:p-6
+                    rounded-xl
+                    bg-white/70 dark:bg-gradient-to-r dark:from-indigo-900/70 dark:to-purple-900/70
+                    backdrop-blur-md
+                    border border-black/5 dark:border-white/10
+                    shadow-sm hover:shadow-md
+                    transition-all duration-300
+                    group
+                  "
                 >
-                  <div className="flex items-center space-x-4">
-                    <span className="text-3xl group-hover:scale-110 transition-transform duration-300">
-                      {aarti.icon}
+                  {/* Left */}
+                  <div className="flex flex-col">
+                    <span className="
+                      text-base md:text-lg font-semibold
+                      text-gray-900 dark:text-white
+                      group-hover:text-orange-600 dark:group-hover:text-gold
+                      transition-colors
+                    ">
+                      {aarti.name}
                     </span>
-                    <div>
-                      <span className="text-gray-800 dark:text-white font-semibold text-lg group-hover:text-saffron transition-colors duration-300">
-                        {aarti.name}
-                      </span>
-                      <p className="text-gray-600 dark:text-gray-400 text-sm mt-1">Daily Temple Service</p>
-                    </div>
+
+                    <span className="text-xs md:text-sm text-gray-600 dark:text-gray-400 mt-1">
+                      Daily Temple Service
+                    </span>
                   </div>
-                  
+
+                  {/* Right */}
                   <div className="text-right">
-                    <span className="font-bold text-2xl text-orange-600 dark:text-gold group-hover:text-saffron transition-colors duration-300 glow">
+                    <span className="
+                      text-xl md:text-2xl font-bold
+                      text-orange-600 dark:text-gold
+                      group-hover:text-orange-500 dark:group-hover:text-saffron
+                      transition-colors
+                    ">
                       {aarti.time}
                     </span>
-                    <p className="text-gray-500 dark:text-gray-400 text-xs mt-1">IST</p>
+
+                    <span className="block text-[11px] text-gray-500 dark:text-gray-400 mt-1 tracking-wide">
+                      IST
+                    </span>
                   </div>
                 </motion.div>
+
               ))}
             </div>
 

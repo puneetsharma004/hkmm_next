@@ -151,7 +151,7 @@ export default function WelcomeSection() {
               <blockquote className="text-lg md:text-xl italic text-gray-800 dark:text-white font-medium text-center relative z-10">
                 By serving Krishna with love and devotion, we find eternal joy.
               </blockquote>
-              <p className="text-center text-saffron font-semibold mt-3 text-sm glow">
+              <p className="text-center text-saffron font-semibold mt-3 text-sm">
                 – Srila Prabhupada
               </p>
             </div>
