@@ -17,9 +17,13 @@ export default function Header() {
   const pathname = usePathname();
 
   useEffect(() => {
+    // ✅ SSR safety guard
+    if (typeof window === "undefined") return;
+
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 100);
     };
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);

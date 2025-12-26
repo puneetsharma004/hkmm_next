@@ -10,21 +10,28 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/effect-fade';
 
-// Custom hook to detect mobile screens
-const useIsMobile = (breakpoint = 1025) => {
-  const [isMobile, setIsMobile] = React.useState(false);
+import { useEffect, useState } from "react";
 
-  React.useEffect(() => {
-    const mql = window.matchMedia(`(max-width: ${breakpoint - 1}px)`);
-    
-    const onChange = () => {
+const useIsMobile = (breakpoint = 1025) => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    // ✅ SSR guard
+    if (typeof window === "undefined") return;
+
+    const checkIsMobile = () => {
       setIsMobile(window.innerWidth < breakpoint);
     };
 
-    mql.addEventListener('change', onChange);
-    setIsMobile(window.innerWidth < breakpoint);
+    // Initial check
+    checkIsMobile();
 
-    return () => mql.removeEventListener('change', onChange);
+    // Listen to resize
+    window.addEventListener("resize", checkIsMobile);
+
+    return () => {
+      window.removeEventListener("resize", checkIsMobile);
+    };
   }, [breakpoint]);
 
   return isMobile;

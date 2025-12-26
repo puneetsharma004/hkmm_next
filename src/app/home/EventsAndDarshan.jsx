@@ -12,6 +12,22 @@ export default function EventsAndDarshan() {
     const [isExpanded, setIsExpanded] = useState(false);
     const [isAboutExpanded, setIsAboutExpanded] = useState(false);
 
+    const [isDesktop, setIsDesktop] = useState(false);
+
+
+    useEffect(() => {
+      if (typeof window === "undefined") return;
+
+      const checkScreen = () => {
+        setIsDesktop(window.innerWidth >= 768);
+      };
+
+      checkScreen(); // initial check
+      window.addEventListener("resize", checkScreen);
+
+      return () => window.removeEventListener("resize", checkScreen);
+    }, []);
+
     // Fetch upcomingEvents dynamically from Supabase
       useEffect(() => {
         const fetchupComingEvents = async () => {
@@ -29,12 +45,6 @@ export default function EventsAndDarshan() {
 
         fetchupComingEvents();
       }, []);
-  
-  // const upcomingEvents = [
-  //   { img: '/images/event1.jpg', title: 'Janmashtami 2025', date: '6 Sep', desc: 'Celebrate the birth of Lord Krishna.' },
-  //   { img: '/images/event2.jpg', title: 'Radhashtami', date: '21 Sep', desc: 'Devotional singing and offerings.' },
-  //   { img: '/images/event3.jpg', title: 'Diwali', date: '12 Nov', desc: 'Festival of lights celebration.' }
-  // ];
 
   const darshan = [
     { time: '04:30 AM', name: 'Mangala Aarti', icon: '🌅' },
@@ -91,9 +101,6 @@ export default function EventsAndDarshan() {
                     className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500" 
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                  {/* <div className="absolute top-4 right-4 bg-saffron text-white dark:text-black font-bold px-3 py-1 rounded-full text-sm shadow-lg glow-button">
-                    {ev.date}
-                  </div> */}
                 </div>
 
                 {/* Event Content */}
@@ -147,7 +154,7 @@ export default function EventsAndDarshan() {
         {/* Second paragraph - Expandable on mobile, always visible on desktop */}
         <div className="md:block">
           <AnimatePresence>
-            {(isAboutExpanded || typeof window !== 'undefined' && window.innerWidth >= 768) && (
+            {(isExpanded || isDesktop) && (
               <motion.div
                 initial={{ height: 0, opacity: 0 }}
                 animate={{ height: "auto", opacity: 1 }}
@@ -230,7 +237,7 @@ export default function EventsAndDarshan() {
                     {/* Expandable content on mobile, always visible on desktop */}
                     <div className="md:block">
                       <AnimatePresence>
-                        {(isExpanded || window.innerWidth >= 768) && (
+                        {(isExpanded || isDesktop) && (
                           <motion.div
                             initial={{ height: 0, opacity: 0 }}
                             animate={{ height: "auto", opacity: 1 }}

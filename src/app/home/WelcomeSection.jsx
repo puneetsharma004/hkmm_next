@@ -5,9 +5,23 @@ import { CiCircleInfo } from "react-icons/ci";
 import { PiHandsPraying } from "react-icons/pi";
 import { GoPeople } from "react-icons/go";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa6";
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 export default function WelcomeSection() {
+  const [isDesktop, setIsDesktop] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const checkScreen = () => {
+      setIsDesktop(window.innerWidth >= 768);
+    };
+
+    checkScreen(); // initial check
+    window.addEventListener("resize", checkScreen);
+
+    return () => window.removeEventListener("resize", checkScreen);
+  }, []);
   return (
     <section className="relative py-16 px-4 overflow-hidden bg-white ">
       {/* Light Gradient Background */}
@@ -89,7 +103,7 @@ export default function WelcomeSection() {
                 {/* Remaining paragraphs - Expandable on mobile, always visible on desktop */}
                 <div className="md:block">
                   <AnimatePresence>
-                    {(isExpanded || typeof window !== 'undefined' && window.innerWidth >= 768) && (
+                    {(isExpanded || isDesktop) && (
                       <motion.div
                         initial={{ height: 0, opacity: 0 }}
                         animate={{ height: "auto", opacity: 1 }}
