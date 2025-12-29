@@ -18,7 +18,6 @@ import {
   FaQuoteRight
 } from 'react-icons/fa';
 import { HiSparkles } from 'react-icons/hi';
-import { GiMeditation } from "react-icons/gi";
 import Image from 'next/image';
 
 export default function SpecialPrograms() {
@@ -48,56 +47,6 @@ export default function SpecialPrograms() {
         }
       ]
     },
-    // {
-    //   category: 'Meditation & Yoga',
-    //   icon: <GiMeditation />,
-    //   color: 'from-green-500 to-teal-600',
-    //   programs: [
-    //     {
-    //       name: 'Morning Meditation',
-    //       schedule: 'Daily, 6:30 AM',
-    //       duration: '45 minutes',
-    //       description: 'Start your day with peaceful meditation and mantras',
-    //       instructor: 'Yoga Acharya Krishnan',
-    //       level: 'All Levels',
-    //       registration: false
-    //     },
-    //     {
-    //       name: 'Hatha Yoga Sessions',
-    //       schedule: 'Mon, Wed, Fri - 7:00 PM',
-    //       duration: '1 hour',
-    //       description: 'Traditional yoga practice for physical and spiritual wellness',
-    //       instructor: 'Yogini Radha Devi',
-    //       level: 'Beginner to Intermediate',
-    //       registration: true
-    //     }
-    //   ]
-    // },
-    // {
-    //   category: 'Cultural Workshops',
-    //   icon: <FaTheaterMasks />,
-    //   color: 'from-purple-500 to-pink-600',
-    //   programs: [
-    //     {
-    //       name: 'Classical Dance',
-    //       schedule: 'Saturdays, 4:00 PM',
-    //       duration: '2 hours',
-    //       description: 'Learn Bharatanatyam and devotional dance forms',
-    //       instructor: 'Guru Lakshmi Priya',
-    //       level: 'All Levels',
-    //       registration: true
-    //     },
-    //     {
-    //       name: 'Kirtan & Music',
-    //       schedule: 'Fridays, 7:30 PM',
-    //       duration: '1.5 hours',
-    //       description: 'Learn devotional singing and traditional instruments',
-    //       instructor: 'Musician Govind Das',
-    //       level: 'All Levels',
-    //       registration: false
-    //     }
-    //   ]
-    // },
     {
       category: 'Youth Programs',
       icon: <FaUsers />,
@@ -112,33 +61,11 @@ export default function SpecialPrograms() {
           level: 'Ages 16-28',
           registration: true
         },
-        // {
-        //   name: 'Teen Spiritual Circle',
-        //   schedule: 'Saturdays, 6:00 PM',
-        //   duration: '1.5 hours',
-        //   description: 'Interactive discussions and activities for teenagers',
-        //   instructor: 'Brother Arjun',
-        //   level: 'Ages 13-18',
-        //   registration: true
-        // }
       ]
     }
   ];
 
-  const testimonials = [
-    {
-      name: 'Kavita Patel',
-      program: 'Bhagavad Gita Study',
-      quote: 'The classes have transformed my understanding of life and spirituality.',
-      image: 'https://images.unsplash.com/photo-1494790108755-2616b612b002?w=60&h=60&fit=crop&crop=face'
-    },
-    {
-      name: 'Abhishek Sharma',
-      program: 'MahaMantra Meditation',
-      quote: 'Starting my day with mantra meditation has brought so much peace to my life.',
-      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=60&h=60&fit=crop&crop=face'
-    }
-  ];
+
 
   return (
     <section className="relative py-16 px-4 overflow-hidden bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50 dark:bg-black">
@@ -272,49 +199,6 @@ export default function SpecialPrograms() {
           ))}
         </div>
 
-        {/* Testimonials */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          viewport={{ once: true }}
-          className="mt-16"
-        >
-          <h3 className="text-2xl font-bold text-center text-gray-800 dark:text-white mb-8">What Our Students Say</h3>
-          <div className="grid md:grid-cols-2 gap-6">
-            {testimonials.map((testimonial, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="bg-saffron/10 rounded-xl p-6 border border-saffron/40 dark:border-saffron/20 border-opacity-60 dark:border-opacity-100 backdrop-blur-sm shadow-lg"
-              >
-                <div className="flex items-center space-x-4 mb-4">
-                  <Image
-                    src={testimonial.image}
-                    alt={testimonial.name}
-                    className="w-12 h-12 rounded-full border-2 border-saffron shadow-lg"
-                  />
-                  <div>
-                    <div className="flex items-center space-x-2">
-                      <div className="font-bold text-gray-800 dark:text-white">{testimonial.name}</div>
-                      <FaUserCheck className="text-saffron" />
-                    </div>
-                    <div className="text-sm text-gray-600 dark:text-gray-400">{testimonial.program}</div>
-                  </div>
-                </div>
-                <div className="flex items-start space-x-2">
-                  <FaQuoteLeft className="text-saffron text-lg mt-1 flex-shrink-0" />
-                  <p className="text-gray-700 dark:text-gray-300 italic">{testimonial.quote}</p>
-                  <FaQuoteRight className="text-saffron text-lg mt-1 flex-shrink-0 self-end" />
-
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
 
         {/* Additional Info */}
         <motion.div

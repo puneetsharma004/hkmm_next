@@ -87,7 +87,7 @@ export default function CulturalImportance() {
             </div>
             <div className="text-center">
               <div className="text-center flex flex-col justify-center items-center ">
-                <Image className='w-full lg:w-[60%] h-auto rounded-2xl shadow-xl' src="/images/about/HeartoftheCommunity.jpg" alt="Worldwide HKM" />
+                <Image width={100} height={100} className='w-full lg:w-[60%] h-auto rounded-2xl shadow-xl' src="/images/about/HeartoftheCommunity.jpg" alt="Worldwide HKM" />
                <p className="text-gray-600 dark:text-gray-300 italic mt-4">
                 "Building bridges through devotion"
               </p>

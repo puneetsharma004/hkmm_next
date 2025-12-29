@@ -146,6 +146,7 @@ export default function MajorFestivals() {
               {/* Festival Image */}
               <div className="relative h-48 overflow-hidden">
                 <Image
+                width={100} height={100}
                   src={festival.image}
                   alt={festival.name}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"

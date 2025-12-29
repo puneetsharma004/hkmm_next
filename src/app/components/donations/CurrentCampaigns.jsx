@@ -149,6 +149,7 @@ export default function CurrentCampaigns() {
                   {/* Left: Image/Video */}
                   <div className="relative">
                     <Image
+                      width={100} height={100}
                       src={campaign.image}
                       alt={campaign.title}
                       className="w-full h-64 lg:h-full object-cover"

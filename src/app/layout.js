@@ -3,7 +3,8 @@ import "./globals.css";
 import Header from "./components/common/Header";
 import Footer from "./components/common/Footer";
 import Announcements from "./components/common/AnnouncementBar";
-import Loader from "./components/common/Loader";
+import IntroLoader from "./components/common/IntroLoader";
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,7 +27,7 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-         <Loader />
+        <IntroLoader />
         <Announcements/>
         <Header />
         {children}

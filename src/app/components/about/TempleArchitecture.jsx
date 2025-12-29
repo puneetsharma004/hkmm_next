@@ -85,7 +85,7 @@ export default function TempleArchitecture() {
               </div>
             </div>
             <div className="text-center flex flex-col justify-center items-center ">
-              <Image className='w-full lg:w-[60%] h-auto rounded-2xl shadow-xl' src="/images/about/TempleArchitecture.jpg" alt="Temple Architecture" />
+              <Image width={100} height={100} className='w-full lg:w-[60%] h-auto rounded-2xl shadow-xl' src="/images/about/TempleArchitecture.jpg" alt="Temple Architecture" />
               <p className="text-gray-600 dark:text-gray-300 italic mt-4">
                 "Where ancient artistry meets divine inspiration"
               </p>
