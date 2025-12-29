@@ -1,7 +1,8 @@
+"use client";
+
 import { motion } from 'framer-motion';
 import { 
   FaDoorOpen, 
-  FaCalendarAlt, 
   FaHotel, 
   FaTheaterMasks, 
   FaPrayingHands, 
@@ -10,26 +11,14 @@ import {
   FaPhone, 
   FaClock, 
   FaArrowRight, 
-  FaDownload, 
-  FaMobileAlt, 
-  FaCheckCircle, 
-  FaGift, 
   FaUsers,
-  FaWhatsapp,
-  FaStar
+
 } from 'react-icons/fa';
 import { HiSparkles } from 'react-icons/hi';
 
 export default function VisitorInfoCallToAction() {
   const quickActions = [
-    // {
-    //   title: 'Plan Your Visit',
-    //   description: 'Get personalized visit recommendations',
-    //   icon: <FaCalendarAlt />,
-    //   color: 'from-blue-500 to-cyan-600',
-    //   action: 'Start Planning',
-    //   link: '#plan-visit'
-    // },
+
     {
       title: 'Book Accommodation',
       description: 'Reserve your temple guest room',

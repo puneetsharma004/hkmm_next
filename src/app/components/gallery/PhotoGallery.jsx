@@ -1,3 +1,5 @@
+"use client";
+
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { 
@@ -14,7 +16,7 @@ import {
 } from 'react-icons/fa';
 import { HiSparkles } from 'react-icons/hi';
 import { supabase } from '../../lib/supabase';
-import { RemoveScroll } from 'react-remove-scroll';
+// import { RemoveScroll } from 'react-remove-scroll';
 
 export default function PhotoGallery() {
 
@@ -51,80 +53,6 @@ export default function PhotoGallery() {
     { id: 'workshops', name: 'Workshops & Classes', icon: <FaBook /> }
   ];
 
-  // const photos = [
-  //   {
-  //     id: 1,
-  //     src: 'https://photos.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop',
-  //     category: 'festivals',
-  //     title: 'Janmashtami Celebration 2024',
-  //     description: 'Grand celebration of Lord Krishna\'s birth',
-  //     date: 'August 2024'
-  //   },
-  //   {
-  //     id: 2,
-  //     src: 'https://photos.unsplash.com/photo-1545558014-8692077e9b5c?w=400&h=300&fit=crop',
-  //     category: 'worship',
-  //     title: 'Morning Mangala Aarti',
-  //     description: 'Daily morning prayers and worship',
-  //     date: 'Daily 5:00 AM'
-  //   },
-  //   {
-  //     id: 3,
-  //     src: 'https://photos.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop',
-  //     category: 'architecture',
-  //     title: 'Temple Main Hall',
-  //     description: 'Beautiful Marwar style architecture',
-  //     date: '2023'
-  //   },
-  //   {
-  //     id: 4,
-  //     src: 'https://photos.unsplash.com/photo-1583211892916-5e38c6ee3297?w=400&h=300&fit=crop',
-  //     category: 'festivals',
-  //     title: 'Holi Festival Colors',
-  //     description: 'Joyful celebration with natural colors',
-  //     date: 'March 2024'
-  //   },
-  //   {
-  //     id: 5,
-  //     src: 'https://photos.unsplash.com/photo-1589802829985-817e51171b92?w=400&h=300&fit=crop',
-  //     category: 'community',
-  //     title: 'Prasadam Distribution',
-  //     description: 'Serving the community with love',
-  //     date: 'Weekly Service'
-  //   },
-  //   {
-  //     id: 6,
-  //     src: 'https://photos.unsplash.com/photo-1605538883669-825200433431?w=400&h=300&fit=crop',
-  //     category: 'festivals',
-  //     title: 'Diwali Decorations',
-  //     description: 'Festival of lights celebration',
-  //     date: 'November 2023'
-  //   },
-  //   {
-  //     id: 7,
-  //     src: 'https://photos.unsplash.com/photo-1582555172866-f73bb12ba8c6?w=400&h=300&fit=crop',
-  //     category: 'worship',
-  //     title: 'Evening Sandhya Aarti',
-  //     description: 'Beautiful evening lamp ceremony',
-  //     date: 'Daily 7:00 PM'
-  //   },
-  //   {
-  //     id: 8,
-  //     src: 'https://photos.unsplash.com/photo-1571896848203-97f5ce0b9e9e?w=400&h=300&fit=crop',
-  //     category: 'workshops',
-  //     title: 'Bhagavad Gita Class',
-  //     description: 'Weekly spiritual learning sessions',
-  //     date: 'Every Sunday'
-  //   },
-  //   {
-  //     id: 9,
-  //     src: 'https://photos.unsplash.com/photo-1574401572222-9e4c2b6b5e4c?w=400&h=300&fit=crop',
-  //     category: 'architecture',
-  //     title: 'Sacred Sanctum',
-  //     description: 'Inner temple deity chamber',
-  //     date: '2023'
-  //   }
-  // ];
 
   const filteredImages = selectedCategory === 'all' 
     ? photos 
@@ -238,63 +166,44 @@ export default function PhotoGallery() {
           ))}
         </motion.div>
 
-        {/* Load More Button */}
-        {/* <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          viewport={{ once: true }}
-          className="text-center mt-12"
-        >
-          <motion.button
-            className="px-8 py-3 bg-gradient-to-r from-purple-600 to-indigo-600 text-white rounded-full font-semibold hover:shadow-lg hover:shadow-purple-500/30 transition-all duration-300 flex items-center gap-2 mx-auto"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <FaImages />
-            Load More Photos
-          </motion.button>
-        </motion.div> */}
-
-        {/* Modal for enlarged image */}
         {selectedImage && (
-  <RemoveScroll>
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      className="fixed inset-0 bg-black/90 flex items-center justify-center z-50 p-4 overflow-hidden"
-      onClick={() => setSelectedImage(null)}
-    >
-      <motion.div
-        initial={{ scale: 0.8, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        exit={{ scale: 0.8, opacity: 0 }}
-        className="max-w-4xl max-h-[90vh] relative overflow-hidden"
-        onClick={(e) => e.stopPropagation()}
-      >
-        <img
-          src={selectedImage.src}
-          alt={selectedImage.title}
-          className="w-full h-auto rounded-2xl shadow-2xl"
-        />
-        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6 rounded-b-2xl">
-          <h3 className="text-white font-bold text-xl mb-2">
-            {selectedImage.title}
-          </h3>
-          <p className="text-gray-300 mb-2">{selectedImage.description}</p>
-          <span className="text-saffron font-semibold">{selectedImage.date}</span>
+        <div>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black/90 flex items-center justify-center z-50 p-4 overflow-hidden"
+            onClick={() => setSelectedImage(null)}
+          >
+            <motion.div
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.8, opacity: 0 }}
+              className="max-w-4xl max-h-[90vh] relative overflow-hidden"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <img
+                src={selectedImage.src}
+                alt={selectedImage.title}
+                className="w-full h-auto rounded-2xl shadow-2xl"
+              />
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6 rounded-b-2xl">
+                <h3 className="text-white font-bold text-xl mb-2">
+                  {selectedImage.title}
+                </h3>
+                <p className="text-gray-300 mb-2">{selectedImage.description}</p>
+                <span className="text-saffron font-semibold">{selectedImage.date}</span>
+              </div>
+              <button
+                onClick={() => setSelectedImage(null)}
+                className="absolute top-4 right-4 bg-black/50 text-white p-2 rounded-full hover:bg-black/70 transition-all duration-300 flex items-center justify-center"
+              >
+                <FaTimes />
+              </button>
+            </motion.div>
+          </motion.div>
         </div>
-        <button
-          onClick={() => setSelectedImage(null)}
-          className="absolute top-4 right-4 bg-black/50 text-white p-2 rounded-full hover:bg-black/70 transition-all duration-300 flex items-center justify-center"
-        >
-          <FaTimes />
-        </button>
-      </motion.div>
-    </motion.div>
-  </RemoveScroll>
-)}
+        )}
 
         {/* Gallery Info */}
         <motion.div

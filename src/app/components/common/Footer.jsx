@@ -55,7 +55,7 @@ export default function Footer() {
     }
   };
 
-  const linkVariants = {
+  const linkvariants = {
     hover: {
       x: 5,
       color: "#f59e0b",
@@ -197,7 +197,7 @@ export default function Footer() {
                   className="flex items-center gap-2 py-1 px-2 rounded-md text-gray-700 dark:text-gray-200 transition-all hover:bg-orange-200/50 dark:hover:bg-purple-800/30 hover:text-saffron dark:hover:text-purple-200"
                   variants={itemVariants}
                   whileHover="hover"
-                  linkVariants={linkVariants}
+                  linkvariants={linkvariants}
                 >
                   <motion.span
                     whileHover={{ rotate: 10, scale: 1.1 }}
@@ -296,7 +296,7 @@ export default function Footer() {
                     variants={itemVariants}
                     whileHover="hover"
                     whileTap="tap"
-                    linkVariants={socialIconVariants}
+                    linkvariants={socialIconVariants}
                   >
                     <social.icon className="text-sm" />
                   </motion.a>

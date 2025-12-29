@@ -1,3 +1,5 @@
+"use client";
+
 import { motion } from 'framer-motion';
 import { 
   FaHotel, 
@@ -42,36 +44,6 @@ export default function Accommodation() {
       icon: <FaBed />
     }
   ];
-
-  // const nearbyHotels = [
-  //   {
-  //     name: 'Hotel Shanti Palace',
-  //     category: 'Budget',
-  //     distance: '2 km',
-  //     price: '₹1,200-2,000/night',
-  //     rating: '4.2',
-  //     amenities: ['Free WiFi', 'Restaurant', 'Room service', 'Parking'],
-  //     contact: '+91 291 XXXXXX'
-  //   },
-  //   {
-  //     name: 'Rajputana Heritage',
-  //     category: 'Mid-Range',
-  //     distance: '3 km',
-  //     price: '₹2,500-4,000/night',
-  //     rating: '4.5',
-  //     amenities: ['Pool', 'Spa', 'Multi-cuisine restaurant', 'Travel desk'],
-  //     contact: '+91 291 XXXXXX'
-  //   },
-  //   {
-  //     name: 'Blue City Boutique',
-  //     category: 'Luxury',
-  //     distance: '4 km',
-  //     price: '₹5,000-8,000/night',
-  //     rating: '4.8',
-  //     amenities: ['Heritage property', 'Fine dining', 'Concierge', 'Airport transfer'],
-  //     contact: '+91 291 XXXXXX'
-  //   }
-  // ];
 
   const accommodationGuidelines = [
     'Check-in: 12:00 PM | Check-out: 11:00 AM',
@@ -200,96 +172,7 @@ export default function Accommodation() {
           </motion.div>
         </motion.div>
 
-        {/* Nearby Hotels */}
-        {/* <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          viewport={{ once: true }}
-        >
-          <h3 className="text-2xl font-bold text-center text-gray-800 dark:text-white mb-8">Nearby Hotels & Guest Houses</h3>
-          <div className="grid md:grid-cols-3 gap-8">
-            {nearbyHotels.map((hotel, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                whileHover={{ y: -10 }}
-                className="bg-white/10 dark:bg-gradient-to-br dark:from-gray-900/80 dark:to-black/80 rounded-2xl p-6 border border-orange-200 dark:border-purple-400 border-opacity-60 dark:border-opacity-30 backdrop-blur-xl hover:border-saffron hover:border-opacity-80 dark:hover:border-opacity-50 hover:shadow-saffron/20 transition-all duration-300 group shadow-xl"
-              >
-                <div className="text-center mb-4">
-                  <h4 className="text-xl font-bold text-gray-800 dark:text-white mb-2 group-hover:text-saffron transition-colors duration-300">
-                    {hotel.name}
-                  </h4>
-                  <div className="flex items-center justify-center space-x-2 mb-2">
-                    <span className={`px-2 py-1 rounded-full text-xs font-semibold ${
-                      hotel.category === 'Budget' ? 'bg-green-100 dark:bg-green-900/50 text-green-800 dark:text-green-300' :
-                      hotel.category === 'Mid-Range' ? 'bg-yellow-100 dark:bg-yellow-900/50 text-yellow-800 dark:text-yellow-300' :
-                      'bg-purple-100 dark:bg-purple-900/50 text-purple-800 dark:text-purple-300'
-                    }`}>
-                      {hotel.category}
-                    </span>
-                    <span className="text-gold font-semibold flex items-center gap-1">
-                      <FaStar />
-                      {hotel.rating}
-                    </span>
-                  </div>
-                  <div className="text-2xl font-bold text-saffron mb-1 flex items-center justify-center gap-1">
-                    <FaRupeeSign className="text-xl" />
-                    {hotel.price.replace('₹', '')}
-                  </div>
-                  <div className="text-sm text-gray-600 dark:text-gray-400 flex items-center justify-center gap-1">
-                    <FaMapMarkerAlt />
-                    {hotel.distance} from temple
-                  </div>
-                </div>
-
-                <div className="space-y-4">
-                  <div>
-                    <h5 className="font-semibold text-gold mb-2">Amenities:</h5>
-                    <div className="grid grid-cols-2 gap-2">
-                      {hotel.amenities.map((amenity, amenityIndex) => {
-                        // Map amenities to appropriate icons
-                        const getAmenityIcon = (amenity) => {
-                          if (amenity.includes('WiFi')) return <FaWifi className="text-xs" />;
-                          if (amenity.includes('Restaurant') || amenity.includes('dining')) return <FaUtensils className="text-xs" />;
-                          if (amenity.includes('Parking')) return <FaCar className="text-xs" />;
-                          if (amenity.includes('Pool')) return <FaSwimmer className="text-xs" />;
-                          if (amenity.includes('Spa')) return <FaSpa className="text-xs" />;
-                          if (amenity.includes('Concierge')) return <FaConciergeBell className="text-xs" />;
-                          return <FaCheck className="text-xs" />;
-                        };
-
-                        return (
-                          <div key={amenityIndex} className="text-xs bg-orange-100/20 dark:bg-purple-900/30 px-2 py-1 rounded text-gray-700 dark:text-gray-300 text-center flex items-center justify-center gap-1">
-                            {getAmenityIcon(amenity)}
-                            {amenity}
-                          </div>
-                        );
-                      })}
-                    </div>
-                  </div>
-
-                  <div className="text-center">
-                    <p className="text-gray-600 dark:text-gray-400 text-sm mb-3 flex items-center justify-center gap-2">
-                      <FaPhone />
-                      Contact: {hotel.contact}
-                    </p>
-                    <motion.button
-                      className="w-full border border-saffron text-saffron font-semibold py-2 rounded-lg hover:bg-saffron hover:text-white dark:hover:text-black transition-all duration-300"
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
-                    >
-                      View Details
-                    </motion.button>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div> */}
+      
 
         {/* Additional Info */}
         <motion.div
