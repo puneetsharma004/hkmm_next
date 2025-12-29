@@ -12,6 +12,7 @@ export default function Loading() {
           <video
             autoPlay
             muted
+            loop
             playsInline
             className="w-[320px]"
           >

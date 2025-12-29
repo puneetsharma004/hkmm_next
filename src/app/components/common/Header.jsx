@@ -2,10 +2,8 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import Link from "next/link";
 import { useRouter, usePathname } from "next/navigation";
 import { FaHandHoldingHeart } from "react-icons/fa";
-import { GiByzantinTemple } from "react-icons/gi";
 import ThemeToggle from "./ThemeToggle";
 import clsx from "clsx";
 import Image from "next/image";

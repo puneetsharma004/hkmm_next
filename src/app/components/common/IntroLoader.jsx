@@ -17,9 +17,9 @@ export default function IntroLoader() {
 
   return (
     <div
-      className="fixed inset-0 z-[9999] flex items-center justify-center bg-black pointer-events-none"
+      className="fixed inset-0 z-[9999] flex items-center justify-center bg-white dark:bg-black pointer-events-none"
     >
-      <video autoPlay muted playsInline className="w-[320px]">
+      <video autoPlay loop muted playsInline className="w-[320px]">
         <source src="/loader.webm" type="video/webm" />
       </video>
     </div>

@@ -22,8 +22,8 @@ export default function WhatsAppButton() {
     <button
       onClick={openWhatsApp}
       className="fixed bottom-5 right-5 bg-[#25d366] text-white rounded-full 
-                 w-14 h-14 flex items-center justify-center text-3xl 
-                 shadow-lg hover:scale-105 transition z-[100]"
+                 w-12 h-12 flex items-center justify-center text-3xl 
+                 shadow-lg hover:scale-105 transition z-[100] cursor-pointer outline-none"
       aria-label="Chat on WhatsApp"
     >
       <FaWhatsapp />
