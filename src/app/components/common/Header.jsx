@@ -90,9 +90,9 @@ export default function Header() {
             transition={{ duration: 0.2 }}
           >
             <div 
-              className="w-20 h-20 rounded-full flex items-center justify-center"
+              className="w-20 md:w-30 h-20 rounded-full flex items-center justify-center"
             >
-              <Image src={"/icons/logodes.svg"} width={400} height={100} alt="HKMM Logo" />
+              <Image src={"/icons/hkmmLogo.svg"} width={400} height={100} alt="HKMM Logo" />
             </div>
             <div>
               <motion.h1 
