@@ -10,7 +10,6 @@ import {
   FaPhone, 
   FaCalendarAlt, 
   FaClock,
-  // IoIosMegaphone,
   FaFirstAid,
   FaDownload,
   FaInfoCircle

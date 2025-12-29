@@ -8,6 +8,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
+import Image from 'next/image';
 
 export default function Testimonials() {
   const testimonials = [
@@ -15,7 +16,7 @@ export default function Testimonials() {
       name: 'Ramesh Kumar', 
       location: 'Jodhpur, Rajasthan',
       quote: 'Visiting Hare Krishna Marwar Mandir has completely transformed my life. The serene atmosphere and the teachings of Lord Krishna inspire me every day to live with love, compassion, and devotion.', 
-      img: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face',
+      img: '/images/srila-prabhupada-hkm.webp',
       rating: 5,
       role: 'Regular Devotee'
     },
@@ -23,7 +24,7 @@ export default function Testimonials() {
       name: 'Meera Sharma', 
       location: 'Mumbai, Maharashtra',
       quote: 'The Bhagavad Gita sessions here are enlightening. I feel spiritually nourished and find practical guidance for facing life’s challenges with clarity and peace', 
-      img: 'https://images.unsplash.com/photo-1494790108755-2616b612b002?w=150&h=150&fit=crop&crop=face',
+      img: '/images/srila-prabhupada-hkm.webp',
       rating: 5,
       role: 'Visiting Devotee'
     },
@@ -31,7 +32,7 @@ export default function Testimonials() {
       name: 'Arjun Patel', 
       location: 'Ahmedabad, Gujarat',
       quote: 'Participating in Annadana Seva has taught me the joy of selfless service. Feeding others with prasadam brings immense happiness and a sense of connection to Lord Krishna.', 
-      img: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face',
+      img: '/images/srila-prabhupada-hkm.webp',
       rating: 5,
       role: 'Temple Volunteer'
     },
@@ -39,7 +40,7 @@ export default function Testimonials() {
       name: 'Priya Agarwal', 
       location: 'Delhi, India',
       quote: 'Hare Krishna Marwar Mandir is more than a temple; it’s a spiritual home. The youth programs here helped me develop skills while staying grounded in Krishna Consciousness.', 
-      img: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face',
+      img: '/images/srila-prabhupada-hkm.webp',
       rating: 5,
       role: 'Temple Patron'
     }
@@ -121,9 +122,11 @@ export default function Testimonials() {
 
                 {/* Devotee Info */}
                 <div className="flex items-center space-x-4">
-                  <img
+                  <Image
                     src={testimonial.img}
                     alt={testimonial.name}
+                    width={100}
+                    height={100}
                     className="w-16 h-16 rounded-full border-4 border-saffron shadow-lg"
                   />
                   <div>

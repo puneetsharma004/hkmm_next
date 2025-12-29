@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import { 
   FaStar, 
@@ -128,7 +129,7 @@ export default function FeaturedMoments() {
           >
             {/* Main Image */}
             <div className="relative h-96 md:h-[500px]">
-              <img
+              <Image
                 src={featuredMoments[currentSlide].image}
                 alt={featuredMoments[currentSlide].title}
                 className="w-full h-full object-cover"

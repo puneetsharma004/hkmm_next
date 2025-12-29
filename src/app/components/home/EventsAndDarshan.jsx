@@ -6,6 +6,7 @@ import { supabase } from '../../lib/supabase';
 import { GiByzantinTemple } from "react-icons/gi";
 import ContributeSection from '../common/ContributeSection';
 import { FaChevronDown, FaChevronUp } from "react-icons/fa6";
+import Image from 'next/image';
 
 export default function EventsAndDarshan() {
     const [upcomingEvents, setupComingEvents] = useState([]);
@@ -95,9 +96,11 @@ export default function EventsAndDarshan() {
               >
                 {/* Event Image */}
                 <div className="relative overflow-hidden">
-                  <img 
+                  <Image
                     src={ev.image} 
                     alt={ev.title} 
+                    width={100}
+                    height={100}
                     className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500" 
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>

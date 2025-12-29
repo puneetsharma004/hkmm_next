@@ -9,6 +9,7 @@ import {
 } from 'react-icons/fa';
 import { supabase } from '../../lib/supabase';
 import { useEffect, useState } from 'react';
+import Image from 'next/image';
 
 
 export default function SpiritualLineage() {
@@ -96,7 +97,7 @@ export default function SpiritualLineage() {
             </div>
             <div className="text-center">
               <div className="w-full mb-4 text-saffron flex justify-center items-center">
-                <img className='w-full lg:w-[60%] h-auto rounded-2xl' src="/images/about/WorldwideHKM.png" alt="Worldwide HKM" />
+                <Image className='w-full lg:w-[60%] h-auto rounded-2xl' src="/images/about/WorldwideHKM.png" alt="Worldwide HKM" />
               </div>
               <p className="text-gray-600 dark:text-gray-300 italic">
                 "The whole world is one family under Krishna's love"

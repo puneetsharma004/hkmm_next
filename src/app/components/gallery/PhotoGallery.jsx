@@ -16,6 +16,7 @@ import {
 } from 'react-icons/fa';
 import { HiSparkles } from 'react-icons/hi';
 import { supabase } from '../../lib/supabase';
+import Image from 'next/image';
 // import { RemoveScroll } from 'react-remove-scroll';
 
 export default function PhotoGallery() {
@@ -137,7 +138,7 @@ export default function PhotoGallery() {
               onClick={() => setSelectedImage(image)}
             >
               <div className="relative overflow-hidden rounded-2xl shadow-2xl border-2 border-orange-200 dark:border-purple-400 border-opacity-60 dark:border-opacity-30 group-hover:border-saffron group-hover:border-opacity-80 dark:group-hover:border-opacity-60 transition-all duration-300">
-                <img 
+                <Image
                   src={image.src} 
                   alt={image.title}
                   className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"

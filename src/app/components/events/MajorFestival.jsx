@@ -18,6 +18,7 @@ import {
 import { HiSparkles } from 'react-icons/hi';
 import { IoCalendar } from "react-icons/io5";
 import { supabase } from '../../lib/supabase';
+import Image from 'next/image';
 
 export default function MajorFestivals() {
   const [majorFestivals, setMajorFestivals] = useState([]);
@@ -144,7 +145,7 @@ export default function MajorFestivals() {
             >
               {/* Festival Image */}
               <div className="relative h-48 overflow-hidden">
-                <img 
+                <Image
                   src={festival.image}
                   alt={festival.name}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"

@@ -1,18 +1,14 @@
 "use client";
 import { motion } from 'framer-motion';
 import { 
-  FaPray, 
-  FaGift, 
-  FaRupeeSign, 
   FaHome,
   FaChevronRight,
   FaTools,
   FaUtensils,
-  FaUsers,
   FaHeart
 } from 'react-icons/fa';
 import { GiReceiveMoney } from 'react-icons/gi';
-import { HiSparkles } from 'react-icons/hi';
+
 
 export default function DonationsPageHeader() {
   return (

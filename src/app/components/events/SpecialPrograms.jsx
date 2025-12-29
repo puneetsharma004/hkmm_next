@@ -19,6 +19,7 @@ import {
 } from 'react-icons/fa';
 import { HiSparkles } from 'react-icons/hi';
 import { GiMeditation } from "react-icons/gi";
+import Image from 'next/image';
 
 export default function SpecialPrograms() {
   const programs = [
@@ -291,7 +292,7 @@ export default function SpecialPrograms() {
                 className="bg-saffron/10 rounded-xl p-6 border border-saffron/40 dark:border-saffron/20 border-opacity-60 dark:border-opacity-100 backdrop-blur-sm shadow-lg"
               >
                 <div className="flex items-center space-x-4 mb-4">
-                  <img
+                  <Image
                     src={testimonial.image}
                     alt={testimonial.name}
                     className="w-12 h-12 rounded-full border-2 border-saffron shadow-lg"

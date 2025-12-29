@@ -3,7 +3,6 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { 
-  FaFileAlt, 
   FaPrayingHands, 
   FaTimes,
   FaCreditCard, 
@@ -15,8 +14,6 @@ import {
   FaGlobe,
   FaUniversalAccess,
   FaUser,
-  FaEnvelope,
-  FaPhone,
   FaRupeeSign,
   FaCalendarCheck,
   FaReceipt,
@@ -24,8 +21,6 @@ import {
   FaArrowRight,
   FaPray,
   FaHeart,
-  FaMapMarkerAlt,
-  FaAddressCard
 } from 'react-icons/fa';
 import { HiSparkles } from 'react-icons/hi';
 

@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { useState } from 'react';
 import { 
   FaMobileAlt, 
@@ -176,7 +177,7 @@ export default function SocialMediaFeed() {
             >
               {/* Post Image */}
               <div className="relative overflow-hidden">
-                <img
+                <Image
                   src={post.image}
                   alt="Social media post"
                   className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"

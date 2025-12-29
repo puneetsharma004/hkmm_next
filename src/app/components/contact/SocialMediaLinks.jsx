@@ -195,7 +195,7 @@ export default function SocialMediaLinks() {
               >
                 <div className="flex items-start space-x-3 mb-4">
                   {post.image && (
-                    <img
+                    <Image
                       src={post.image}
                       alt="Post thumbnail"
                       className="w-12 h-12 rounded-lg object-cover shadow-lg"

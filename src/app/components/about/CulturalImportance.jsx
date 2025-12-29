@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { 
   FaUniversity, 
   FaTheaterMasks, 
@@ -86,7 +87,7 @@ export default function CulturalImportance() {
             </div>
             <div className="text-center">
               <div className="text-center flex flex-col justify-center items-center ">
-                <img className='w-full lg:w-[60%] h-auto rounded-2xl shadow-xl' src="/images/about/HeartoftheCommunity.jpg" alt="Worldwide HKM" />
+                <Image className='w-full lg:w-[60%] h-auto rounded-2xl shadow-xl' src="/images/about/HeartoftheCommunity.jpg" alt="Worldwide HKM" />
                <p className="text-gray-600 dark:text-gray-300 italic mt-4">
                 "Building bridges through devotion"
               </p>

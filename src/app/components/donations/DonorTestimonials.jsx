@@ -16,6 +16,7 @@ import {
 } from 'react-icons/fa';
 import { HiSparkles } from 'react-icons/hi';
 import { BiSolidDonateHeart } from "react-icons/bi";
+import Image from 'next/image';
 export default function DonorTestimonials() {
   const testimonials = [
     {
@@ -113,7 +114,7 @@ export default function DonorTestimonials() {
             >
               {/* Header */}
               <div className="flex items-start space-x-4 mb-6">
-                <img
+                <Image
                   src={testimonial.image}
                   alt={testimonial.name}
                   className="w-16 h-16 rounded-full border-3 border-saffron border-opacity-50 group-hover:border-opacity-80 transition-all duration-300 shadow-lg"

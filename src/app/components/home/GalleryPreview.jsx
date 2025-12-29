@@ -5,6 +5,7 @@ import { IoMdPhotos } from "react-icons/io";
 import { BsCalendar2Event } from "react-icons/bs";
 import { MdFestival } from "react-icons/md";
 import { CiSearch } from "react-icons/ci";
+import Image from 'next/image';
 export default function GalleryPreview() {
   const gallery = [
     '/images/gallery/gallery-1.jpg',
@@ -66,9 +67,11 @@ export default function GalleryPreview() {
             >
               {/* Image Container */}
               <div className="relative overflow-hidden rounded-2xl shadow-xl border-2 border-orange-200 dark:border-purple-400 border-opacity-60 dark:border-opacity-30 group-hover:border-saffron group-hover:border-opacity-80 dark:group-hover:border-opacity-60 transition-all duration-300">
-                <img 
+                <Image
                   src={img} 
-                  alt={`Gallery ${i+1}`} 
+                  width={100}
+                  height={100}
+                  alt="Gallery Image"
                   className="w-full h-40 md:h-48 object-cover group-hover:scale-110 transition-transform duration-500" 
                 />
                 

@@ -92,7 +92,7 @@ export default function Header() {
             <div 
               className="w-20 h-20 rounded-full flex items-center justify-center"
             >
-              <Image src={"/icons/logodes.svg"} width={400} height={100} />
+              <Image src={"/icons/logodes.svg"} width={400} height={100} alt="HKMM Logo" />
             </div>
             <div>
               <motion.h1 

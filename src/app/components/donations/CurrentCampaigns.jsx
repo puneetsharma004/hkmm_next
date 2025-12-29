@@ -21,6 +21,7 @@ import {
 } from 'react-icons/fa';
 import { GiCow, GiWaterDrop } from 'react-icons/gi';
 import { supabase } from '../../lib/supabase';
+import Image from 'next/image';
 
 export default function CurrentCampaigns() {
   const [showAllCampaigns, setShowAllCampaigns] = useState(false);
@@ -147,7 +148,7 @@ export default function CurrentCampaigns() {
                 <div className="grid lg:grid-cols-2 gap-8">
                   {/* Left: Image/Video */}
                   <div className="relative">
-                    <img
+                    <Image
                       src={campaign.image}
                       alt={campaign.title}
                       className="w-full h-64 lg:h-full object-cover"
