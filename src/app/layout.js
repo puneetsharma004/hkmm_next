@@ -31,13 +31,12 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
           <SmoothScrolling>
-
-          <IntroLoader />
-          <Announcements/>
-          <Header />
-          {children}
-          <WhatsAppButton />
-          <Footer/>
+            <IntroLoader />
+            <Announcements/>
+            <Header />
+            {children}
+            <WhatsAppButton />
+            <Footer/>
           </SmoothScrolling>
 
       </body>

@@ -121,14 +121,14 @@ export default function Header() {
                   className={clsx(
                     'px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 outline-none',
                     {
-                      'shadow-md': isActive,
+                      'shadow-md text-white dark:text-white': isActive,
                       'hover:shadow-sm': !isActive,
                       'text-[#003366] dark:text-white': isScrolled,
                       'text-[#003366] dark:text-[#003366]': !isScrolled
                     }
                   )}
                   style={{
-                    backgroundColor: isActive ? '#FFD700' : 'transparent',
+                    backgroundColor: isActive ? '#AF1E2E' : 'transparent',
                   }}
                   initial={{ opacity: 0, y: -20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -143,13 +143,13 @@ export default function Header() {
 
           {/* Right Section */}
           <div className="flex items-center space-x-3">
-                <ThemeToggle/>
+                {/* <ThemeToggle/> */}
             {/* Donate Button */}
             <motion.button 
               className="px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 flex items-center space-x-1 outline-none"
               style={{ 
-                background: 'linear-gradient(135deg, #FFD700  0%, #F4C430   100%)',
-                color: '#003366'
+                background: 'linear-gradient(135deg, #AF1E2E  0%, #db3c4f   100%)',
+                color: '#ffffff'
               }}
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}

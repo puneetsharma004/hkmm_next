@@ -3,10 +3,10 @@
 /* Custom Jodhpur Temple Colors & Classes */
 :root {
   --jodhpur-blue: #003366;
-  --saffron: #FF9933;
-  --gold: #FFD700;
+  --saffron: #AF1E2E;
+  --gold: #AF1E2E;
   --temple-cream: #FFF8DC;
-  --deep-orange: #FF6600;
+  --deep-orange: #AF1E2E;
 }
 
 /* Custom dark mode variant for class-based switching */
@@ -186,7 +186,7 @@ html {
 }
 
 .gradient-text-saffron-gold {
-  background: linear-gradient(to right, #FF9933, #FFD700);
+  background: linear-gradient(to right, #AF1E2E, #db3c4f);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
