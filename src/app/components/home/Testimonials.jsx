@@ -105,15 +105,8 @@ export default function Testimonials() {
                   </p>
                 </div>
 
-                {/* Stars */}
-                <div className="flex justify-center mb-4">
-                  {[...Array(testimonial.rating)].map((_, starIndex) => (
-                    <FaStar key={starIndex} className="text-gold text-xl mr-1" />
-                  ))}
-                </div>
-
                 {/* Devotee Info */}
-                <div className="flex items-center space-x-4">
+                <div className="flex items-center space-x-4 ">
                   <Image
                     src={testimonial.img}
                     alt={testimonial.name}

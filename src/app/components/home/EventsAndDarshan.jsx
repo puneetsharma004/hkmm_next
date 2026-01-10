@@ -169,7 +169,7 @@ export default function EventsAndDarshan() {
         <div className="md:hidden mt-3 flex justify-center">
           <button
             onClick={() => setIsAboutExpanded(!isAboutExpanded)}
-            className="flex items-center gap-2 text-orange-500 hover:text-orange-600 font-semibold transition-colors duration-300 outline-none"
+            className="flex items-center gap-2 text-primary hover:text-primary/50 font-semibold transition-colors duration-300 outline-none"
           >
             {isAboutExpanded ? (
               <>
@@ -252,8 +252,8 @@ export default function EventsAndDarshan() {
                     <div className="md:hidden mt-4 flex justify-center">
                       <button
                         onClick={() => setIsExpanded(!isExpanded)}
-                        className="px-6 py-2.5 border-2 border-orange-500 text-orange-500 
-                            font-semibold rounded-md hover:bg-orange-500 hover:text-white 
+                        className="px-6 py-2.5 border-2 border-primary text-primary 
+                            font-semibold rounded-md hover:bg-primary hover:text-white 
                             transition-all duration-300 mb-4 flex items-center gap-2 "
                       >
                         {isExpanded ? (
