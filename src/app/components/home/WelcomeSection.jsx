@@ -25,14 +25,7 @@ export default function WelcomeSection() {
   return (
     <section className="relative py-16 px-4 overflow-hidden bg-white ">
       {/* Light Gradient Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50 dark:from-black dark:via-purple-950 dark:to-indigo-950"></div>
-      
-      {/* Animated Background Glow - Light Theme */}
-      <div className="absolute inset-0">
-        <div className="absolute top-20 left-20 w-96 h-96 bg-gradient-to-r from-saffron/20 to-orange-300/20 rounded-full opacity-40 blur-3xl animate-pulse dark:bg-purple-600 dark:opacity-20"></div>
-        <div className="absolute bottom-20 right-20 w-80 h-80 bg-gradient-to-r from-amber-300/20 to-yellow-300/20 rounded-full opacity-30 blur-3xl animate-pulse delay-1000 dark:bg-blue-600 dark:opacity-15"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-r from-orange-200/30 to-saffron/30 rounded-full opacity-25 blur-2xl animate-pulse delay-500 dark:hidden"></div>
-      </div>
+      <div className="absolute inset-0 bg-gradient-primary"></div>
 
       {/* Main Content Container */}
       <div className="relative max-w-6xl mx-auto z-10">
@@ -126,7 +119,7 @@ export default function WelcomeSection() {
                 <div className="md:hidden mt-4 flex justify-center">
                   <button
                     onClick={() => setIsExpanded(!isExpanded)}
-                    className="flex items-center gap-2 text-orange-500 hover:text-orange-600 font-semibold transition-colors duration-300 outline-none"
+                    className="flex items-center gap-2 text-primary hover:text-primary/80 font-semibold transition-colors duration-300 outline-none"
                   >
                     {isExpanded ? (
                       <>
@@ -163,7 +156,7 @@ export default function WelcomeSection() {
   href="/about"
   whileHover={{ 
     scale: 1.02,
-    backgroundColor: "#ff9933",
+    backgroundColor: "#af1e2e",
     color: "#ffffff"
   }}
   whileTap={{ scale: 0.98 }}
@@ -180,15 +173,15 @@ export default function WelcomeSection() {
 
             {/* Additional Links */}
             <div className="mt-6 flex flex-wrap justify-center gap-4 text-sm">
-              <a href="/events" className="text-gray-600 dark:text-gray-400 hover:text-[#ff9933] transition-colors duration-300 font-medium flex items-center gap-1 p-2 border border-text-gray-400 rounded-lg hover:bg-saffron w-fit">
+              <a href="/events" className="text-gray-600 dark:text-gray-400 hover:text-primary transition-colors duration-300 font-medium flex items-center gap-1 p-2 border border-text-gray-400 rounded-lg hover:bg-saffron w-fit">
                 <GoPeople className='text-lg'/> <span>Events & Programs</span>
               </a>
               <span className="text-gray-400 dark:text-gray-700 hidden lg:block">•</span>
-              <a href="/visitor-info" className="text-gray-600 dark:text-gray-400 hover:text-[#ff9933] transition-colors duration-300 font-medium flex items-center gap-1 p-2 border border-text-gray-400 rounded-lg hover:bg-saffron">
+              <a href="/visitor-info" className="text-gray-600 dark:text-gray-400 hover:text-primary transition-colors duration-300 font-medium flex items-center gap-1 p-2 border border-text-gray-400 rounded-lg hover:bg-saffron">
                 <CiCircleInfo className='text-lg'/> <span>Visitor Information</span>
               </a>
               <span className="text-gray-400 dark:text-gray-700 hidden lg:block">•</span>
-              <a href="/donations" className="text-gray-600 dark:text-gray-400 hover:text-[#ff9933] transition-colors duration-300 font-medium flex items-center gap-1 p-2 border border-text-gray-400 rounded-lg hover:bg-saffron w-fit">
+              <a href="/donations" className="text-gray-600 dark:text-gray-400 hover:text-primary transition-colors duration-300 font-medium flex items-center gap-1 p-2 border border-text-gray-400 rounded-lg hover:bg-saffron w-fit">
                 <PiHandsPraying className='text-lg'/>  <span>Make a Donationn</span> 
               </a>
             </div>

@@ -48,22 +48,14 @@ export default function EventsAndDarshan() {
       }, []);
 
   const darshan = [
-    { time: '04:30 AM', name: 'Mangala Aarti', icon: '🌅' },
-    { time: '12:00 PM', name: 'Raj Bhog Aarti', icon: '☀️' },
-    { time: '08:00 PM', name: 'Sandhya Aarti', icon: '🌇' }
+    { time: '04:30 AM', name: 'Mangala Aarti' },
+    { time: '12:00 PM', name: 'Raj Bhog Aarti'},
+    { time: '08:00 PM', name: 'Sandhya Aarti'}
   ];
 
   return (
     <>
-    <section className="relative py-16 px-4 overflow-hidden bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50 dark:bg-black">
-      {/* Light/Dark Gradient Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-orange-100/50 via-amber-100/50 to-yellow-100/50 dark:from-black dark:via-purple-950 dark:to-indigo-950"></div>
-      
-      {/* Animated Background Glow */}
-      <div className="absolute inset-0">
-        <div className="absolute top-32 right-32 w-80 h-80 bg-gradient-to-r from-saffron/30 to-orange-400/30 dark:bg-orange-600 rounded-full opacity-40 dark:opacity-10 blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-32 left-32 w-96 h-96 bg-gradient-to-r from-amber-400/25 to-yellow-400/25 dark:bg-purple-600 rounded-full opacity-30 dark:opacity-15 blur-3xl animate-pulse delay-1000"></div>
-      </div>
+    <section className="relative py-16 px-4 overflow-hidden bg-gradient-primary">
 
       <div className="relative max-w-6xl mx-auto z-10">
         {/* upcomingEvents Section */}
@@ -327,7 +319,7 @@ export default function EventsAndDarshan() {
                     <span className="
                       text-base md:text-lg font-semibold
                       text-gray-900 dark:text-white
-                      group-hover:text-orange-600 dark:group-hover:text-gold
+                      group-hover:text-primary dark:group-hover:text-gold
                       transition-colors
                     ">
                       {aarti.name}
@@ -342,8 +334,8 @@ export default function EventsAndDarshan() {
                   <div className="text-right">
                     <span className="
                       text-xl md:text-2xl font-bold
-                      text-orange-600 dark:text-gold
-                      group-hover:text-orange-500 dark:group-hover:text-saffron
+                      text-primary dark:text-gold
+                       dark:group-hover:text-saffron
                       transition-colors
                     ">
                       {aarti.time}

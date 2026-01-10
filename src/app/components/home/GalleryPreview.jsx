@@ -15,16 +15,8 @@ export default function GalleryPreview() {
   ];
 
   return (
-    <section className="relative py-16 px-4 overflow-hidden bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50 dark:bg-black">
-      {/* Light/Dark Gradient Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-orange-100/40 via-amber-100/40 to-yellow-100/40 dark:from-black dark:via-purple-950 dark:to-indigo-950"></div>
-      
-      {/* Animated Background Glow */}
-      <div className="absolute inset-0">
-        <div className="absolute top-20 left-20 w-72 h-72 bg-gradient-to-r from-saffron/25 to-orange-400/25 dark:bg-orange-600 rounded-full opacity-50 dark:opacity-15 blur-3xl animate-pulse delay-500"></div>
-        <div className="absolute bottom-20 right-20 w-80 h-80 bg-gradient-to-r from-amber-400/20 to-yellow-400/20 dark:bg-purple-600 rounded-full opacity-40 dark:opacity-10 blur-3xl animate-pulse delay-1500"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-orange-300/15 to-saffron/15 rounded-full opacity-30 blur-3xl animate-pulse delay-1000 dark:hidden"></div>
-      </div>
+    <section className="relative py-16 px-4 overflow-hidden bg-gradient-primary">
+     
 
       <div className="relative max-w-6xl mx-auto z-10">
         {/* Section Header */}
@@ -104,7 +96,6 @@ export default function GalleryPreview() {
             href="/gallery"
             whileHover={{ 
               scale: 1.05,
-              boxShadow: "0 20px 40px rgba(255, 153, 51, 0.3)"
             }}
             whileTap={{ scale: 0.95 }}
             className="inline-flex items-center bg-saffron text-white font-medium px-8 py-3.5 rounded-xl shadow-sm hover:shadow-md focus:outline-none focus:ring-2 focus:ring-saffron/50 focus:ring-offset-2 transition-all duration-200 group"

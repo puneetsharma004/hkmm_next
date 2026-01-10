@@ -47,16 +47,8 @@ export default function Testimonials() {
   ];
 
   return (
-    <section className="relative py-4 px-4 overflow-hidden bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50 dark:bg-black">
-      {/* Light/Dark Gradient Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-orange-100/30 via-amber-100/30 to-yellow-100/30 dark:from-black dark:via-purple-950 dark:to-indigo-950"></div>
-      
-      {/* Animated Background Glow */}
-      <div className="absolute inset-0">
-        <div className="absolute top-32 left-32 w-96 h-96 bg-gradient-to-r from-saffron/20 to-orange-400/20 dark:bg-orange-600 rounded-full opacity-60 dark:opacity-10 blur-3xl animate-pulse delay-700"></div>
-        <div className="absolute bottom-32 right-32 w-80 h-80 bg-gradient-to-r from-amber-400/15 to-yellow-400/15 dark:bg-purple-600 rounded-full opacity-50 dark:opacity-15 blur-3xl animate-pulse delay-300"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-gradient-to-r from-orange-300/10 to-saffron/10 rounded-full opacity-40 blur-2xl animate-pulse delay-1000 dark:hidden"></div>
-      </div>
+    <section className="relative py-16 px-4 overflow-hidden bg-gradient-primary">
+
 
       <div className="relative max-w-6xl mx-auto z-10">
         {/* Section Header */}
@@ -85,7 +77,7 @@ export default function Testimonials() {
           breakpoints={{
             768: { slidesPerView: 2 }
           }}
-          className="pb-12"
+          className="pb-60"
         >
           {testimonials.map((testimonial, i) => (
             <SwiperSlide key={i}>
@@ -133,7 +125,7 @@ export default function Testimonials() {
                     <h4 className="font-bold text-gray-800 dark:text-white text-lg">
                       {testimonial.name}
                     </h4>
-                    <p className="text-orange-600 dark:text-gold text-sm font-medium">
+                    <p className="text-primary dark:text-gold text-sm font-medium">
                       {testimonial.role}
                     </p>
                     <p className="text-gray-600 dark:text-gray-400 text-xs">
@@ -148,7 +140,7 @@ export default function Testimonials() {
 
 
         {/* Call to Action */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
@@ -172,10 +164,10 @@ export default function Testimonials() {
               Submit Your Testimonial
             </motion.button>
           </div>
-        </motion.div>
+        </motion.div> */}
 
         {/* Trust Indicators */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1 }}
@@ -200,7 +192,7 @@ export default function Testimonials() {
               <div className="text-gray-700 dark:text-gray-300 text-xs">{stat.label}</div>
             </motion.div>
           ))}
-        </motion.div>
+        </motion.div> */}
       </div>
     </section>
   );

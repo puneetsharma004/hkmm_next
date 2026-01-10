@@ -9,6 +9,12 @@
   --deep-orange: #AF1E2E;
 }
 
+@theme {
+  --color-primary: #AF1E2E;
+  --color-secondary: #FFFAEE;
+  --color-teriary: #FFFFFF;
+}
+
 /* Custom dark mode variant for class-based switching */
 @custom-variant dark (&:where(.dark, .dark *));
 
@@ -23,7 +29,7 @@ html {
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 4px;
 }
 
 ::-webkit-scrollbar-track {
@@ -31,12 +37,12 @@ html {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #888;
+  background: #AF1E2E;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: #ffffff00;
 }
 
 /* Smooth transitions for all elements */
@@ -193,7 +199,7 @@ html {
   filter: drop-shadow(0 0 20px rgba(255, 153, 51, 0.3));
 }
 
-*{scrollbar-color: #ff9933;}
+*{scrollbar-color: #AF1E2E;}
 
 /* Mobile - default */
 .contribute-bg {
@@ -248,3 +254,38 @@ html {
   color: #FFFFFF;
 }
 
+@layer components {
+  .bg-gradient-primary {
+    @apply bg-gradient-to-br from-[#AF1E2E]/20 via-[#FFFAEE] to-[#FFFFFF]
+           dark:from-black dark:via-purple-950 dark:to-indigo-950;
+  }
+
+  .bg-gradient-primary-2 {
+    @apply bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50 dark:bg-black;
+  }
+
+  .bg-gradient-primary {
+    @apply bg-gradient-to-br from-[#AF1E2E]/20 via-[#FFFAEE] to-[#FFFFFF]
+           dark:from-black dark:via-purple-950 dark:to-indigo-950;
+  }
+
+  .bg-gradient-orignal {
+    @apply bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50 dark:from-black dark:via-purple-950 dark:to-indigo-950;
+  }
+
+  .bg-footer-gradient {
+    @apply bg-gradient-to-br from-orange-100 via-amber-100 to-yellow-100 dark:from-purple-900 dark:via-indigo-900 dark:to-purple-800 text-gray-800 dark:text-white overflow-hidden
+  }
+}
+
+@layer themes {
+  .bg-primary {
+    @apply bg-[#AF1E2E];
+  }
+
+  .text-primary {
+    @apply text-[#AF1E2E];
+  }
+  
+  
+}

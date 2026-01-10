@@ -93,7 +93,7 @@ export default function Footer() {
 
   return (
     <motion.footer 
-      className="relative bg-gradient-to-br from-orange-100 via-amber-100 to-yellow-100 dark:from-purple-900 dark:via-indigo-900 dark:to-purple-800 text-gray-800 dark:text-white overflow-hidden"
+      className="relative bg-footer-gradient"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.1 }}
@@ -364,7 +364,7 @@ export default function Footer() {
                   >
                     {link}
                   </motion.a>
-                  {index < 3 && <span className="text-orange-400 dark:text-purple-400">•</span>}
+                  {index < 3 && <span className="text-primary dark:text-tertiary">•</span>}
                 </React.Fragment>
               ))}
             </motion.div>

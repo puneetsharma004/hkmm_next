@@ -84,7 +84,7 @@ export default function HeroSlider() {
           width: 48px;
           height: 48px;
           border-radius: 50%;
-          color: #FF6B35;
+          color: #AF1E2E;
           transition: all 0.3s ease;
         }
           .swiper-button-prev > svg,
@@ -94,7 +94,7 @@ export default function HeroSlider() {
         
         .swiper-button-prev:hover,
         .swiper-button-next:hover {
-          background: rgba(255, 255, 255, 0.3);
+          background: #AF1E2E50;
           transform: scale(1.1);
         }
         
@@ -113,12 +113,12 @@ export default function HeroSlider() {
         }
         
         .swiper-pagination-bullet-active {
-          background: #FF6B35;
+          background: #AF1E2E;
           transform: scale(1.25);
         }
         
         .swiper-pagination-bullet:hover {
-          background: rgba(255, 255, 255, 0.75);
+          background: #AF1E2E50;
         }
         
         .slide-content {

@@ -169,7 +169,7 @@ export default function Header() {
             <motion.button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="md:hidden p-2 rounded-lg transition-colors duration-200 outline-none"
-              style={{ color: isScrolled ? 'white' : '#003366' }}
+              style={{ color: isScrolled ? '#AF1E2E' : '#AF1E2E' }}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
             >
@@ -211,21 +211,21 @@ export default function Header() {
                   href={item.href}
                   className={clsx(`px-4 py-3 rounded-lg text-sm font-medium transition-colors duration-200 outline-none`,
                     {
-                      'shadow-md': isActive,
+                      'shadow-md text-[#FFFFFF]': isActive,
                       'hover:shadow-sm': !isActive,
                       'text-[#003366] dark:text-white': isScrolled,
                       'text-[#003366] dark:text-[#003366]': !isScrolled
                     })
                   }
                   style={{
-                    backgroundColor: isActive ? '#FFD700' : 'transparent',
+                    backgroundColor: isActive ? '#AF1E2E' : 'transparent',
                   }}
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.2, delay: index * 0.05 }}
                   whileHover={{ 
                     x: 5,
-                    backgroundColor: isActive ? '#FFD700' : (isScrolled ? 'rgba(255, 255, 255, 0.1)' : '#FFD700'),
+                    backgroundColor: isActive ? '#AF1E2E' : (isScrolled ? 'rgba(255, 255, 255, 0.1)' : '#AF1E2E'),
                   }}
                   whileTap={{ scale: 0.98 }}
                   onClick={() => setIsMobileMenuOpen(false)}
