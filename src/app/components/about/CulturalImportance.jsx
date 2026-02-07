@@ -2,18 +2,18 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { 
-  FaUniversity, 
-  FaTheaterMasks, 
-  FaHandshake, 
-  FaStar, 
-  FaBook, 
-  FaUtensils, 
-  FaUsers, 
-  FaLeaf, 
-  FaPaintBrush, 
-  FaClock, 
-  FaHeart, 
+import {
+  FaUniversity,
+  FaTheaterMasks,
+  FaHandshake,
+  FaStar,
+  FaBook,
+  FaUtensils,
+  FaUsers,
+  FaLeaf,
+  FaPaintBrush,
+  FaClock,
+  FaHeart,
   FaGift
 } from 'react-icons/fa';
 import { HiSparkles } from 'react-icons/hi';
@@ -36,14 +36,13 @@ export default function CulturalImportance() {
   ];
 
   return (
-    <section className="relative pt-8 px-4 overflow-hidden bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50 dark:bg-black">
-      {/* Light/Dark Gradient Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-orange-100/50 via-amber-100/50 to-yellow-100/50 dark:from-black dark:via-purple-950 dark:to-indigo-950"></div>
-      
+    <section className="relative pt-8 px-4 overflow-hidden bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50">
+      {/* Light Gradient Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-orange-100/50 via-amber-100/50 to-yellow-100/50"></div>
+
       {/* Animated Background Glow */}
       <div className="absolute inset-0">
-        <div className="absolute top-20 left-20 w-96 h-96 bg-gradient-to-r from-purple-400/30 to-indigo-400/30 dark:bg-purple-600 rounded-full opacity-40 dark:opacity-20 blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-20 w-80 h-80 bg-gradient-to-r from-saffron/30 to-orange-400/30 dark:bg-orange-600 rounded-full opacity-30 dark:opacity-15 blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute top-20 left-20 w-96 h-96 bg-gradient-to-r from-purple-400/30 to-indigo-400/30 rounded-full opacity-40 blur-3xl animate-pulse"></div>
       </div>
 
 
@@ -56,10 +55,10 @@ export default function CulturalImportance() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold gradient-text-saffron-gold mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold gradient-text mb-4">
             Cultural Importance
           </h2>
-          <p className="text-gray-700 dark:text-gray-300 text-lg max-w-3xl mx-auto">
+          <p className="text-gray-700 text-lg max-w-3xl mx-auto">
             Reviving the divine essence of Vedic Culture in the Heart of Marwar
           </p>
         </motion.div>
@@ -70,11 +69,11 @@ export default function CulturalImportance() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="bg-white/10 dark:bg-gradient-to-br dark:from-gray-900/80 dark:to-black/80 rounded-2xl shadow-2xl p-8 border border-orange-200 dark:border-purple-400 border-opacity-60 dark:border-opacity-30 backdrop-blur-xl mb-12"
+          className="bg-white/10 rounded-2xl shadow-2xl p-8 border border-primary border-opacity-60 backdrop-blur-xl mb-12"
         >
           <div className="grid lg:grid-cols-2 gap-8 items-center lg:items-start">
-            <div className="space-y-4 text-gray-700 dark:text-gray-200 leading-relaxed">
-          <h3 className="text-2xl font-bold text-saffron mb-6 text-left">Heart of the Community</h3>
+            <div className="space-y-4 text-gray-700 leading-relaxed">
+              <h3 className="text-2xl font-bold text-primary mb-6 text-left">Heart of the Community</h3>
               <p>
                 For over two decades, the Hare Krishna Marwar Mandir has served as the spiritual and cultural heart of Jodhpur's devotional community. Our temple plays a vital role in preserving the rich heritage of the Marwar region while fostering spiritual growth and community unity.
               </p>
@@ -88,9 +87,9 @@ export default function CulturalImportance() {
             <div className="text-center">
               <div className="text-center flex flex-col justify-center items-center ">
                 <Image width={100} height={100} className='w-full lg:w-[60%] h-auto rounded-2xl shadow-xl' src="/images/about/HeartoftheCommunity.jpg" alt="Worldwide HKM" />
-               <p className="text-gray-600 dark:text-gray-300 italic mt-4">
-                "Building bridges through devotion"
-              </p>
+                <p className="text-gray-600 italic mt-4">
+                  "Building bridges through devotion"
+                </p>
               </div>
             </div>
           </div>
@@ -104,7 +103,7 @@ export default function CulturalImportance() {
           viewport={{ once: true }}
           className="mb-12"
         >
-          <h3 className="text-2xl font-bold text-center text-gold mb-8">Community Programs</h3>
+          <h3 className="text-2xl font-bold text-center text-primary mb-8">Community Programs</h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {communityPrograms.map((program, index) => (
               <motion.div
@@ -114,19 +113,19 @@ export default function CulturalImportance() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
                 whileHover={{ y: -5, scale: 1.02 }}
-                className="bg-white/10 dark:bg-gradient-to-r dark:from-indigo-900/80 dark:to-purple-900/80 rounded-xl p-6 border border-orange-200 dark:border-gold border-opacity-60 dark:border-opacity-20 backdrop-blur-sm hover:border-saffron hover:border-opacity-80 dark:hover:border-opacity-40 transition-all duration-300 group shadow-lg"
+                className="bg-white/10 rounded-xl p-6 border border-primary border-opacity-60 backdrop-blur-sm hover:border-opacity-80 transition-all duration-300 group shadow-lg"
               >
                 <div className="flex items-start space-x-4">
-                  <div className="flex-shrink-0 w-12 h-12 bg-saffron-gradient rounded-full flex items-center justify-center text-white text-xl shadow-lg">
+                  <div className="flex-shrink-0 w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white text-xl shadow-lg">
                     {program.icon}
                   </div>
                   <div className="flex-1">
-                    <h4 className="font-bold text-gray-800 dark:text-white mb-2 group-hover:text-saffron transition-colors duration-300">
+                    <h4 className="font-bold text-gray-800 mb-2 group-hover:text-primary transition-colors duration-300">
                       {program.name}
                     </h4>
                     <div className="flex justify-between items-center text-sm">
-                      <span className="text-gray-600 dark:text-gray-400">{program.frequency}</span>
-                      <span className="text-gold font-semibold">{program.participants}</span>
+                      <span className="text-gray-600">{program.frequency}</span>
+                      <span className="text-primary font-semibold">{program.participants}</span>
                     </div>
                   </div>
                 </div>
@@ -141,9 +140,9 @@ export default function CulturalImportance() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
           viewport={{ once: true }}
-          className="bg-saffron/10 rounded-2xl p-8 border border-saffron/40 dark:border-saffron/20 border-opacity-60 dark:border-opacity-100 mb-12 shadow-lg"
+          className="bg-primary/10 rounded-2xl p-8 border border-primary/40 border-opacity-60 mb-12 shadow-lg"
         >
-          <h3 className="text-2xl font-bold text-center text-gray-800 dark:text-white mb-8">Our Impact</h3>
+          <h3 className="text-2xl font-bold text-center text-primary mb-8">Our Impact</h3>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
             {impactStats.map((stat, index) => (
               <motion.div
@@ -154,11 +153,11 @@ export default function CulturalImportance() {
                 viewport={{ once: true }}
                 className="text-center group"
               >
-                <div className="text-4xl flex justify-center items-center mb-3 text-saffron group-hover:scale-110 transition-transform duration-300">
+                <div className="text-4xl flex justify-center items-center mb-3 text-primary group-hover:scale-110 transition-transform duration-300">
                   {stat.icon}
                 </div>
-                <div className="text-3xl font-bold text-saffron glow mb-2">{stat.number}</div>
-                <div className="text-gray-600 dark:text-gray-300 text-sm">{stat.label}</div>
+                <div className="text-3xl font-bold text-primary mb-2">{stat.number}</div>
+                <div className="text-gray-600 text-sm">{stat.label}</div>
               </motion.div>
             ))}
           </div>

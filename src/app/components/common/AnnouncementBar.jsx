@@ -60,7 +60,7 @@ export default function Announcements() {
       onMouseLeave={() => setIsPaused(false)}
     >
       <div className="relative bg-gradient-to-r from-gray-900 via-black to-gray-800 text-white">
-        <div className="absolute inset-0 bg-gradient-to-r from-saffron/10 via-gold/5 to-orange-500/10 backdrop-blur-sm" />
+        <div className="absolute inset-0 backdrop-blur-sm" />
 
         <div className="relative max-w-7xl mx-auto">
           <div className="flex items-center justify-between py-2 px-4 sm:px-6 lg:px-8">
@@ -68,7 +68,7 @@ export default function Announcements() {
             <div className="hidden md:flex items-center space-x-2">
               <motion.button
                 onClick={() => setCurrentAnnouncement((prev) => (prev === 0 ? announcements.length - 1 : prev - 1))}
-                className="p-2 rounded-full text-gold/70 hover:text-saffron hover:bg-saffron/10 transition-all duration-300 outline-none"
+                className="p-2 rounded-full hover:text-primary hover:hover:bg-primary/10 transition-all duration-300 outline-none cursor-pointer"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
                 aria-label="Previous announcement"
@@ -103,7 +103,7 @@ export default function Announcements() {
                     {currentItem.link && (
                       <motion.a
                         href={currentItem.link}
-                        className="hidden group relative md:inline-flex items-center font-bold text-sm text-white bg-saffron-gradient px-6 py-2 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden"
+                        className="hidden group relative md:inline-flex items-center font-bold text-sm text-white hover:bg-primary px-6 py-2 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden"
                         whileHover={{ scale: 1.05, y: -2 }}
                         whileTap={{ scale: 0.95 }}
                         initial={{ opacity: 0, x: 20 }}
@@ -134,7 +134,7 @@ export default function Announcements() {
             <div className="hidden md:flex items-center space-x-2">
               <motion.button
                 onClick={() => setCurrentAnnouncement((prev) => (prev + 1) % announcements.length)}
-                className="hidden sm:block p-2 rounded-full text-gold/70 hover:text-saffron hover:bg-saffron/10 transition-all duration-300"
+                className="hidden sm:block p-2 rounded-full hover:text-primary transition-all duration-300 cursor-pointer"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
                 aria-label="Next announcement"
@@ -144,15 +144,7 @@ export default function Announcements() {
             </div>
           </div>
         </div>
-
-        {/* Accent Line */}
-        <motion.div
-          className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-saffron to-transparent"
-          initial={{ scaleX: 0 }}
-          animate={{ scaleX: 1 }}
-          transition={{ duration: 1, ease: 'easeOut' }}
-        />
-        <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-32 h-0.5 bg-saffron blur-sm opacity-60" />
+        <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-32 h-0.5 blur-sm opacity-60" />
       </div>
     </motion.section>
   );

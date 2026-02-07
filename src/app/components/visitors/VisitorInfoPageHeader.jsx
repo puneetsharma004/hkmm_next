@@ -1,14 +1,14 @@
 "use client";
 import { motion } from 'framer-motion';
-import { 
-  FaHome, 
-  FaChevronRight, 
-  FaUsers, 
-  FaInfoCircle, 
-  FaClock, 
-  FaCar, 
-  FaUtensils, 
-  FaPhone, 
+import {
+  FaHome,
+  FaChevronRight,
+  FaUsers,
+  FaInfoCircle,
+  FaClock,
+  FaCar,
+  FaUtensils,
+  FaPhone,
   FaParking,
   FaHandsHelping,
   FaHeart
@@ -17,15 +17,9 @@ import { HiSparkles } from 'react-icons/hi';
 
 export default function VisitorInfoPageHeader() {
   return (
-    <section className="relative py-20 px-4 overflow-hidden bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50 dark:bg-black">
-      {/* Light/Dark Gradient Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-orange-100/50 via-amber-100/50 to-yellow-100/50 dark:from-black dark:via-purple-950 dark:to-indigo-950"></div>
-      
-      {/* Animated Background Glow */}
-      <div className="absolute inset-0">
-        <div className="absolute top-20 left-20 w-96 h-96 bg-gradient-to-r from-saffron/30 to-orange-400/30 dark:bg-orange-600 rounded-full opacity-40 dark:opacity-20 blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-20 w-80 h-80 bg-gradient-to-r from-purple-400/25 to-indigo-400/25 dark:bg-purple-600 rounded-full opacity-30 dark:opacity-15 blur-3xl animate-pulse delay-1000"></div>
-      </div>
+    <section className="relative py-20 px-4 overflow-hidden bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50 ">
+      {/* Light Gradient Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-orange-100/50 via-amber-100/50 to-yellow-100/50 "></div>
 
       <div className="relative max-w-6xl mx-auto z-10 text-center">
         {/* Breadcrumb */}
@@ -36,15 +30,15 @@ export default function VisitorInfoPageHeader() {
           className="mb-8"
         >
           <div className="flex items-center justify-center space-x-2 text-sm">
-            <a 
-              href="/" 
-              className="text-gray-600 dark:text-gray-400 hover:text-saffron transition-colors duration-300 flex items-center space-x-1"
+            <a
+              href="/"
+              className="text-gray-600 hover:text-primary transition-colors duration-300 flex items-center space-x-1"
             >
               <FaHome className="text-xs" />
               <span>Home</span>
             </a>
-            <FaChevronRight className="text-gray-500 dark:text-gray-600 text-xs" />
-            <span className="text-saffron font-medium flex items-center space-x-1">
+            <FaChevronRight className="text-gray-500 text-xs" />
+            <span className="text-primary font-medium flex items-center space-x-1">
               <FaInfoCircle className="text-xs" />
               <span>Visitor Information</span>
             </span>
@@ -57,21 +51,21 @@ export default function VisitorInfoPageHeader() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          <h1 className="text-4xl md:text-6xl font-bold gradient-text-saffron-gold mb-6">
+          <h1 className="text-4xl md:text-6xl font-bold gradient-text mb-6">
             Visitor Information
           </h1>
-          
-          <p className="text-xl md:text-2xl text-gray-700 dark:text-gray-300 max-w-4xl mx-auto leading-relaxed mb-8">
+
+          <p className="text-xl md:text-2xl text-gray-700 max-w-4xl mx-auto leading-relaxed mb-8">
             Plan Your Visit to Hare Krishna Marwar Mandir, Jodhpur
           </p>
-          
+
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="bg-saffron/20 dark:to-gold/20 rounded-2xl p-6 max-w-3xl mx-auto dark:border-opacity-100 shadow-lg"
+            className="bg-primary/20 rounded-2xl p-6 max-w-3xl mx-auto shadow-lg"
           >
-            <p className="text-gray-800 dark:text-white text-lg flex items-center justify-center gap-2">
+            <p className="text-gray-800 text-lg flex items-center justify-center gap-2">
               Welcome to our sacred space. We're here to help make your visit meaningful and memorable.
             </p>
           </motion.div>
@@ -95,13 +89,13 @@ export default function VisitorInfoPageHeader() {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.8 + (index * 0.1) }}
-              className="text-center p-4 bg-white/10 dark:bg-gradient-to-br dark:from-purple-900/80 dark:to-indigo-900/80 rounded-xl border border-orange-200 dark:border-gold border-opacity-60 dark:border-opacity-20 backdrop-blur-sm shadow-lg hover:shadow-saffron/20 transition-all duration-300 group"
+              className="text-center p-4 bg-white/10 rounded-xl border border-primary border-opacity-60 backdrop-blur-sm shadow-lg hover:shadow-primary/20 transition-all duration-300 group"
             >
-              <div className="text-2xl mb-2 text-saffron group-hover:scale-110 transition-transform duration-300 flex justify-center items-center"> 
+              <div className="text-2xl mb-2 text-primary group-hover:scale-110 transition-transform duration-300 flex justify-center items-center">
                 {info.icon}
               </div>
-              <div className="text-saffron font-bold text-sm">{info.text}</div>
-              <div className="text-gray-600 dark:text-gray-300 text-xs">{info.detail}</div>
+              <div className="text-primary font-bold text-sm">{info.text}</div>
+              <div className="text-gray-600 text-xs">{info.detail}</div>
             </motion.div>
           ))}
         </motion.div>
@@ -113,17 +107,17 @@ export default function VisitorInfoPageHeader() {
           transition={{ duration: 0.8, delay: 1.2 }}
           className="mt-12 text-center"
         >
-          <div className="flex justify-center items-center space-x-8 text-sm text-gray-600 dark:text-gray-400">
+          <div className="flex justify-center items-center space-x-8 text-sm text-gray-600">
             <div className="flex items-center space-x-2">
-              <FaUsers className="text-saffron" />
+              <FaUsers className="text-primary" />
               <span>Visitor Friendly</span>
             </div>
             <div className="flex items-center space-x-2">
-              <FaHandsHelping className="text-gold" />
+              <FaHandsHelping className="text-primary" />
               <span>Guided Support</span>
             </div>
             <div className="flex items-center space-x-2">
-              <HiSparkles className="text-saffron" />
+              <HiSparkles className="text-primary" />
               <span>Sacred Experience</span>
             </div>
           </div>

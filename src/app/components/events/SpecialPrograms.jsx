@@ -1,15 +1,15 @@
 "use client";
 
 import { motion } from 'framer-motion';
-import { 
-  FaBook, 
-  FaTheaterMasks, 
-  FaUsers, 
-  FaClock, 
-  FaUserTie, 
-  FaChartBar, 
-  FaCalendarAlt, 
-  FaUserGraduate, 
+import {
+  FaBook,
+  FaTheaterMasks,
+  FaUsers,
+  FaClock,
+  FaUserTie,
+  FaChartBar,
+  FaCalendarAlt,
+  FaUserGraduate,
   FaInfoCircle,
   FaStar,
   FaQuoteLeft,
@@ -68,15 +68,10 @@ export default function SpecialPrograms() {
 
 
   return (
-    <section className="relative py-16 px-4 overflow-hidden bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50 dark:bg-black">
-      {/* Light/Dark Gradient Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-orange-100/50 via-amber-100/50 to-yellow-100/50 dark:from-black dark:via-purple-950 dark:to-indigo-950"></div>
-      
-      {/* Animated Background Glow */}
-      <div className="absolute inset-0">
-        <div className="absolute top-20 left-20 w-80 h-80 bg-gradient-to-r from-purple-400/30 to-indigo-400/30 dark:bg-purple-600 rounded-full opacity-40 dark:opacity-15 blur-3xl animate-pulse delay-500"></div>
-        <div className="absolute bottom-20 right-20 w-96 h-96 bg-gradient-to-r from-saffron/30 to-orange-400/30 dark:bg-orange-600 rounded-full opacity-30 dark:opacity-10 blur-3xl animate-pulse delay-1500"></div>
-      </div>
+    <section className="relative py-16 px-4 overflow-hidden bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50">
+      {/* Light Gradient Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-orange-100/50 via-amber-100/50 to-yellow-100/50"></div>
+
 
       <div className="relative max-w-6xl mx-auto z-10">
         {/* Section Header */}
@@ -87,11 +82,11 @@ export default function SpecialPrograms() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          
-          <h2 className="text-3xl md:text-4xl font-bold gradient-text-saffron-gold mb-4">
+
+          <h2 className="text-3xl md:text-4xl font-bold gradient-text py-2 mb-4">
             Special Programs & Workshops
           </h2>
-          <p className="text-gray-700 dark:text-gray-300 text-lg max-w-3xl mx-auto">
+          <p className="text-gray-700 text-lg max-w-3xl mx-auto">
             Enhance your spiritual journey through our comprehensive learning programs and cultural workshops
           </p>
         </motion.div>
@@ -108,10 +103,10 @@ export default function SpecialPrograms() {
             >
               {/* Category Header */}
               <div className="flex items-center space-x-4 mb-8">
-                <div className={`w-16 h-16 bg-gradient-to-r ${category.color} rounded-2xl flex items-center justify-center text-white text-2xl shadow-lg`}>
+                <div className={`w-10 h-10 bg-gradient-to-r ${category.color} rounded-2xl flex items-center justify-center text-white text-xl shadow-lg`}>
                   {category.icon}
                 </div>
-                <h3 className="text-2xl font-bold text-gray-800 dark:text-white">{category.category}</h3>
+                <h3 className="text-2xl font-bold text-gray-800 ">{category.category}</h3>
               </div>
 
               {/* Programs Grid */}
@@ -124,14 +119,14 @@ export default function SpecialPrograms() {
                     transition={{ duration: 0.6, delay: programIndex * 0.1 }}
                     viewport={{ once: true }}
                     whileHover={{ y: -5, scale: 1.01 }}
-                    className="bg-white/10 dark:bg-gradient-to-br dark:from-gray-900/80 dark:to-black/80 rounded-2xl p-6 border border-orange-200 dark:border-purple-400 border-opacity-60 dark:border-opacity-30 backdrop-blur-xl hover:border-saffron hover:border-opacity-80 dark:hover:border-opacity-50 hover:shadow-saffron/20 transition-all duration-300 group shadow-xl"
+                    className="bg-white/10 rounded-2xl p-6 border border-primary border-opacity-60 backdrop-blur-xl hover:border-saffron hover:border-opacity-80 hover:shadow-saffron/20 transition-all duration-300 group shadow-xl"
                   >
                     <div className="flex items-start justify-between mb-4">
-                      <h4 className="text-xl font-bold text-gray-800 dark:text-white group-hover:text-saffron transition-colors duration-300">
+                      <h4 className="text-xl font-bold text-gray-800 group-hover:text-primary transition-colors duration-300">
                         {program.name}
                       </h4>
                       {program.registration && (
-                        <span className="bg-saffron text-white text-xs font-bold px-2 py-1 rounded-full flex items-center gap-1 shadow-lg">
+                        <span className="bg-saffron text-primary text-xs font-bold px-2 py-1 rounded-full flex items-center gap-1 shadow-lg">
                           <FaUserGraduate />
                           REGISTER
                         </span>
@@ -139,25 +134,25 @@ export default function SpecialPrograms() {
                     </div>
 
                     <div className="space-y-3 mb-6">
-                      <div className="flex items-center space-x-2 text-sm text-gray-600 dark:text-gray-300">
-                        <FaCalendarAlt className="text-saffron" />
+                      <div className="flex items-center space-x-2 text-sm text-gray-600">
+                        <FaCalendarAlt className="text-primary" />
                         <span>{program.schedule}</span>
                       </div>
-                      <div className="flex items-center space-x-2 text-sm text-gray-600 dark:text-gray-300">
+                      <div className="flex items-center space-x-2 text-sm text-gray-600">
                         <FaClock className="text-gold" />
                         <span>{program.duration}</span>
                       </div>
-                      <div className="flex items-center space-x-2 text-sm text-gray-600 dark:text-gray-300">
-                        <FaUserTie className="text-saffron" />
+                      <div className="flex items-center space-x-2 text-sm text-gray-600">
+                        <FaUserTie className="text-primary" />
                         <span>{program.instructor}</span>
                       </div>
-                      <div className="flex items-center space-x-2 text-sm text-gray-600 dark:text-gray-300">
+                      <div className="flex items-center space-x-2 text-sm text-gray-600">
                         <FaChartBar className="text-gold" />
                         <span>{program.level}</span>
                       </div>
                     </div>
 
-                    <p className="text-gray-600 dark:text-gray-300 text-sm mb-6 leading-relaxed group-hover:text-gray-700 dark:group-hover:text-gray-100 transition-colors duration-300">
+                    <p className="text-gray-600 text-sm mb-6 leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
                       {program.description}
                     </p>
 
@@ -165,7 +160,7 @@ export default function SpecialPrograms() {
                       {program.registration ? (
                         <>
                           <motion.button
-                            className="flex-1 bg-saffron-gradient text-white font-semibold py-2 px-4 rounded-lg text-sm hover:shadow-lg hover:shadow-saffron/30 transition-all duration-300 flex items-center justify-center gap-2"
+                            className="flex-1 bg-primary text-primary border font-semibold py-2 px-4 rounded-lg text-sm hover:shadow-lg hover:shadow-saffron/30 transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer"
                             whileHover={{ scale: 1.02 }}
                             whileTap={{ scale: 0.98 }}
                           >
@@ -173,7 +168,7 @@ export default function SpecialPrograms() {
                             Register Now
                           </motion.button>
                           <motion.button
-                            className="px-4 py-2 border border-saffron text-saffron rounded-lg text-sm hover:bg-saffron hover:text-white dark:hover:text-black transition-all duration-300 flex items-center gap-2"
+                            className="px-4 py-2 border border-saffron text-primary rounded-lg text-sm hover:bg-saffron hover:text-primary/50 transition-all duration-300 flex items-center gap-2"
                             whileHover={{ scale: 1.02 }}
                             whileTap={{ scale: 0.98 }}
                           >
@@ -208,9 +203,9 @@ export default function SpecialPrograms() {
           viewport={{ once: true }}
           className="mt-12 text-center"
         >
-          <div className="flex justify-center items-center space-x-8 text-sm text-gray-600 dark:text-gray-400">
+          <div className="flex justify-center items-center space-x-8 text-sm text-gray-600">
             <div className="flex items-center space-x-2">
-              <FaBook className="text-saffron" />
+              <FaBook className="text-primary" />
               <span>Expert Instructors</span>
             </div>
             <div className="flex items-center space-x-2">
@@ -218,7 +213,7 @@ export default function SpecialPrograms() {
               <span>Small Groups</span>
             </div>
             <div className="flex items-center space-x-2">
-              <HiSparkles className="text-saffron" />
+              <HiSparkles className="text-primary" />
               <span>All Levels Welcome</span>
             </div>
           </div>

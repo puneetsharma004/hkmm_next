@@ -1,11 +1,11 @@
 
 "use client";
 import { motion } from 'framer-motion';
-import { 
-  FaBell, 
-  FaClock, 
-  FaInfoCircle, 
-  FaArrowRight, 
+import {
+  FaBell,
+  FaClock,
+  FaInfoCircle,
+  FaArrowRight,
   FaCalendarAlt,
   FaPray,
   FaLeaf
@@ -43,7 +43,7 @@ export default function AartiSchedule() {
       duration: '15 mins',
       description: 'Grand midday offering ceremony',
       significance: 'The royal lunch offering to Krishna with elaborate bhog',
-      icon: <BsFillSunFill /> ,
+      icon: <BsFillSunFill />,
       color: 'from-yellow-500 to-orange-500'
     },
     {
@@ -76,15 +76,9 @@ export default function AartiSchedule() {
   ];
 
   return (
-    <section className="relative py-16 px-4 overflow-hidden bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50 dark:bg-black">
-      {/* Light/Dark Gradient Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-orange-100/50 via-amber-100/50 to-yellow-100/50 dark:from-black dark:via-purple-950 dark:to-indigo-950"></div>
-      
-      {/* Animated Background Glow */}
-      <div className="absolute inset-0">
-        <div className="absolute top-20 right-20 w-80 h-80 bg-gradient-to-r from-saffron/30 to-orange-400/30 dark:bg-orange-600 rounded-full opacity-40 dark:opacity-15 blur-3xl animate-pulse delay-500"></div>
-        <div className="absolute bottom-20 left-20 w-96 h-96 bg-gradient-to-r from-purple-400/25 to-indigo-400/25 dark:bg-purple-600 rounded-full opacity-30 dark:opacity-10 blur-3xl animate-pulse delay-1500"></div>
-      </div>
+    <section className="relative py-16 px-4 overflow-hidden bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50">
+      {/* Light Gradient Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-orange-100/50 via-amber-100/50 to-yellow-100/50"></div>
 
       <div className="relative max-w-6xl mx-auto z-10">
         {/* Section Header */}
@@ -95,17 +89,17 @@ export default function AartiSchedule() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          
-          <h2 className="text-3xl md:text-4xl font-bold gradient-text-saffron-gold mb-4">
+
+          <h2 className="text-3xl md:text-4xl font-bold gradient-text mb-4">
             Daily Aarti Schedule
           </h2>
-          <p className="text-gray-700 dark:text-gray-300 text-lg max-w-3xl mx-auto mb-6">
+          <p className="text-gray-700 text-lg max-w-3xl mx-auto mb-6">
             Join us for these sacred ceremonies throughout the day
           </p>
-          
+
           <motion.a
             href="/events"
-            className="inline-flex items-center space-x-2 text-saffron hover:text-gold transition-colors duration-300 font-semibold"
+            className="inline-flex items-center space-x-2 text-primary hover:text-primary transition-colors duration-300 font-semibold"
             whileHover={{ scale: 1.05 }}
           >
             <FaCalendarAlt />
@@ -124,7 +118,7 @@ export default function AartiSchedule() {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
               whileHover={{ y: -10, scale: 1.02 }}
-              className="bg-white/10 dark:bg-gradient-to-br dark:from-gray-900/80 dark:to-black/80 rounded-2xl shadow-2xl overflow-hidden border border-orange-200 dark:border-purple-400 border-opacity-60 dark:border-opacity-30 backdrop-blur-xl hover:border-saffron hover:border-opacity-80 dark:hover:border-opacity-50 hover:shadow-saffron/20 transition-all duration-300 group"
+              className="bg-white/10 rounded-2xl shadow-2xl overflow-hidden border border-primary border-opacity-60 backdrop-blur-xl hover:border-primary hover:border-opacity-80 hover:shadow-primary/20 transition-all duration-300 group"
             >
               {/* Header */}
               <div className={`bg-gradient-to-r ${aarti.color} p-6 text-center`}>
@@ -139,20 +133,20 @@ export default function AartiSchedule() {
               {/* Content */}
               <div className="p-6">
                 <div className="flex items-center justify-between mb-4">
-                  <span className="text-sm text-gray-600 dark:text-gray-400">Duration</span>
-                  <span className="text-gold font-semibold">{aarti.duration}</span>
+                  <span className="text-sm text-gray-600">Duration</span>
+                  <span className="text-primary font-semibold">{aarti.duration}</span>
                 </div>
-                
-                <p className="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed group-hover:text-gray-700 dark:group-hover:text-gray-100 transition-colors duration-300">
+
+                <p className="text-gray-600 mb-4 leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
                   {aarti.description}
                 </p>
-                
-                <div className="border-t border-gray-300 dark:border-gray-600 pt-4">
-                  <h4 className="text-sm font-semibold text-saffron mb-2 flex items-center gap-2">
+
+                <div className="border-t border-gray-300 pt-4">
+                  <h4 className="text-sm font-semibold text-primary mb-2 flex items-center gap-2">
                     <HiSparkles />
                     Spiritual Significance:
                   </h4>
-                  <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+                  <p className="text-gray-600 text-sm leading-relaxed">
                     {aarti.significance}
                   </p>
                 </div>
@@ -167,55 +161,55 @@ export default function AartiSchedule() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
           viewport={{ once: true }}
-          className="mt-16 bg-saffron/10 rounded-2xl p-8 border border-saffron/40 dark:border-saffron/20 border-opacity-60 dark:border-opacity-100 backdrop-blur-sm shadow-lg"
+          className="mt-16 bg-primary/10 rounded-2xl p-8 border border-primary/40 border-opacity-60 backdrop-blur-sm shadow-lg"
         >
-          <h3 className="text-2xl font-bold text-center text-gray-800 dark:text-white mb-6">Aarti Participation Guidelines</h3>
+          <h3 className="text-2xl font-bold text-center text-gray-800 mb-6">Aarti Participation Guidelines</h3>
           <div className="grid md:grid-cols-2 gap-8">
             <div>
-              <h4 className="font-bold text-saffron mb-4 flex items-center gap-2">
+              <h4 className="font-bold text-primary mb-4 flex items-center gap-2">
                 <FaInfoCircle />
                 What to Expect:
               </h4>
-              <ul className="space-y-2 text-gray-700 dark:text-gray-300">
+              <ul className="space-y-2 text-gray-700">
                 <li className="flex items-center space-x-2">
-                  <FaLeaf className="text-gold" />
+                  <FaLeaf className="text-primary" />
                   <span>Devotional songs and mantras</span>
                 </li>
                 <li className="flex items-center space-x-2">
-                  <span className="text-gold">🪔</span>
+                  <span className="text-primary">🪔</span>
                   <span>Beautiful lamp offerings to deities</span>
                 </li>
                 <li className="flex items-center space-x-2">
-                  <span className="text-gold">🍃</span>
+                  <span className="text-primary">🍃</span>
                   <span>Distribution of sacred prasadam</span>
                 </li>
                 <li className="flex items-center space-x-2">
-                  <FaPray className="text-gold" />
+                  <FaPray className="text-primary" />
                   <span>Opportunity for personal prayers</span>
                 </li>
               </ul>
             </div>
-            
+
             <div>
-              <h4 className="font-bold text-saffron mb-4 flex items-center gap-2">
+              <h4 className="font-bold text-primary mb-4 flex items-center gap-2">
                 <FaInfoCircle />
                 How to Participate:
               </h4>
-              <ul className="space-y-2 text-gray-700 dark:text-gray-300">
+              <ul className="space-y-2 text-gray-700">
                 <li className="flex items-center space-x-2">
-                  <FaClock className="text-gold" />
+                  <FaClock className="text-primary" />
                   <span>Arrive 10-15 minutes early</span>
                 </li>
                 <li className="flex items-center space-x-2">
-                  <span className="text-gold">🪑</span>
+                  <span className="text-primary">🪑</span>
                   <span>Sit quietly in designated areas</span>
                 </li>
                 <li className="flex items-center space-x-2">
-                  <span className="text-gold">🎵</span>
+                  <span className="text-primary">🎵</span>
                   <span>Join in chanting if you wish</span>
                 </li>
                 <li className="flex items-center space-x-2">
-                  <span className="text-gold">🙏</span>
+                  <span className="text-primary">🙏</span>
                   <span>Receive prasadam with cupped hands</span>
                 </li>
               </ul>
@@ -231,17 +225,17 @@ export default function AartiSchedule() {
           viewport={{ once: true }}
           className="mt-12 text-center"
         >
-          <div className="flex justify-center items-center space-x-8 text-sm text-gray-600 dark:text-gray-400">
+          <div className="flex justify-center items-center space-x-8 text-sm text-gray-600">
             <div className="flex items-center space-x-2">
-              <FaClock className="text-saffron" />
+              <FaClock className="text-primary" />
               <span>Daily Schedule</span>
             </div>
             <div className="flex items-center space-x-2">
-              <FaPray className="text-gold" />
+              <FaPray className="text-primary" />
               <span>Sacred Rituals</span>
             </div>
             <div className="flex items-center space-x-2">
-              <HiSparkles className="text-saffron" />
+              <HiSparkles className="text-primary" />
               <span>Divine Experience</span>
             </div>
           </div>

@@ -1,14 +1,12 @@
 
 "use client";
 import { motion } from 'framer-motion';
-import { 
-  FaMapMarkerAlt, 
-  FaPhone, 
-  FaEnvelope, 
-  FaClipboardList, 
-  FaWhatsapp, 
-  FaDirections, 
-  // MdGpsFixed,
+import {
+  FaMapMarkerAlt,
+  FaPhone,
+  FaEnvelope,
+  FaWhatsapp,
+  FaDirections,
   FaBuilding,
   FaMapPin,
   FaInfoCircle,
@@ -55,23 +53,11 @@ export default function ContactInformation() {
     }
   ];
 
-  const quickActions = [
-    { action: 'Call Now', icon: <FaPhone />, color: 'bg-green-600', number: '+91 91161 39371' },
-    { action: 'Send Email', icon: <FaEnvelope />, color: 'bg-blue-600', email: 'nljd@hkmjodhpur.org' },
-    { action: 'WhatsApp', icon: <FaWhatsapp />, color: 'bg-green-500', number: '+91 91161 39371' },
-    { action: 'Get Directions', icon: <FaDirections />, color: 'bg-purple-600', link: '#map' }
-  ];
-
   return (
-    <section className="relative py-16 px-4 overflow-hidden bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50 dark:bg-black">
-      {/* Light/Dark Gradient Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-orange-100/50 via-amber-100/50 to-yellow-100/50 dark:from-black dark:via-purple-950 dark:to-indigo-950"></div>
-      
-      {/* Animated Background Glow */}
-      <div className="absolute inset-0">
-        <div className="absolute top-20 left-20 w-80 h-80 bg-gradient-to-r from-purple-400/30 to-indigo-400/30 dark:bg-purple-600 rounded-full opacity-40 dark:opacity-15 blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-20 w-96 h-96 bg-gradient-to-r from-saffron/30 to-orange-400/30 dark:bg-orange-600 rounded-full opacity-30 dark:opacity-10 blur-3xl animate-pulse delay-1000"></div>
-      </div>
+    <section className="relative py-16 px-4 overflow-hidden bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50">
+      {/* Light Gradient Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-orange-100/50 via-amber-100/50 to-yellow-100/50"></div>
+
 
       <div className="relative max-w-6xl mx-auto z-10">
         {/* Section Header */}
@@ -82,10 +68,10 @@ export default function ContactInformation() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold gradient-text-saffron-gold mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold gradient-text mb-4">
             Contact Information
           </h2>
-          <p className="text-gray-700 dark:text-gray-300 text-lg max-w-3xl mx-auto">
+          <p className="text-gray-700 text-lg max-w-3xl mx-auto">
             Multiple ways to reach us for all your spiritual and temple-related needs
           </p>
         </motion.div>
@@ -99,13 +85,13 @@ export default function ContactInformation() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.2 }}
               viewport={{ once: true }}
-              className="bg-white/10 dark:bg-gradient-to-br dark:from-gray-900/80 dark:to-black/80 rounded-2xl p-8 border border-orange-200 dark:border-purple-400 border-opacity-60 dark:border-opacity-30 backdrop-blur-xl hover:border-saffron hover:border-opacity-80 dark:hover:border-opacity-50 hover:shadow-saffron/20 transition-all duration-300 group shadow-xl"
+              className="bg-white/10 rounded-2xl p-8 border border-primary border-opacity-60 backdrop-blur-xl hover:border-primary hover:border-opacity-80 hover:shadow-primary/20 transition-all duration-300 group shadow-xl"
             >
               <div className="flex items-center space-x-4 mb-6">
-                <div className={`w-16 h-16 bg-gradient-to-r ${section.color} rounded-2xl flex items-center justify-center text-white text-2xl shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                <div className={`w-16 h-16 bg-primary rounded-2xl flex items-center justify-center text-white text-2xl shadow-lg group-hover:scale-110 transition-transform duration-300`}>
                   {section.icon}
                 </div>
-                <h3 className="text-2xl font-bold text-gray-800 dark:text-white group-hover:text-saffron transition-colors duration-300">
+                <h3 className="text-2xl font-bold text-gray-800 group-hover:text-primary transition-colors duration-300">
                   {section.category}
                 </h3>
               </div>
@@ -118,13 +104,13 @@ export default function ContactInformation() {
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.5, delay: detailIndex * 0.1 }}
                     viewport={{ once: true }}
-                    className="border-l-2 border-saffron/40 dark:border-saffron/30 border-opacity-60 dark:border-opacity-100 pl-4 hover:border-saffron hover:border-opacity-80 dark:hover:border-opacity-60 transition-all duration-300"
+                    className="border-l-2 border-primary/40 border-opacity-60 pl-4 hover:border-primary hover:border-opacity-80 transition-all duration-300"
                   >
-                    <div className="text-sm text-gray-600 dark:text-gray-400 mb-1 flex items-center gap-2">
-                      <span className="text-saffron">{detail.icon}</span>
+                    <div className="text-sm text-gray-600 mb-1 flex items-center gap-2">
+                      <span className="text-primary">{detail.icon}</span>
                       {detail.label}
                     </div>
-                    <div className="text-gray-800 dark:text-white font-semibold leading-relaxed">
+                    <div className="text-gray-800 font-semibold leading-relaxed">
                       {detail.value}
                     </div>
                   </motion.div>
@@ -134,36 +120,6 @@ export default function ContactInformation() {
           ))}
         </div>
 
-        {/* Quick Action Buttons */}
-        {/* <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          viewport={{ once: true }}
-          className="bg-saffron/10 rounded-2xl p-8 border border-saffron/40 dark:border-saffron/20 border-opacity-60 dark:border-opacity-100 backdrop-blur-sm shadow-lg"
-        >
-          <h3 className="text-2xl font-bold text-center text-gray-800 dark:text-white mb-8">Quick Contact Actions</h3>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {quickActions.map((action, index) => (
-              <motion.button
-                key={index}
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                whileHover={{ scale: 1.05, y: -5 }}
-                whileTap={{ scale: 0.95 }}
-                className={`${action.color} text-white font-semibold py-4 px-6 rounded-xl hover:shadow-lg transition-all duration-300 flex flex-col items-center space-y-2 shadow-lg`}
-              >
-                <span className="text-2xl">{action.icon}</span>
-                <span>{action.action}</span>
-                {action.number && <span className="text-xs opacity-80">{action.number}</span>}
-                {action.email && <span className="text-xs opacity-80 truncate w-full">{action.email}</span>}
-              </motion.button>
-            ))}
-          </div>
-        </motion.div> */}
-
         {/* Additional Info */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -172,17 +128,17 @@ export default function ContactInformation() {
           viewport={{ once: true }}
           className="mt-12 text-center"
         >
-          <div className="flex justify-center items-center space-x-8 text-sm text-gray-600 dark:text-gray-400">
+          <div className="flex justify-center items-center space-x-8 text-sm text-gray-600">
             <div className="flex items-center space-x-2">
-              <FaPhone className="text-saffron" />
+              <FaPhone className="text-primary" />
               <span>24/7 Available</span>
             </div>
             <div className="flex items-center space-x-2">
-              <FaEnvelope className="text-gold" />
+              <FaEnvelope className="text-primary" />
               <span>Quick Response</span>
             </div>
             <div className="flex items-center space-x-2">
-              <HiSparkles className="text-saffron" />
+              <HiSparkles className="text-primary" />
               <span>Personal Care</span>
             </div>
           </div>

@@ -2,12 +2,12 @@
 
 import { motion } from 'framer-motion';
 import { useState } from 'react';
-import { 
-  FaMobileAlt, 
-  FaInstagram, 
-  FaFacebookF, 
-  FaYoutube, 
-  FaHeart, 
+import {
+  FaMobileAlt,
+  FaInstagram,
+  FaFacebookF,
+  FaYoutube,
+  FaHeart,
 } from 'react-icons/fa';
 import { HiSparkles } from 'react-icons/hi';
 
@@ -22,15 +22,10 @@ export default function SocialMediaFeed() {
 
 
   return (
-    <section className="relative py-16 px-4 overflow-hidden bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50 dark:bg-black">
-      {/* Light/Dark Gradient Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-orange-100/50 via-amber-100/50 to-yellow-100/50 dark:from-black dark:via-purple-950 dark:to-indigo-950"></div>
-      
-      {/* Animated Background Glow */}
-      <div className="absolute inset-0">
-        <div className="absolute top-20 left-20 w-80 h-80 bg-gradient-to-r from-purple-400/30 to-indigo-400/30 dark:bg-purple-600 rounded-full opacity-40 dark:opacity-15 blur-3xl animate-pulse delay-500"></div>
-        <div className="absolute bottom-20 right-20 w-96 h-96 bg-gradient-to-r from-saffron/30 to-orange-400/30 dark:bg-orange-600 rounded-full opacity-30 dark:opacity-10 blur-3xl animate-pulse delay-1500"></div>
-      </div>
+    <section className="relative py-16 px-4 overflow-hidden bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50">
+      {/* Light Gradient Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-orange-100/50 via-amber-100/50 to-yellow-100/50"></div>
+
 
       <div className="relative max-w-6xl mx-auto z-10">
         {/* Section Header */}
@@ -41,44 +36,14 @@ export default function SocialMediaFeed() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          
-          <h2 className="text-3xl md:text-4xl font-bold gradient-text-saffron-gold mb-4">
+
+          <h2 className="text-3xl md:text-4xl font-bold gradient-text mb-4">
             Follow Our Journey
           </h2>
-          <p className="text-gray-700 dark:text-gray-300 text-lg max-w-3xl mx-auto">
+          <p className="text-gray-700 text-lg max-w-3xl mx-auto">
             Stay connected with our daily spiritual activities and community updates on social media
           </p>
         </motion.div>
-
-        {/* Platform Selector */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="flex justify-center mb-12"
-        >
-          <div className="flex space-x-4 bg-white/10 dark:bg-gradient-to-r dark:from-gray-900/50 dark:to-black/50 p-2 rounded-2xl border border-orange-200 dark:border-purple-400 border-opacity-60 dark:border-opacity-30 backdrop-blur-xl shadow-lg">
-            {socialPlatforms.map((platform) => (
-              <motion.a
-                key={platform.id}
-                onClick={() => setSelectedPlatform(platform.id)}
-                className={`px-6 py-3 rounded-xl font-semibold transition-all duration-300 flex items-center space-x-2 cursor-pointer outline-none ${
-                  selectedPlatform === platform.id
-                    ? `bg-gradient-to-r ${platform.color} text-white`
-                    : 'text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/10'
-                }`}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <span className="text-xl">{platform.icon}</span>
-                <span>{platform.name}</span>
-              </motion.a>
-            ))}
-          </div>
-        </motion.div>
-
-        {/* Social Posts Grid */}
 
 
         {/* Social Media Links */}
@@ -89,8 +54,8 @@ export default function SocialMediaFeed() {
           viewport={{ once: true }}
           className="mt-12 text-center"
         >
-          <div className="bg-saffron/10 rounded-2xl p-8 border border-saffron/40 dark:border-saffron/20 border-opacity-60 dark:border-opacity-100 backdrop-blur-sm shadow-lg">
-            <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-6">Connect With Us</h3>
+          <div className="bg-primary/10 rounded-2xl p-8 border border-primary/40 border-opacity-60 backdrop-blur-sm shadow-lg">
+            <h3 className="text-2xl font-bold text-gray-800 mb-6">Connect With Us</h3>
             <div className="flex justify-center space-x-6 mb-6">
               {socialPlatforms.map((platform, index) => (
                 <motion.a
@@ -108,7 +73,7 @@ export default function SocialMediaFeed() {
                 </motion.a>
               ))}
             </div>
-            <p className="text-gray-700 dark:text-gray-300 mb-4 text-sm">
+            <p className="text-gray-700 mb-4 text-sm">
               Follow us for daily updates, spiritual insights, and community moments
             </p>
           </div>
@@ -122,17 +87,17 @@ export default function SocialMediaFeed() {
           viewport={{ once: true }}
           className="mt-12 text-center"
         >
-          <div className="flex justify-center items-center space-x-8 text-sm text-gray-600 dark:text-gray-400">
+          <div className="flex justify-center items-center space-x-8 text-sm text-gray-600">
             <div className="flex items-center space-x-2">
-              <FaMobileAlt className="text-saffron" />
+              <FaMobileAlt className="text-primary" />
               <span>Mobile Friendly</span>
             </div>
             <div className="flex items-center space-x-2">
-              <HiSparkles className="text-gold" />
+              <HiSparkles className="text-primary" />
               <span>Daily Updates</span>
             </div>
             <div className="flex items-center space-x-2">
-              <FaHeart className="text-saffron" />
+              <FaHeart className="text-primary" />
               <span>Community Driven</span>
             </div>
           </div>

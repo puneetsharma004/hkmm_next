@@ -2,15 +2,14 @@
 
 import { motion } from 'framer-motion';
 import { useState } from 'react';
-import { 
-  FaEdit, 
-  FaEnvelope, 
-  FaClipboardList, 
-  FaUser, 
-  FaPhone, 
-  FaComments, 
-  FaCheckCircle, 
-  FaExclamationCircle, 
+import {
+  FaEnvelope,
+  FaClipboardList,
+  FaUser,
+  FaPhone,
+  FaComments,
+  FaCheckCircle,
+  FaExclamationCircle,
   FaSpinner,
   FaPaperPlane,
   FaInfoCircle
@@ -50,7 +49,7 @@ export default function ContactForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     try {
       // Simulate API call
       await new Promise(resolve => setTimeout(resolve, 2000));
@@ -70,15 +69,9 @@ export default function ContactForm() {
   };
 
   return (
-    <section className="relative py-16 px-4 overflow-hidden bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50 dark:bg-black">
-      {/* Light/Dark Gradient Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-orange-100/50 via-amber-100/50 to-yellow-100/50 dark:from-black dark:via-purple-950 dark:to-indigo-950"></div>
-      
-      {/* Animated Background Glow */}
-      <div className="absolute inset-0">
-        <div className="absolute top-20 right-20 w-80 h-80 bg-gradient-to-r from-saffron/30 to-orange-400/30 dark:bg-orange-600 rounded-full opacity-40 dark:opacity-15 blur-3xl animate-pulse delay-500"></div>
-        <div className="absolute bottom-20 left-20 w-96 h-96 bg-gradient-to-r from-purple-400/25 to-indigo-400/25 dark:bg-purple-600 rounded-full opacity-30 dark:opacity-10 blur-3xl animate-pulse delay-1500"></div>
-      </div>
+    <section className="relative py-16 px-4 overflow-hidden bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50">
+      {/* Light Gradient Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-orange-100/50 via-amber-100/50 to-yellow-100/50"></div>
 
       <div className="relative max-w-4xl mx-auto z-10">
         {/* Section Header */}
@@ -89,11 +82,11 @@ export default function ContactForm() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          
-          <h2 className="text-3xl md:text-4xl font-bold gradient-text-saffron-gold mb-4">
+
+          <h2 className="text-3xl md:text-4xl font-bold gradient-text mb-4">
             Send Us a Message
           </h2>
-          <p className="text-gray-700 dark:text-gray-300 text-lg max-w-3xl mx-auto">
+          <p className="text-gray-700 text-lg max-w-3xl mx-auto">
             Have a question or need assistance? Fill out the form below and we'll get back to you within 24 hours
           </p>
         </motion.div>
@@ -104,19 +97,19 @@ export default function ContactForm() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
           viewport={{ once: true }}
-          className="bg-white/10 dark:bg-gradient-to-br dark:from-gray-900/80 dark:to-black/80 rounded-2xl p-8 border border-orange-200 dark:border-purple-400 border-opacity-60 dark:border-opacity-30 backdrop-blur-xl shadow-xl"
+          className="bg-white/10 rounded-2xl p-8 border border-primary border-opacity-60 backdrop-blur-xl shadow-xl"
         >
           {submitStatus === 'success' && (
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
-              className="mb-6 p-4 bg-green-100 dark:bg-green-900/50 border border-green-300 dark:border-green-500 border-opacity-60 dark:border-opacity-50 rounded-lg text-center shadow-lg"
+              className="mb-6 p-4 bg-green-100 border border-green-300 border-opacity-60 rounded-lg text-center shadow-lg"
             >
-              <div className="text-4xl mb-2 text-green-600 dark:text-green-400">
+              <div className="text-4xl mb-2 text-green-600 ">
                 <FaCheckCircle className="mx-auto" />
               </div>
-              <h3 className="text-green-800 dark:text-green-300 font-bold mb-2">Message Sent Successfully!</h3>
-              <p className="text-gray-700 dark:text-gray-300 text-sm">
+              <h3 className="text-green-800 font-bold mb-2">Message Sent Successfully!</h3>
+              <p className="text-gray-700 text-sm">
                 Thank you for reaching out. We'll respond to your inquiry within 24 hours.
               </p>
             </motion.div>
@@ -126,13 +119,13 @@ export default function ContactForm() {
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
-              className="mb-6 p-4 bg-red-100 dark:bg-red-900/50 border border-red-300 dark:border-red-500 border-opacity-60 dark:border-opacity-50 rounded-lg text-center shadow-lg"
+              className="mb-6 p-4 bg-red-100 border border-red-300 border-opacity-60 rounded-lg text-center shadow-lg"
             >
-              <div className="text-4xl mb-2 text-red-600 dark:text-red-400">
+              <div className="text-4xl mb-2 text-red-600">
                 <FaExclamationCircle className="mx-auto" />
               </div>
-              <h3 className="text-red-800 dark:text-red-300 font-bold mb-2">Message Failed to Send</h3>
-              <p className="text-gray-700 dark:text-gray-300 text-sm">
+              <h3 className="text-red-800 font-bold mb-2">Message Failed to Send</h3>
+              <p className="text-gray-700 text-sm">
                 Please try again or contact us directly via phone or email.
               </p>
             </motion.div>
@@ -147,8 +140,8 @@ export default function ContactForm() {
                 transition={{ duration: 0.5, delay: 0.3 }}
                 viewport={{ once: true }}
               >
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 flex items-center gap-2">
-                  <FaUser className="text-saffron" />
+                <label className="block text-sm font-medium text-gray-700 mb-2 flex items-center gap-2">
+                  <FaUser className="text-primary" />
                   Full Name *
                 </label>
                 <input
@@ -156,7 +149,7 @@ export default function ContactForm() {
                   name="fullName"
                   value={formData.fullName}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3 bg-gray-100 dark:bg-gray-800/50 border border-gray-300 dark:border-gray-600 rounded-lg text-gray-800 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:border-saffron focus:ring-1 focus:ring-saffron transition-all duration-300"
+                  className="w-full px-4 py-3 bg-gray-100 border border-gray-300 rounded-lg text-gray-800 placeholder-gray-500 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all duration-300"
                   placeholder="Enter your full name"
                   required
                 />
@@ -168,8 +161,8 @@ export default function ContactForm() {
                 transition={{ duration: 0.5, delay: 0.4 }}
                 viewport={{ once: true }}
               >
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 flex items-center gap-2">
-                  <FaEnvelope className="text-saffron" />
+                <label className="block text-sm font-medium text-gray-700 mb-2 flex items-center gap-2">
+                  <FaEnvelope className="text-primary" />
                   Email Address *
                 </label>
                 <input
@@ -177,7 +170,7 @@ export default function ContactForm() {
                   name="email"
                   value={formData.email}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3 bg-gray-100 dark:bg-gray-800/50 border border-gray-300 dark:border-gray-600 rounded-lg text-gray-800 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:border-saffron focus:ring-1 focus:ring-saffron transition-all duration-300"
+                  className="w-full px-4 py-3 bg-gray-100 border border-gray-300 rounded-lg text-gray-800 placeholder-gray-500 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all duration-300"
                   placeholder="your.email@example.com"
                   required
                 />
@@ -192,8 +185,8 @@ export default function ContactForm() {
                 transition={{ duration: 0.5, delay: 0.5 }}
                 viewport={{ once: true }}
               >
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 flex items-center gap-2">
-                  <FaPhone className="text-saffron" />
+                <label className="block text-sm font-medium text-gray-700 mb-2 flex items-center gap-2">
+                  <FaPhone className="text-primary" />
                   Phone Number
                 </label>
                 <input
@@ -201,7 +194,7 @@ export default function ContactForm() {
                   name="phone"
                   value={formData.phone}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3 bg-gray-100 dark:bg-gray-800/50 border border-gray-300 dark:border-gray-600 rounded-lg text-gray-800 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:border-saffron focus:ring-1 focus:ring-saffron transition-all duration-300"
+                  className="w-full px-4 py-3 bg-gray-100 border border-gray-300 rounded-lg text-gray-800 placeholder-gray-500 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all duration-300"
                   placeholder="+91 91161 39371"
                 />
               </motion.div>
@@ -212,19 +205,19 @@ export default function ContactForm() {
                 transition={{ duration: 0.5, delay: 0.6 }}
                 viewport={{ once: true }}
               >
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 flex items-center gap-2">
-                  <FaClipboardList className="text-saffron" />
+                <label className="block text-sm font-medium text-gray-700 mb-2 flex items-center gap-2">
+                  <FaClipboardList className="text-primary" />
                   Inquiry Type *
                 </label>
                 <select
                   name="subject"
                   value={formData.subject}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3 bg-gray-100 dark:bg-gray-800/50 border border-gray-300 dark:border-gray-600 rounded-lg text-gray-800 dark:text-white focus:outline-none focus:border-saffron focus:ring-1 focus:ring-saffron transition-all duration-300"
+                  className="w-full px-4 py-3 bg-gray-100 border border-gray-300 rounded-lg text-gray-800 placeholder-gray-500 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all duration-300"
                   required
                 >
                   {inquiryTypes.map((type, index) => (
-                    <option key={index} value={type.value} className="bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-white">
+                    <option key={index} value={type.value} className="bg-gray-100 text-gray-800">
                       {type.label}
                     </option>
                   ))}
@@ -239,8 +232,8 @@ export default function ContactForm() {
               transition={{ duration: 0.5, delay: 0.7 }}
               viewport={{ once: true }}
             >
-              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 flex items-center gap-2">
-                <FaComments className="text-saffron" />
+              <label className="block text-sm font-medium text-gray-700 mb-2 flex items-center gap-2">
+                <FaComments className="text-primary" />
                 Your Message *
               </label>
               <textarea
@@ -248,7 +241,7 @@ export default function ContactForm() {
                 value={formData.message}
                 onChange={handleInputChange}
                 rows={6}
-                className="w-full px-4 py-3 bg-gray-100 dark:bg-gray-800/50 border border-gray-300 dark:border-gray-600 rounded-lg text-gray-800 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:border-saffron focus:ring-1 focus:ring-saffron transition-all duration-300 resize-vertical"
+                className="w-full px-4 py-3 bg-gray-100 border border-gray-300 rounded-lg text-gray-800 placeholder-gray-500 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all duration-300 resize-vertical"
                 placeholder="Please describe your inquiry in detail. We're here to help!"
                 required
               />
@@ -265,11 +258,10 @@ export default function ContactForm() {
               <motion.button
                 type="submit"
                 disabled={isSubmitting}
-                className={`px-8 py-4 rounded-lg font-bold text-lg transition-all duration-300 shadow-lg ${
-                  isSubmitting
-                    ? 'bg-gray-400 text-white cursor-not-allowed'
-                    : 'bg-saffron-gradient text-white hover:shadow-saffron/30 hover:scale-105'
-                }`}
+                className={`px-8 py-4 rounded-lg font-bold text-lg transition-all duration-300 shadow-lg ${isSubmitting
+                  ? 'bg-gray-400 text-white cursor-not-allowed'
+                  : 'bg-primary text-white hover:shadow-primary/30 hover:scale-105'
+                  }`}
                 whileHover={!isSubmitting ? { scale: 1.05 } : {}}
                 whileTap={!isSubmitting ? { scale: 0.95 } : {}}
               >
@@ -279,14 +271,14 @@ export default function ContactForm() {
                     <span>Sending Message...</span>
                   </div>
                 ) : (
-                  <div className="flex items-center justify-center space-x-2 text-white">
+                  <div className="flex items-center justify-center space-x-2 text-white cursor-pointer">
                     <FaPaperPlane />
                     <span>Send Message</span>
                   </div>
                 )}
               </motion.button>
 
-              <div className="flex items-center justify-center gap-2 text-gray-600 dark:text-gray-400 text-sm mt-4">
+              <div className="flex items-center justify-center gap-2 text-gray-600 text-sm mt-4">
                 <FaInfoCircle />
                 <p>* Required fields. We typically respond within 24 hours.</p>
               </div>
@@ -302,7 +294,7 @@ export default function ContactForm() {
           viewport={{ once: true }}
           className="mt-12 text-center"
         >
-          <p className="text-gray-700 dark:text-gray-300 mb-6">
+          <p className="text-gray-700 mb-6">
             Prefer to contact us directly? Choose your preferred method:
           </p>
           <div className="flex flex-wrap justify-center gap-4">
@@ -346,17 +338,17 @@ export default function ContactForm() {
           viewport={{ once: true }}
           className="mt-12 text-center"
         >
-          <div className="flex justify-center items-center space-x-8 text-sm text-gray-600 dark:text-gray-400">
+          <div className="flex justify-center items-center space-x-8 text-sm text-gray-600 ">
             <div className="flex items-center space-x-2">
-              <FaCheckCircle className="text-saffron" />
+              <FaCheckCircle className="text-primary" />
               <span>Secure Form</span>
             </div>
             <div className="flex items-center space-x-2">
-              <FaInfoCircle className="text-gold" />
+              <FaInfoCircle className="text-primary" />
               <span>24hr Response</span>
             </div>
             <div className="flex items-center space-x-2">
-              <HiSparkles className="text-saffron" />
+              <HiSparkles className="text-primary" />
               <span>Personal Care</span>
             </div>
           </div>

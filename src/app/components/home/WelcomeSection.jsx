@@ -30,16 +30,16 @@ export default function WelcomeSection() {
       {/* Main Content Container */}
       <div className="relative max-w-6xl mx-auto z-10">
         {/* Header Section */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
           className="text-center mb-12"
-        >      
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-800 dark:text-white mb-6 leading-tight">
-            Welcome to 
-            <span className="block gradient-text-saffron-gold mt-2">
+        >
+          <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6 leading-tight">
+            Welcome to
+            <span className="block gradient-text mt-2">
               Hare Krishna Marwar Mandir
             </span>
           </h2>
@@ -51,48 +51,48 @@ export default function WelcomeSection() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
           viewport={{ once: true }}
-          className="bg-white/10 dark:bg-gradient-to-br dark:from-gray-900/80 dark:to-black/80 rounded-2xl shadow-2xl p-8 md:p-12 border border-orange-200 dark:border-purple-400 border-opacity-60 dark:border-opacity-40 backdrop-blur-xl"
+          className="bg-white/10 rounded-2xl shadow-2xl p-8 md:p-12 border border-primary border-opacity-60 backdrop-blur-xl"
         >
           {/* Description */}
           <div className="mb-8">
             <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 items-center mb-8">
-            {/* Video Container */}
-            <div className="w-full lg:w-1/2 lg:max-w-2xl">
-              <div className="aspect-video">
-                <iframe className="w-full h-full rounded-lg shadow-lg" src="https://www.youtube.com/embed/Ul1mUVnE1r4?si=RYqUMiGeB1Jq3GgQ" 
-                title="Hare Krishna Marwar Mandir" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" 
-                allowFullScreen/>
+              {/* Video Container */}
+              <div className="w-full lg:w-1/2 lg:max-w-2xl">
+                <div className="aspect-video">
+                  <iframe className="w-full h-full rounded-lg shadow-lg" src="https://www.youtube.com/embed/Ul1mUVnE1r4?si=RYqUMiGeB1Jq3GgQ"
+                    title="Hare Krishna Marwar Mandir"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin"
+                    allowFullScreen />
                 </div>
-            </div>
-            <div className="w-full lg:w-1/2 lg:max-w-2xl">
-              <div className="aspect-video">
-                <iframe 
-                  className="w-full h-full rounded-lg shadow-lg"
-                  src="https://www.youtube.com/embed/Czg2XVn8hTI?si=9Ur35i4c8-JEqOZN"
-                  title="Hare Krishna Marwar Mandir" 
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                  referrerPolicy="strict-origin-when-cross-origin" 
-                  allowFullScreen
-                />
+              </div>
+              <div className="w-full lg:w-1/2 lg:max-w-2xl">
+                <div className="aspect-video">
+                  <iframe
+                    className="w-full h-full rounded-lg shadow-lg"
+                    src="https://www.youtube.com/embed/Czg2XVn8hTI?si=9Ur35i4c8-JEqOZN"
+                    title="Hare Krishna Marwar Mandir"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerPolicy="strict-origin-when-cross-origin"
+                    allowFullScreen
+                  />
+                </div>
               </div>
             </div>
-          </div>
-          {/* Content Container */}
+            {/* Content Container */}
             <div className="w-full text-justify lg:text-center lg:max-w-6xl mx-auto mb-8">
-              <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-2">
+              <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-500 mb-2">
                 Featured Videos
               </h3>
-              <h2 className="text-start lg:text-center text-2xl md:text-3xl  lg:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+              <h2 className="text-start lg:text-center text-2xl md:text-3xl  lg:text-4xl font-bold text-gray-900 mb-4">
                 A Magnificent Temple for Krishna
               </h2>
-              
-              <div className="text-base md:text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+
+              <div className="text-base md:text-lg leading-relaxed text-gray-700">
                 {/* First paragraph - Always visible */}
                 <p>
                   In the royal city of Jodhpur, renowned for its rich heritage and timeless architecture, Hare Krishna Marwar Mandir is envisioned as a magnificent spiritual landmark — a sanctuary of devotion, culture, and divine harmony.
                 </p>
-                
+
                 {/* Remaining paragraphs - Expandable on mobile, always visible on desktop */}
                 <div className="md:block">
                   <AnimatePresence>
@@ -139,12 +139,12 @@ export default function WelcomeSection() {
 
 
             {/* Decorative Quote Container */}
-            <div className="relative bg-gradient-to-r from-orange-100/80 to-amber-100/80 dark:from-purple-900/80 dark:to-indigo-900/80 p-6 rounded-xl shadow-lg border border-saffron/30 dark:border-saffron/50 border-opacity-50 backdrop-blur-sm">
-              <div className="absolute inset-0 bg-gradient-to-r from-saffron/5 to-gold/5 dark:from-saffron/10 dark:to-gold/10 rounded-xl"></div>
-              <blockquote className="text-lg md:text-xl italic text-gray-800 dark:text-white font-medium text-center relative z-10">
+            <div className="relative bg-gradient-to-r from-orange-100/80 to-amber-100/80 p-6 rounded-xl shadow-lg border border-primary/30 border-opacity-50 backdrop-blur-sm">
+              <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-secondary/5 rounded-xl"></div>
+              <blockquote className="text-lg md:text-xl italic text-gray-800 font-medium text-center relative z-10">
                 By serving Krishna with love and devotion, we find eternal joy.
               </blockquote>
-              <p className="text-center text-saffron font-semibold mt-3 text-sm">
+              <p className="text-center text-primary font-semibold mt-3 text-sm">
                 – Srila Prabhupada
               </p>
             </div>
@@ -153,36 +153,38 @@ export default function WelcomeSection() {
           {/* Call to Action */}
           <div className="text-center">
             <motion.a
-  href="/about"
-  whileHover={{ 
-    scale: 1.02,
-    backgroundColor: "#af1e2e",
-    color: "#ffffff"
-  }}
-  whileTap={{ scale: 0.98 }}
-  className="inline-flex items-center border-2 border-saffron text-saffron hover:text-white font-semibold px-8 py-4 rounded-lg transition-all duration-200 group"
->
-  <span className="mr-2">Learn More About Our Temple</span>
-  <motion.span
-    className="group-hover:translate-x-1 transition-transform duration-200"
-  >
-    →
-  </motion.span>
-</motion.a>
+              href="/about"
+              whileHover={{
+                scale: 1.02,
+                backgroundColor: "#af1e2e",
+                color: "#ffffff"
+              }}
+              whileTap={{ scale: 0.98 }}
+              className="inline-flex items-center border-2 border-primary text-primary hover:text-white font-semibold px-8 py-4 rounded-lg transition-all duration-200 group"
+            >
+              <span className="mr-2">Learn More About Our Temple</span>
+              <motion.span
+                className="group-hover:translate-x-1 transition-transform duration-200"
+              >
+                →
+              </motion.span>
+            </motion.a>
 
 
             {/* Additional Links */}
-            <div className="mt-6 flex flex-wrap justify-center gap-4 text-sm">
-              <a href="/events" className="text-gray-600 dark:text-gray-400 hover:text-primary transition-colors duration-300 font-medium flex items-center gap-1 p-2 border border-text-gray-400 rounded-lg hover:bg-saffron w-fit">
-                <GoPeople className='text-lg'/> <span>Events & Programs</span>
+
+            {/* Hover not working check later */}
+            <div className="mt-6 flex flex-wrap justify-center items-center gap-4 text-sm">
+              <a href="/events" className="text-gray-600 hover:text-primary transition-colors duration-300 font-medium flex items-center gap-1 p-2 border rounded-lg w-fit">
+                <GoPeople className='text-lg' /> <span>Events & Programs</span>
               </a>
-              <span className="text-gray-400 dark:text-gray-700 hidden lg:block">•</span>
-              <a href="/visitor-info" className="text-gray-600 dark:text-gray-400 hover:text-primary transition-colors duration-300 font-medium flex items-center gap-1 p-2 border border-text-gray-400 rounded-lg hover:bg-saffron">
-                <CiCircleInfo className='text-lg'/> <span>Visitor Information</span>
+              <span className="text-gray-400 hidden lg:block">•</span>
+              <a href="/visitor-info" className="text-gray-600 hover:text-primary transition-colors duration-300 font-medium flex items-center gap-1 p-2 border rounded-lg w-fit">
+                <CiCircleInfo className='text-lg' /> <span>Visitor Information</span>
               </a>
-              <span className="text-gray-400 dark:text-gray-700 hidden lg:block">•</span>
-              <a href="/donations" className="text-gray-600 dark:text-gray-400 hover:text-primary transition-colors duration-300 font-medium flex items-center gap-1 p-2 border border-text-gray-400 rounded-lg hover:bg-saffron w-fit">
-                <PiHandsPraying className='text-lg'/>  <span>Make a Donationn</span> 
+              <span className="text-gray-400 hidden lg:block">•</span>
+              <a href="/donations" className="text-gray-600 hover:text-primary transition-colors duration-300 font-medium flex items-center gap-1 p-2 border rounded-lg w-fit">
+                <PiHandsPraying className='text-lg' />  <span>Make a Donationn</span>
               </a>
             </div>
           </div>

@@ -16,7 +16,6 @@ export default function About() {
       <GalleryPageHeader />
       <PhotoGallery />
       <VideoGallery />
-      {/* <FeaturedMoments /> */}
       <SocialMediaFeed />
       <GalleryCallToAction />
     </div>

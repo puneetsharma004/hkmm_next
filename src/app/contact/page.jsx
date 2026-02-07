@@ -14,9 +14,7 @@ export default function Contact() {
             <ContactInformation />
             <ContactForm />
             <MapAndDirections />
-            {/* <SocialMediaLinks /> */}
             <OfficeHours />
-            {/* <EmergencyNotices /> */}
             <ContactCallToAction />
         </div>
     </>

@@ -1,17 +1,17 @@
 
 "use client";
 import { motion } from 'framer-motion';
-import { 
-  FaTshirt, 
-  FaBan, 
-  FaShoePrints, 
-  FaVolumeDown, 
-  FaSmokingBan, 
-  FaCamera, 
-  FaPray, 
-  FaHandsWash, 
-  FaInfoCircle, 
-  FaLightbulb, 
+import {
+  FaTshirt,
+  FaBan,
+  FaShoePrints,
+  FaVolumeDown,
+  FaSmokingBan,
+  FaCamera,
+  FaPray,
+  FaHandsWash,
+  FaInfoCircle,
+  FaLightbulb,
   FaUserFriends,
   FaEye,
   FaHeart
@@ -19,30 +19,6 @@ import {
 import { HiSparkles } from 'react-icons/hi';
 
 export default function DressCodeEtiquette() {
-  const dressCodeGuidelines = [
-    {
-      category: 'Recommended Attire',
-      icon: <FaTshirt />,
-      color: 'from-green-500 to-emerald-600',
-      guidelines: [
-        'Traditional Indian clothing (dhoti, kurta, saree, salwar kameez)',
-        'Modest Western clothing with covered shoulders and knees',
-        'Comfortable clothing suitable for sitting on floor',
-        'Light-colored or white clothing preferred'
-      ]
-    },
-    {
-      category: 'What to Avoid',
-      icon: <FaBan />,
-      color: 'from-red-500 to-orange-600',
-      guidelines: [
-        'Shorts, mini skirts, or revealing clothing',
-        'Sleeveless tops or low necklines',
-        'Tight-fitting or transparent clothing',
-        'Clothing with inappropriate graphics or text'
-      ]
-    }
-  ];
 
   const etiquetteRules = [
     {
@@ -117,19 +93,11 @@ export default function DressCodeEtiquette() {
   ];
 
   return (
-    <section className="relative py-16 px-4 overflow-hidden bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50 dark:bg-black">
-      {/* Light/Dark Gradient Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-orange-100/50 via-amber-100/50 to-yellow-100/50 dark:from-black dark:via-purple-950 dark:to-indigo-950"></div>
-      
-      {/* Animated Background Glow */}
-      <div className="absolute inset-0">
-        <div className="absolute top-20 left-20 w-96 h-96 bg-gradient-to-r from-saffron/30 to-orange-400/30 dark:bg-orange-600 rounded-full opacity-40 dark:opacity-20 blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-20 w-80 h-80 bg-gradient-to-r from-purple-400/25 to-indigo-400/25 dark:bg-purple-600 rounded-full opacity-30 dark:opacity-15 blur-3xl animate-pulse delay-1000"></div>
-      </div>
+    <section className="relative py-16 px-4 overflow-hidden bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50">
+      {/* Light Gradient Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-orange-100/50 via-amber-100/50 to-yellow-100/50"></div>
 
       <div className="relative max-w-6xl mx-auto z-10">
-      
-
         {/* Etiquette Rules */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -138,7 +106,7 @@ export default function DressCodeEtiquette() {
           viewport={{ once: true }}
           className="mb-16"
         >
-          <h3 className="text-2xl font-bold text-center text-gray-800 dark:text-white mb-8">Temple Etiquette</h3>
+          <h3 className="text-2xl font-bold text-center text-gray-800 mb-8">Temple Etiquette</h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {etiquetteRules.map((rule, index) => (
               <motion.div
@@ -148,21 +116,21 @@ export default function DressCodeEtiquette() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
                 whileHover={{ y: -5 }}
-                className="bg-white/10 dark:bg-gradient-to-br dark:from-indigo-900/50 dark:to-purple-900/50 rounded-xl p-6 border border-orange-200 dark:border-gold border-opacity-60 dark:border-opacity-30 backdrop-blur-sm hover:border-saffron hover:border-opacity-80 dark:hover:border-opacity-50 hover:shadow-saffron/20 transition-all duration-300 group shadow-lg"
+                className="bg-white/10 rounded-xl p-6 border border-primary border-opacity-60 backdrop-blur-sm hover:border-primary hover:border-opacity-80 hover:shadow-primary/20 transition-all duration-300 group shadow-lg"
               >
                 <div className="text-center mb-4">
-                  <div className="text-3xl mb-2 text-saffron flex justify-center">{rule.icon}</div>
-                  <h4 className="font-bold text-gray-800 dark:text-white group-hover:text-saffron transition-colors duration-300">
+                  <div className="text-3xl mb-2 text-primary flex justify-center">{rule.icon}</div>
+                  <h4 className="font-bold text-gray-800 group-hover:text-primary transition-colors duration-300">
                     {rule.rule}
                   </h4>
                 </div>
-                
-                <p className="text-gray-600 dark:text-gray-300 text-sm mb-3 leading-relaxed group-hover:text-gray-700 dark:group-hover:text-gray-100 transition-colors duration-300">
+
+                <p className="text-gray-600 text-sm mb-3 leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
                   {rule.description}
                 </p>
-                
-                <div className="bg-orange-100/20 dark:bg-saffron/10 rounded-lg p-2">
-                  <p className="text-saffron text-xs font-semibold flex items-center gap-2">
+
+                <div className="bg-orange-100/20 rounded-lg p-2">
+                  <p className="text-primary text-xs font-semibold flex items-center gap-2">
                     <FaLightbulb />
                     {rule.tip}
                   </p>
@@ -187,17 +155,17 @@ export default function DressCodeEtiquette() {
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="bg-saffron/10 rounded-xl p-6 border border-saffron/40 dark:border-saffron/20 border-opacity-60 dark:border-opacity-100 shadow-lg"
+              className="bg-primary/10 rounded-xl p-6 border border-primary/40 border-opacity-60 shadow-lg"
             >
-              <h4 className="font-bold text-saffron mb-4 text-center flex items-center justify-center gap-2">
+              <h4 className="font-bold text-primary mb-4 text-center flex items-center justify-center gap-2">
                 <span className="text-2xl flex justify-center">{section.icon}</span>
                 {section.title}
               </h4>
               <ul className="space-y-2">
                 {section.instructions.map((instruction, instIndex) => (
                   <li key={instIndex} className="flex items-start space-x-2">
-                    <FaInfoCircle className="text-gold text-sm mt-1" />
-                    <span className="text-gray-700 dark:text-gray-300 text-sm">{instruction}</span>
+                    <FaInfoCircle className="text-primary text-sm mt-1" />
+                    <span className="text-gray-700 text-sm">{instruction}</span>
                   </li>
                 ))}
               </ul>
@@ -211,10 +179,10 @@ export default function DressCodeEtiquette() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
           viewport={{ once: true }}
-          className="mt-12 text-center bg-white/10 dark:bg-gradient-to-r dark:from-purple-900/30 dark:to-indigo-900/30 rounded-xl p-6 border border-orange-200 dark:border-purple-500 border-opacity-60 dark:border-opacity-30 shadow-lg"
+          className="mt-12 text-center bg-white/10 rounded-xl p-6 border border-primary border-opacity-60 shadow-lg"
         >
-          <p className="text-gray-700 dark:text-gray-300 italic flex items-center justify-center gap-2">
-            "These guidelines help maintain the sacred atmosphere of our temple. 
+          <p className="text-gray-700 italic flex items-center justify-center gap-2">
+            "These guidelines help maintain the sacred atmosphere of our temple.
             When in doubt, observe others or ask our friendly volunteers for assistance."
           </p>
         </motion.div>
@@ -227,17 +195,17 @@ export default function DressCodeEtiquette() {
           viewport={{ once: true }}
           className="mt-12 text-center"
         >
-          <div className="flex justify-center items-center space-x-8 text-sm text-gray-600 dark:text-gray-400">
+          <div className="flex justify-center items-center space-x-8 text-sm text-gray-600">
             <div className="flex items-center space-x-2">
-              <FaTshirt className="text-saffron" />
+              <FaTshirt className="text-primary" />
               <span>Dress Respectfully</span>
             </div>
             <div className="flex items-center space-x-2">
-              <FaEye className="text-gold" />
+              <FaEye className="text-primary" />
               <span>Observe Customs</span>
             </div>
             <div className="flex items-center space-x-2">
-              <HiSparkles className="text-saffron" />
+              <HiSparkles className="text-primary" />
               <span>Sacred Space</span>
             </div>
           </div>

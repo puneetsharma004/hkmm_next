@@ -1,21 +1,19 @@
 "use client";
 
 import { motion } from 'framer-motion';
-import { 
-  FaCar, 
-  FaTrain, 
-  FaPlane, 
-  FaRoute, 
-  FaBus, 
-  FaTaxi, 
-  FaClock, 
-  FaRupeeSign, 
-  FaMapMarkerAlt, 
-  FaInfoCircle, 
-  FaLightbulb, 
-  FaDownload,
+import {
+  FaCar,
+  FaTrain,
+  FaPlane,
+  FaRoute,
+  FaBus,
+  FaTaxi,
+  FaClock,
+  FaRupeeSign,
+  FaMapMarkerAlt,
+  FaInfoCircle,
+  FaLightbulb,
   FaParking,
-  FaMobileAlt
 } from 'react-icons/fa';
 import { HiSparkles } from 'react-icons/hi';
 
@@ -66,14 +64,14 @@ export default function HowToReach() {
   ];
 
   return (
-    <section className="relative py-16 px-4 overflow-hidden bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50 dark:bg-black">
+    <section className="relative py-16 px-4 overflow-hidden bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50">
       {/* Light/Dark Gradient Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-orange-100/50 via-amber-100/50 to-yellow-100/50 dark:from-black dark:via-purple-950 dark:to-indigo-950"></div>
-      
+      <div className="absolute inset-0 bg-gradient-to-br from-orange-100/50 via-amber-100/50 to-yellow-100/50"></div>
+
       {/* Animated Background Glow */}
       <div className="absolute inset-0">
-        <div className="absolute top-20 right-20 w-80 h-80 bg-gradient-to-r from-saffron/30 to-orange-400/30 dark:bg-orange-600 rounded-full opacity-40 dark:opacity-15 blur-3xl animate-pulse delay-500"></div>
-        <div className="absolute bottom-20 left-20 w-96 h-96 bg-gradient-to-r from-purple-400/25 to-indigo-400/25 dark:bg-purple-600 rounded-full opacity-30 dark:opacity-10 blur-3xl animate-pulse delay-1500"></div>
+        <div className="absolute top-20 right-20 w-80 h-80 bg-gradient-to-r from-primary/30 to-orange-400/30 rounded-full opacity-40 dark:opacity-15 blur-3xl animate-pulse delay-500"></div>
+        <div className="absolute bottom-20 left-20 w-96 h-96 bg-gradient-to-r from-purple-400/25 to-indigo-400/25 rounded-full opacity-30 dark:opacity-10 blur-3xl animate-pulse delay-1500"></div>
       </div>
 
       <div className="relative max-w-6xl mx-auto z-10">
@@ -85,10 +83,10 @@ export default function HowToReach() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold gradient-text-saffron-gold mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold gradient-text mb-4">
             How to Reach
           </h2>
-          <p className="text-gray-700 dark:text-gray-300 text-lg max-w-3xl mx-auto">
+          <p className="text-gray-700 text-lg max-w-3xl mx-auto">
             Multiple convenient ways to reach our temple from anywhere in Jodhpur and beyond
           </p>
         </motion.div>
@@ -102,7 +100,7 @@ export default function HowToReach() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: index * 0.2 }}
               viewport={{ once: true }}
-              className="bg-white/10 dark:bg-gradient-to-br dark:from-gray-900/80 dark:to-black/80 rounded-2xl p-8 border border-orange-200 dark:border-purple-400 border-opacity-60 dark:border-opacity-30 backdrop-blur-xl hover:border-saffron hover:border-opacity-80 dark:hover:border-opacity-50 hover:shadow-saffron/20 transition-all duration-300 group shadow-xl"
+              className="bg-white/10 rounded-2xl p-8 border border-primary border-opacity-60 backdrop-blur-xl hover:border-primary hover:border-opacity-80 hover:shadow-primary/20 transition-all duration-300 group shadow-xl"
             >
               <div className="grid lg:grid-cols-3 gap-8">
                 {/* Left: Transport Mode */}
@@ -112,27 +110,27 @@ export default function HowToReach() {
                       {transport.icon}
                     </div>
                     <div>
-                      <h3 className="text-2xl font-bold text-gray-800 dark:text-white group-hover:text-saffron transition-colors duration-300">
+                      <h3 className="text-2xl font-bold text-gray-800 group-hover:text-primary transition-colors duration-300">
                         {transport.mode}
                       </h3>
                     </div>
                   </div>
-                  
-                  <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed group-hover:text-gray-700 dark:group-hover:text-gray-100 transition-colors duration-300">
+
+                  <p className="text-gray-600 mb-6 leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
                     {transport.description}
                   </p>
 
                   {/* Tips */}
                   <div>
-                    <h4 className="font-semibold text-gold mb-3 flex items-center gap-2">
+                    <h4 className="font-semibold text-primary mb-3 flex items-center gap-2">
                       <FaLightbulb />
                       Travel Tips:
                     </h4>
                     <ul className="space-y-2">
                       {transport.tips.map((tip, tipIndex) => (
                         <li key={tipIndex} className="flex items-center space-x-2">
-                          <FaInfoCircle className="text-saffron" />
-                          <span className="text-gray-600 dark:text-gray-300 text-sm">{tip}</span>
+                          <FaInfoCircle className="text-primary" />
+                          <span className="text-gray-600 text-sm">{tip}</span>
                         </li>
                       ))}
                     </ul>
@@ -141,7 +139,7 @@ export default function HowToReach() {
 
                 {/* Right: Details */}
                 <div className="lg:col-span-2">
-                  <h4 className="font-bold text-gray-800 dark:text-white mb-4">Route Details & Fares</h4>
+                  <h4 className="font-bold text-gray-800 mb-4">Route Details & Fares</h4>
                   <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
                     {transport.details.map((detail, detailIndex) => (
                       <motion.div
@@ -150,31 +148,31 @@ export default function HowToReach() {
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: detailIndex * 0.1 }}
                         viewport={{ once: true }}
-                        className="bg-orange-100/20 dark:bg-purple-900/30 rounded-xl p-4 border border-orange-300 dark:border-gold border-opacity-60 dark:border-opacity-20 hover:border-saffron hover:border-opacity-80 dark:hover:border-opacity-40 transition-all duration-300 shadow-lg"
+                        className="bg-orange-100/20 rounded-xl p-4 border border-orange-300 border-opacity-60 hover:border-primary hover:border-opacity-80 transition-all duration-300 shadow-lg"
                       >
                         <div className="text-center">
-                          <h5 className="font-semibold text-gray-800 dark:text-white mb-2">{detail.label}</h5>
+                          <h5 className="font-semibold text-gray-800 mb-2">{detail.label}</h5>
                           <div className="space-y-1 text-sm">
                             <div className="flex justify-between">
-                              <span className="text-gray-600 dark:text-gray-400 flex items-center gap-1">
+                              <span className="text-gray-600 flex items-center gap-1">
                                 <FaMapMarkerAlt />
                                 Distance:
                               </span>
-                              <span className="text-saffron font-semibold">{detail.distance}</span>
+                              <span className="text-primary font-semibold">{detail.distance}</span>
                             </div>
                             <div className="flex justify-between">
-                              <span className="text-gray-600 dark:text-gray-400 flex items-center gap-1">
+                              <span className="text-gray-600 flex items-center gap-1">
                                 <FaRupeeSign />
                                 Fare:
                               </span>
-                              <span className="text-gold font-semibold">{detail.fare}</span>
+                              <span className="text-primary font-semibold">{detail.fare}</span>
                             </div>
                             <div className="flex justify-between">
-                              <span className="text-gray-600 dark:text-gray-400 flex items-center gap-1">
+                              <span className="text-gray-600 flex items-center gap-1">
                                 <FaClock />
                                 Time:
                               </span>
-                              <span className="text-green-600 dark:text-green-400 font-semibold">{detail.time}</span>
+                              <span className="text-green-600 font-semibold">{detail.time}</span>
                             </div>
                           </div>
                         </div>
@@ -193,9 +191,9 @@ export default function HowToReach() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
           viewport={{ once: true }}
-          className="bg-saffron/80 rounded-2xl p-8 border-opacity-60 dark:border-opacity-100 backdrop-blur-sm shadow-lg"
+          className="bg-primary/80 rounded-2xl p-8 border-opacity-60 backdrop-blur-sm shadow-lg"
         >
-          <h3 className="text-3xl font-bold text-center text-gray-800 dark:text-white mb-8">Public Transport Options</h3>
+          <h3 className="text-3xl font-bold text-center text-gray-800 mb-8">Public Transport Options</h3>
           <div className="grid md:grid-cols-3 gap-6">
             {publicTransport.map((transport, index) => (
               <motion.div
@@ -204,13 +202,13 @@ export default function HowToReach() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="text-center p-6 bg-white/10 dark:bg-gray-900/80 rounded-xl border border-orange-200 dark:border-purple-400 border-opacity-60 dark:border-opacity-20 shadow-lg"
+                className="text-center p-6 bg-white/10 rounded-xl border border-primary border-opacity-60 shadow-lg"
               >
-                <div className="text-3xl mb-3 text-saffron flex justify-center">
+                <div className="text-3xl mb-3 text-primary flex justify-center">
                   {transport.route.includes('Auto') ? <FaTaxi /> : <FaBus />}
                 </div>
-                <h4 className="font-semibold text-gray-800 dark:text-white mb-2">{transport.route}</h4>
-                <p className="text-gray-600 dark:text-gray-300 text-sm mb-3">{transport.stops}</p>
+                <h4 className="font-semibold text-gray-800 mb-2">{transport.route}</h4>
+                <p className="text-gray-600 text-sm mb-3">{transport.stops}</p>
               </motion.div>
             ))}
           </div>
@@ -224,17 +222,17 @@ export default function HowToReach() {
           viewport={{ once: true }}
           className="mt-12 text-center"
         >
-          <div className="flex justify-center items-center space-x-8 text-sm text-gray-600 dark:text-gray-400">
+          <div className="flex justify-center items-center space-x-8 text-sm text-gray-600">
             <div className="flex items-center space-x-2">
-              <FaRoute className="text-saffron" />
+              <FaRoute className="text-primary" />
               <span>Easy Access</span>
             </div>
             <div className="flex items-center space-x-2">
-              <FaParking className="text-gold" />
+              <FaParking className="text-primary" />
               <span>Free Parking</span>
             </div>
             <div className="flex items-center space-x-2">
-              <HiSparkles className="text-saffron" />
+              <HiSparkles className="text-primary" />
               <span>All Transport</span>
             </div>
           </div>

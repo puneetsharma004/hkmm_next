@@ -16,7 +16,7 @@ export default function GalleryPreview() {
 
   return (
     <section className="relative py-16 px-4 overflow-hidden bg-gradient-primary">
-     
+
 
       <div className="relative max-w-6xl mx-auto z-10">
         {/* Section Header */}
@@ -27,7 +27,7 @@ export default function GalleryPreview() {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <h3 className="text-3xl md:text-4xl font-bold gradient-text-saffron-gold mb-4">
+          <h3 className="text-3xl md:text-4xl font-bold gradient-text mb-4">
             Temple Gallery
           </h3>
           <p className="text-gray-700 dark:text-gray-300 text-lg max-w-2xl mx-auto">
@@ -50,26 +50,26 @@ export default function GalleryPreview() {
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: i * 0.1 }}
               viewport={{ once: true }}
-              whileHover={{ 
-                scale: 1.05, 
+              whileHover={{
+                scale: 1.05,
                 rotate: 2,
                 transition: { duration: 0.3 }
               }}
               className="relative group cursor-pointer"
             >
               {/* Image Container */}
-              <div className="relative overflow-hidden rounded-2xl shadow-xl border-2 border-orange-200 dark:border-purple-400 border-opacity-60 dark:border-opacity-30 group-hover:border-saffron group-hover:border-opacity-80 dark:group-hover:border-opacity-60 transition-all duration-300">
+              <div className="relative overflow-hidden rounded-2xl shadow-xl border-2 border-primary dark:border-purple-400 border-opacity-60 dark:border-opacity-30 group-hover:border-saffron group-hover:border-opacity-80 dark:group-hover:border-opacity-60 transition-all duration-300">
                 <Image
-                  src={img} 
+                  src={img}
                   width={100}
                   height={100}
                   alt="Gallery Image"
-                  className="w-full h-40 md:h-48 object-cover group-hover:scale-110 transition-transform duration-500" 
+                  className="w-full h-40 md:h-48 object-cover group-hover:scale-110 transition-transform duration-500"
                 />
-                
+
                 {/* Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                
+
                 {/* Hover Icon */}
                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <div className="bg-saffron text-white dark:text-black p-3 rounded-full shadow-xl glow-button">
@@ -94,7 +94,7 @@ export default function GalleryPreview() {
         >
           <motion.a
             href="/gallery"
-            whileHover={{ 
+            whileHover={{
               scale: 1.05,
             }}
             whileTap={{ scale: 0.95 }}

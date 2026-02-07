@@ -83,7 +83,7 @@ export default function Header() {
           
           {/* Logo & Title */}
           <motion.div 
-            className="flex items-center space-x-3"
+            className="flex items-center space-x-3 cursor-pointer"
             whileHover={{ scale: 1.02 }}
             transition={{ duration: 0.2 }}
           >
@@ -95,10 +95,10 @@ export default function Header() {
             <div>
               <motion.h1 
                 className={`text-lg font-bold transition-colors duration-300 hidden md:block${
-                  isScrolled?"text-white dark:#003366": "#003366 dark:text-white"
+                  isScrolled?"text-white": "#003366"
                 }`}
                 style={{ 
-                  color: isScrolled?"text-white dark:#003366": "#003366 dark:text-white",
+                  color: isScrolled?"text-white": "#003366",
                   fontFamily: 'serif'
                 }}
                 whileHover={{ scale: 1.05 }}
@@ -121,10 +121,10 @@ export default function Header() {
                   className={clsx(
                     'px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 outline-none',
                     {
-                      'shadow-md text-white dark:text-white': isActive,
+                      'shadow-md text-white': isActive,
                       'hover:shadow-sm': !isActive,
-                      'text-[#003366] dark:text-white': isScrolled,
-                      'text-[#003366] dark:text-[#003366]': !isScrolled
+                      'text-[#003366]': isScrolled,
+                      'text-[#003366]': !isScrolled
                     }
                   )}
                   style={{
@@ -146,7 +146,7 @@ export default function Header() {
                 {/* <ThemeToggle/> */}
             {/* Donate Button */}
             <motion.button 
-              className="px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 flex items-center space-x-1 outline-none"
+              className="px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 flex items-center space-x-1 outline-none cursor-pointer"
               style={{ 
                 background: 'linear-gradient(135deg, #AF1E2E  0%, #db3c4f   100%)',
                 color: '#ffffff'
@@ -156,7 +156,6 @@ export default function Header() {
               transition={{ duration: 0.5, delay: 0.2 }}
               whileHover={{ 
                 scale: 1.05,
-                boxShadow: '0 8px 20px rgba(255, 153, 51, 0.3)'
               }}
               whileTap={{ scale: 0.95 }}
               onClick={handleDonate}
@@ -213,8 +212,8 @@ export default function Header() {
                     {
                       'shadow-md text-[#FFFFFF]': isActive,
                       'hover:shadow-sm': !isActive,
-                      'text-[#003366] dark:text-white': isScrolled,
-                      'text-[#003366] dark:text-[#003366]': !isScrolled
+                      'text-[#003366]': isScrolled,
+                      'text-[#003366]': !isScrolled
                     })
                   }
                   style={{

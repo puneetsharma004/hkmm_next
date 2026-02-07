@@ -2,18 +2,18 @@
 
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
-import { 
-  FaVideo, 
-  FaFilm, 
-  FaPlay, 
-  FaGift, 
-  FaMusic, 
-  FaBook, 
-  FaHandshake, 
-  FaEye, 
-  FaClock, 
-  FaTimes, 
-  FaCalendarAlt, 
+import {
+  FaVideo,
+  FaFilm,
+  FaPlay,
+  FaGift,
+  FaMusic,
+  FaBook,
+  FaHandshake,
+  FaEye,
+  FaClock,
+  FaTimes,
+  FaCalendarAlt,
   FaArrowRight,
   FaPlayCircle
 } from 'react-icons/fa';
@@ -25,23 +25,23 @@ export default function VideoGallery() {
   const [selectedVideo, setSelectedVideo] = useState(null);
 
   const [videos, setVideos] = useState([]);
-  
-      useEffect(() => {
-          const fetchImages = async () => {
-            const { data, error } = await supabase
-              .from('videos')
-              .select('*')
-              .order('created_at', { ascending: true });
-      
-            if (error) {
-              console.error('Error fetching Images:', error);
-            } else {
-              setVideos(data || []);
-            }
-          };
-  
-          fetchImages();
-        }, []);
+
+  useEffect(() => {
+    const fetchImages = async () => {
+      const { data, error } = await supabase
+        .from('videos')
+        .select('*')
+        .order('created_at', { ascending: true });
+
+      if (error) {
+        console.error('Error fetching Images:', error);
+      } else {
+        setVideos(data || []);
+      }
+    };
+
+    fetchImages();
+  }, []);
 
   const videoCategories = [
     { id: 'all', name: 'All Videos', icon: <FaVideo /> },
@@ -52,20 +52,14 @@ export default function VideoGallery() {
   ];
 
 
-  const filteredVideos = selectedCategory === 'all' 
-    ? videos 
+  const filteredVideos = selectedCategory === 'all'
+    ? videos
     : videos.filter(video => video.category === selectedCategory);
 
   return (
-    <section className="relative py-16 px-4 overflow-hidden bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50 dark:bg-black">
-      {/* Light/Dark Gradient Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-orange-100/50 via-amber-100/50 to-yellow-100/50 dark:from-black dark:via-purple-950 dark:to-indigo-950"></div>
-      
-      {/* Animated Background Glow */}
-      <div className="absolute inset-0">
-        <div className="absolute top-20 right-20 w-80 h-80 bg-gradient-to-r from-saffron/30 to-orange-400/30 dark:bg-orange-600 rounded-full opacity-40 dark:opacity-15 blur-3xl animate-pulse delay-500"></div>
-        <div className="absolute bottom-20 left-20 w-96 h-96 bg-gradient-to-r from-purple-400/25 to-indigo-400/25 dark:bg-purple-600 rounded-full opacity-30 dark:opacity-10 blur-3xl animate-pulse delay-1500"></div>
-      </div>
+    <section className="relative py-16 px-4 overflow-hidden bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50">
+      {/* Light Gradient Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-orange-100/50 via-amber-100/50 to-yellow-100/50"></div>
 
       <div className="relative max-w-7xl mx-auto z-10">
         {/* Section Header */}
@@ -76,11 +70,11 @@ export default function VideoGallery() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          
-          <h2 className="text-3xl md:text-4xl font-bold gradient-text-saffron-gold mb-4">
+
+          <h2 className="text-3xl md:text-4xl font-bold gradient-text mb-4">
             Video Gallery
           </h2>
-          <p className="text-gray-700 dark:text-gray-300 text-lg max-w-3xl mx-auto">
+          <p className="text-gray-700 text-lg max-w-3xl mx-auto">
             Watch the divine moments, festivals, and spiritual teachings come alive through our videos
           </p>
         </motion.div>
@@ -98,18 +92,17 @@ export default function VideoGallery() {
               <motion.button
                 key={category.id}
                 onClick={() => setSelectedCategory(category.id)}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 flex items-center space-x-2 shadow-lg ${
-                  selectedCategory === category.id
-                    ? 'bg-saffron-gradient text-white'
-                    : 'bg-white/10 dark:bg-gradient-to-br dark:from-gray-900/80 dark:to-black/80 text-gray-700 dark:text-gray-300 border border-orange-200 dark:border-purple-400 border-opacity-60 dark:border-opacity-30 hover:border-saffron hover:border-opacity-80 dark:hover:border-opacity-50'
-                }`}
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 flex items-center space-x-2 shadow-lg cursor-pointer ${selectedCategory === category.id
+                  ? 'text-primary'
+                  : 'bg-white/10 text-gray-700 border border-primary border-opacity-60 hover:border-primary hover:border-opacity-80'
+                  }`}
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.3, delay: index * 0.05 }}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <span className="text-saffron">{category.icon}</span>
+                <span className={selectedCategory === category.id ? 'text-primary' : 'text-gray-700'}>{category.icon}</span>
                 <span>{category.name}</span>
               </motion.button>
             ))}
@@ -117,7 +110,7 @@ export default function VideoGallery() {
         </motion.div>
 
         {/* Videos Grid */}
-        <motion.div 
+        <motion.div
           key={selectedCategory}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -132,7 +125,7 @@ export default function VideoGallery() {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
               whileHover={{ y: -10, scale: 1.02 }}
-              className="bg-white/10 dark:bg-gradient-to-br dark:from-gray-900/80 dark:to-black/80 rounded-2xl shadow-2xl overflow-hidden border border-orange-200 dark:border-purple-400 border-opacity-60 dark:border-opacity-30 backdrop-blur-xl hover:border-saffron hover:border-opacity-80 dark:hover:border-opacity-50 hover:shadow-saffron/20 transition-all duration-300 group cursor-pointer"
+              className="bg-white/10 rounded-2xl shadow-2xl overflow-hidden border border-primary border-opacity-60 hover:border-primary hover:border-opacity-80 transition-all duration-300 group cursor-pointer"
               onClick={() => setSelectedVideo(video)}
             >
               {/* Video Thumbnail */}
@@ -143,10 +136,10 @@ export default function VideoGallery() {
                   allowFullScreen
                   className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
                 />
-                
+
                 {/* Play Button Overlay */}
                 <div className="absolute inset-0 bg-black/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="w-16 h-16 bg-saffron rounded-full flex items-center justify-center text-white text-2xl shadow-lg hover:scale-110 transition-transform duration-300">
+                  <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center text-white text-2xl shadow-lg hover:scale-110 transition-transform duration-300">
                     <FaPlay />
                   </div>
                 </div>
@@ -158,22 +151,22 @@ export default function VideoGallery() {
                 </div>
 
                 {/* Category Badge */}
-                <div className="absolute top-3 left-3 bg-saffron text-white text-xs px-2 py-1 rounded-full font-semibold">
+                <div className="absolute top-3 left-3 bg-primary text-white text-xs px-2 py-1 rounded-full font-semibold">
                   {videoCategories.find(cat => cat.id === video.category)?.name}
                 </div>
               </div>
 
               {/* Video Info */}
               <div className="p-6">
-                <h3 className="text-lg font-bold text-gray-800 dark:text-white mb-2 group-hover:text-saffron transition-colors duration-300">
+                <h3 className="text-lg font-bold text-gray-800 mb-2 group-hover:text-primary transition-colors duration-300">
                   {video.title}
                 </h3>
-                
-                <p className="text-gray-600 dark:text-gray-300 text-sm mb-4 leading-relaxed group-hover:text-gray-700 dark:group-hover:text-gray-100 transition-colors duration-300">
+
+                <p className="text-gray-600 text-sm mb-4 leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
                   {video.description}
                 </p>
-                
-                <div className="flex items-center justify-between text-xs text-gray-500 dark:text-gray-400">
+
+                <div className="flex items-center justify-between text-xs text-gray-500">
                   <div className="flex items-center space-x-4">
                     <span className="flex items-center space-x-1">
                       <FaEye />
@@ -184,7 +177,7 @@ export default function VideoGallery() {
                       {video.date}
                     </span>
                   </div>
-                  <span className="text-saffron font-semibold flex items-center gap-1">
+                  <span className="text-primary font-semibold flex items-center gap-1">
                     Watch Now <FaArrowRight />
                   </span>
                 </div>
@@ -209,7 +202,7 @@ export default function VideoGallery() {
               className="max-w-4xl w-full relative"
               onClick={(e) => e.stopPropagation()}
             >
-              <div className="bg-white dark:bg-gradient-to-br dark:from-gray-900 dark:to-black rounded-2xl overflow-hidden border border-orange-200 dark:border-saffron border-opacity-60 dark:border-opacity-30 shadow-2xl">
+              <div className="bg-white rounded-2xl overflow-hidden border border-primary border-opacity-60 shadow-2xl">
                 {/* Video Player */}
                 <div className="aspect-video">
                   <iframe
@@ -219,12 +212,12 @@ export default function VideoGallery() {
                     allowFullScreen
                   />
                 </div>
-                
+
                 {/* Video Details */}
                 <div className="p-6">
-                  <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-2">{selectedVideo.title}</h3>
-                  <p className="text-gray-600 dark:text-gray-300 mb-4">{selectedVideo.description}</p>
-                  <div className="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400">
+                  <h3 className="text-xl font-bold text-gray-800 mb-2">{selectedVideo.title}</h3>
+                  <p className="text-gray-600 mb-4">{selectedVideo.description}</p>
+                  <div className="flex items-center justify-between text-sm text-gray-500">
                     <div className="flex items-center space-x-4">
                       <span className="flex items-center space-x-1">
                         <FaEye />
@@ -235,17 +228,17 @@ export default function VideoGallery() {
                         {selectedVideo.duration}
                       </span>
                     </div>
-                    <span className="text-saffron flex items-center gap-1">
+                    <span className="text-primary flex items-center gap-1">
                       <FaCalendarAlt />
                       {selectedVideo.date}
                     </span>
                   </div>
                 </div>
               </div>
-              
+
               <button
                 onClick={() => setSelectedVideo(null)}
-                className="absolute -top-12 right-0 bg-saffron text-white p-2 rounded-full hover:bg-gold transition-all duration-300 shadow-lg"
+                className="absolute -top-12 right-0 bg-primary text-white p-2 rounded-full hover:bg-primary transition-all duration-300 shadow-lg"
               >
                 <FaTimes />
               </button>
@@ -261,17 +254,17 @@ export default function VideoGallery() {
           viewport={{ once: true }}
           className="mt-12 text-center"
         >
-          <div className="flex justify-center items-center space-x-8 text-sm text-gray-600 dark:text-gray-400">
+          <div className="flex justify-center items-center space-x-8 text-sm text-gray-600">
             <div className="flex items-center space-x-2">
-              <FaPlayCircle className="text-saffron" />
+              <FaPlayCircle className="text-primary" />
               <span>HD Quality</span>
             </div>
             <div className="flex items-center space-x-2">
-              <FaVideo className="text-gold" />
+              <FaVideo className="text-primary" />
               <span>Exclusive Content</span>
             </div>
             <div className="flex items-center space-x-2">
-              <HiSparkles className="text-saffron" />
+              <HiSparkles className="text-primary" />
               <span>Regular Updates</span>
             </div>
           </div>

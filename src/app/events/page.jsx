@@ -12,10 +12,7 @@ export default function Events() {
     <>
         <div className="bg-black">
       <EventsPageHeader />
-      {/* <VirtualDarshan /> */}
       <DailyDarshanTimings />
-      <EventsCalendar />
-      <MajorFestivals />
       <SpecialPrograms />
       <PrasadamAndSeva />
       <EventsCallToAction />

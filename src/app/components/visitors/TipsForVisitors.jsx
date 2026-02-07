@@ -1,19 +1,19 @@
 "use client";
 
 import { motion } from 'framer-motion';
-import { 
-  FaLightbulb, 
-  FaEdit, 
-  FaBullseye, 
-  FaThermometerHalf, 
-  FaSun, 
-  FaUmbrella, 
-  FaMapMarkerAlt, 
-  FaClock, 
-  FaCamera, 
-  FaFirstAid, 
-  FaWheelchair, 
-  FaUsers, 
+import {
+  FaLightbulb,
+  FaEdit,
+  FaBullseye,
+  FaThermometerHalf,
+  FaSun,
+  FaUmbrella,
+  FaMapMarkerAlt,
+  FaClock,
+  FaCamera,
+  FaFirstAid,
+  FaWheelchair,
+  FaUsers,
   FaInfoCircle,
   FaRoute,
   FaCar,
@@ -49,57 +49,6 @@ export default function TipsForVisitors() {
       tips: ['Check weather before visiting', 'Waterproof your belongings', 'Enjoy the cooler weather'],
       icon: <FaUmbrella />,
       color: 'from-green-500 to-teal-600'
-    }
-  ];
-
-  const nearbyAttractions = [
-    {
-      name: 'Mehrangarh Fort',
-      distance: '8 km',
-      time: '15 mins drive',
-      description: 'Magnificent hilltop fort with panoramic city views',
-      bestTime: 'Morning or evening',
-      icon: '🏰'
-    },
-    {
-      name: 'Umaid Bhawan Palace',
-      distance: '10 km',
-      time: '20 mins drive',
-      description: 'Art Deco palace, now a luxury hotel and museum',
-      bestTime: 'Afternoon visit',
-      icon: '🏛️'
-    },
-    {
-      name: 'Clock Tower & Sardar Market',
-      distance: '6 km',
-      time: '15 mins drive',
-      description: 'Bustling market area for shopping and local food',
-      bestTime: 'Evening shopping',
-      icon: '🕰️'
-    },
-    {
-      name: 'Jaswant Thada',
-      distance: '9 km',
-      time: '18 mins drive',
-      description: 'Beautiful marble cenotaph with intricate architecture',
-      bestTime: 'Sunrise/sunset',
-      icon: '⛩️'
-    },
-    {
-      name: 'Blue City Walking Tour',
-      distance: '7 km',
-      time: '15 mins drive',
-      description: 'Explore the famous blue painted houses of old city',
-      bestTime: 'Early morning',
-      icon: '🏘️'
-    },
-    {
-      name: 'Mandore Gardens',
-      distance: '12 km',
-      time: '25 mins drive',
-      description: 'Historic gardens with cenotaphs and temples',
-      bestTime: 'Morning/evening',
-      icon: '🌳'
     }
   ];
 
@@ -143,7 +92,7 @@ export default function TipsForVisitors() {
     {
       category: 'Photography',
       tips: [
-        'Best lighting during golden hours (sunrise/sunset)',
+        'Best lighting during primaryen hours (sunrise/sunset)',
         'Ask permission before photographing people',
         'No flash during aarti ceremonies',
         'Respect "no photography" zones',
@@ -176,17 +125,12 @@ export default function TipsForVisitors() {
   ];
 
   return (
-    <section className="relative py-16 px-4 overflow-hidden bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50 dark:bg-black">
-      {/* Light/Dark Gradient Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-orange-100/50 via-amber-100/50 to-yellow-100/50 dark:from-black dark:via-purple-950 dark:to-indigo-950"></div>
-      
-      {/* Animated Background Glow */}
-      <div className="absolute inset-0">
-        <div className="absolute top-20 left-20 w-96 h-96 bg-gradient-to-r from-saffron/30 to-orange-400/30 dark:bg-orange-600 rounded-full opacity-40 dark:opacity-20 blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-20 w-80 h-80 bg-gradient-to-r from-purple-400/25 to-indigo-400/25 dark:bg-purple-600 rounded-full opacity-30 dark:opacity-15 blur-3xl animate-pulse delay-1000"></div>
-      </div>
+    <section className="relative py-16 px-4 overflow-hidden bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50">
+      {/* Light Gradient Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-orange-100/50 via-amber-100/50 to-yellow-100/50"></div>
+
       <div className="relative max-w-6xl mx-auto z-10">
-        
+
         {/* Special Needs Tips */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -195,7 +139,7 @@ export default function TipsForVisitors() {
           viewport={{ once: true }}
           className="mb-16"
         >
-          <h3 className="text-2xl font-bold text-center text-gray-800 dark:text-white mb-8">Special Assistance</h3>
+          <h3 className="text-2xl font-bold text-center text-gray-800 mb-8">Special Assistance</h3>
           <div className="grid md:grid-cols-3 gap-8">
             {specialNeedsTips.map((category, index) => (
               <motion.div
@@ -204,18 +148,18 @@ export default function TipsForVisitors() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="bg-saffron/10 rounded-xl p-6 border border-saffron/40 dark:border-saffron/20 border-opacity-60 dark:border-opacity-100 shadow-lg"
+                className="bg-primary/10 rounded-xl p-6 border border-primary/40 border-opacity-60 shadow-lg"
               >
                 <div className="text-center mb-4">
-                  <div className="text-4xl mb-3 text-saffron flex justify-center">{category.icon}</div>
-                  <h4 className="font-bold text-saffron">{category.category}</h4>
+                  <div className="text-4xl mb-3 text-primary flex justify-center">{category.icon}</div>
+                  <h4 className="font-bold text-primary">{category.category}</h4>
                 </div>
-                
+
                 <ul className="space-y-2">
                   {category.tips.map((tip, tipIndex) => (
                     <li key={tipIndex} className="flex items-start space-x-2">
-                      <FaHandsHelping className="text-gold text-sm mt-1" />
-                      <span className="text-gray-700 dark:text-gray-300 text-sm">{tip}</span>
+                      <FaHandsHelping className="text-primary text-sm mt-1" />
+                      <span className="text-gray-700 text-sm">{tip}</span>
                     </li>
                   ))}
                 </ul>
@@ -239,18 +183,18 @@ export default function TipsForVisitors() {
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="bg-white/10 dark:bg-gradient-to-br dark:from-gray-900/80 dark:to-black/80 rounded-xl p-6 border border-orange-200 dark:border-purple-400 border-opacity-60 dark:border-opacity-30 backdrop-blur-xl shadow-xl"
+              className="bg-white/10 rounded-xl p-6 border border-primary border-opacity-60 backdrop-blur-xl shadow-xl"
             >
               <div className="text-center mb-4">
-                <div className="text-2xl mb-3 text-saffron flex justify-center ">{tipCategory.icon}</div>
-                <h4 className="font-bold text-gray-800 dark:text-white">{tipCategory.category}</h4>
+                <div className="text-2xl mb-3 text-primary flex justify-center ">{tipCategory.icon}</div>
+                <h4 className="font-bold text-gray-800">{tipCategory.category}</h4>
               </div>
-              
+
               <ul className="space-y-2">
                 {tipCategory.tips.map((tip, tipIndex) => (
                   <li key={tipIndex} className="flex items-start space-x-2">
-                    <FaInfoCircle className="text-saffron text-sm mt-1" />
-                    <span className="text-gray-600 dark:text-gray-300 text-sm">{tip}</span>
+                    <FaInfoCircle className="text-primary text-sm mt-1" />
+                    <span className="text-gray-600 text-sm">{tip}</span>
                   </li>
                 ))}
               </ul>
@@ -266,17 +210,17 @@ export default function TipsForVisitors() {
           viewport={{ once: true }}
           className="mt-12 text-center"
         >
-          <div className="flex justify-center items-center space-x-8 text-sm text-gray-600 dark:text-gray-400">
+          <div className="flex justify-center items-center space-x-8 text-sm text-gray-600">
             <div className="flex items-center space-x-2">
-              <FaRoute className="text-saffron" />
+              <FaRoute className="text-primary" />
               <span>Local Insights</span>
             </div>
             <div className="flex items-center space-x-2">
-              <FaEye className="text-gold" />
+              <FaEye className="text-primary" />
               <span>Visitor Tips</span>
             </div>
             <div className="flex items-center space-x-2">
-              <HiSparkles className="text-saffron" />
+              <HiSparkles className="text-primary" />
               <span>Best Experience</span>
             </div>
           </div>

@@ -1,15 +1,15 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
-import { 
-  FaMobileAlt, 
-  FaDesktop, 
-  FaTv, 
-  FaVideo, 
-  FaVrCardboard, 
-  FaImages, 
-  FaCalendarPlus, 
-  FaPlay, 
-  FaClock, 
+import {
+  FaMobileAlt,
+  FaDesktop,
+  FaTv,
+  FaVideo,
+  FaVrCardboard,
+  FaImages,
+  FaCalendarPlus,
+  FaPlay,
+  FaClock,
   FaInfoCircle,
   FaEye,
   FaCamera,
@@ -31,13 +31,6 @@ export default function VirtualDarshan() {
       description: 'Join live streaming during aarti times',
       available: true
     },
-    // {
-    //   id: '360',
-    //   title: '360° Tour',
-    //   icon: <FaVrCardboard />,
-    //   description: 'Virtual temple tour experience',
-    //   available: true
-    // },
     {
       id: 'gallery',
       title: 'Photo Gallery',
@@ -45,26 +38,19 @@ export default function VirtualDarshan() {
       description: 'High-quality deity photographs',
       available: true
     },
-    // {
-    //   id: 'booking',
-    //   title: 'Book Session',
-    //   icon: <FaCalendarPlus />,
-    //   description: 'Schedule personal virtual darshan',
-    //   available: false
-    // }
   ];
 
   return (
     <section className="relative py-16 px-4 overflow-hidden bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50 dark:bg-black">
-      {/* Light/Dark Gradient Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-orange-100/50 via-amber-100/50 to-yellow-100/50 dark:from-black dark:via-purple-950 dark:to-indigo-950"></div>
-      
+      {/* Light Gradient Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-orange-100/50 via-amber-100/50 to-yellow-100/50"></div>
+
       {/* Animated Background Glow */}
       <div className="absolute inset-0">
-        <div className="absolute top-20 left-20 w-80 h-80 bg-gradient-to-r from-purple-400/30 to-indigo-400/30 dark:bg-purple-600 rounded-full opacity-40 dark:opacity-15 blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-20 w-96 h-96 bg-gradient-to-r from-saffron/30 to-orange-400/30 dark:bg-orange-600 rounded-full opacity-30 dark:opacity-10 blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute top-20 left-20 w-80 h-80 bg-gradient-to-r from-purple-400/30 to-indigo-400/30 rounded-full opacity-40 blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-20 right-20 w-96 h-96 bg-gradient-to-r from-saffron/30 to-orange-400/30 rounded-full opacity-30 blur-3xl animate-pulse delay-1000"></div>
       </div>
-      
+
       <div className="relative max-w-6xl mx-auto z-10">
         {/* Section Header */}
         <motion.div
@@ -76,13 +62,13 @@ export default function VirtualDarshan() {
         >
           <div className="flex justify-center items-center mb-6">
             <div className="h-px bg-gradient-to-r from-transparent via-saffron to-transparent w-24"></div>
-            <span className="mx-4 text-4xl text-saffron animate-pulse">
+            <span className="mx-4 text-4xl text-primary animate-pulse">
               <FaMobileAlt />
             </span>
             <div className="h-px bg-gradient-to-r from-transparent via-saffron to-transparent w-24"></div>
           </div>
-          
-          <h2 className="text-3xl md:text-4xl font-bold gradient-text-saffron-gold mb-4">
+
+          <h2 className="text-3xl md:text-4xl font-bold gradient-text mb-4">
             Virtual Darshan
           </h2>
           <p className="text-gray-700 dark:text-gray-300 text-lg max-w-3xl mx-auto">
@@ -104,16 +90,15 @@ export default function VirtualDarshan() {
                 <motion.button
                   key={option.id}
                   onClick={() => setActiveTab(option.id)}
-                  className={`p-4 rounded-xl border transition-all duration-300 shadow-lg outline-none ${
-                    activeTab === option.id
-                      ? 'bg-saffron-gradient text-white border-saffron'
-                      : 'bg-white/10 dark:bg-gradient-to-br dark:from-gray-900/80 dark:to-black/80 text-gray-700 dark:text-gray-300 border-orange-200 dark:border-purple-400 border-opacity-60 dark:border-opacity-30 hover:border-saffron hover:border-opacity-80 dark:hover:border-opacity-50'
-                  } ${!option.available ? 'opacity-50 cursor-not-allowed' : ''}`}
+                  className={`p-4 rounded-xl border transition-all duration-300 shadow-lg outline-none ${activeTab === option.id
+                    ? 'bg-primary text-white border-saffron'
+                    : 'bg-white/10 dark:bg-gradient-to-br dark:from-gray-900/80 dark:to-black/80 text-gray-700 dark:text-gray-300 border-primary dark:border-purple-400 border-opacity-60 dark:border-opacity-30 hover:border-saffron hover:border-opacity-80 dark:hover:border-opacity-50'
+                    } ${!option.available ? 'opacity-50 cursor-not-allowed' : ''}`}
                   whileHover={{ scale: option.available ? 1.02 : 1 }}
                   whileTap={{ scale: option.available ? 0.98 : 1 }}
                   disabled={!option.available}
                 >
-                  <div className={`text-2xl mb-2 ${activeTab === option.id? "text-white": "text-saffron"}`}>{option.icon}</div>
+                  <div className={`text-2xl mb-2 ${activeTab === option.id ? "text-white" : "text-primary"}`}>{option.icon}</div>
                   <div className="font-semibold text-sm">{option.title}</div>
                   {!option.available && (
                     <div className="text-xs text-gray-500 dark:text-gray-400 mt-1">Coming Soon</div>
@@ -128,11 +113,11 @@ export default function VirtualDarshan() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3 }}
-              className="bg-white/10 dark:bg-gradient-to-br dark:from-gray-900/80 dark:to-black/80 rounded-2xl p-6 border border-orange-200 dark:border-purple-400 border-opacity-60 dark:border-opacity-30 backdrop-blur-xl shadow-xl"
+              className="bg-white/10 dark:bg-gradient-to-br dark:from-gray-900/80 dark:to-black/80 rounded-2xl p-6 border border-primary dark:border-purple-400 border-opacity-60 dark:border-opacity-30 backdrop-blur-xl shadow-xl"
             >
               {activeTab === 'live' && (
                 <div>
-                  <h3 className="text-xl font-bold text-saffron mb-4 flex items-center gap-2">
+                  <h3 className="text-xl font-bold text-primary mb-4 flex items-center gap-2">
                     <FaVideo />
                     Live Darshan Streaming
                   </h3>
@@ -155,7 +140,7 @@ export default function VirtualDarshan() {
                       </div>
                     </div>
                     <motion.button
-                      className="w-full bg-saffron-gradient text-white font-bold py-3 rounded-lg mt-4 flex items-center justify-center gap-2 shadow-lg hover:shadow-saffron/30 transition-all duration-300"
+                      className="w-full bg-primary text-white font-bold py-3 rounded-lg mt-4 flex items-center justify-center gap-2 shadow-lg hover:shadow-saffron/30 transition-all duration-300"
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
                     >
@@ -168,7 +153,7 @@ export default function VirtualDarshan() {
 
               {activeTab === '360' && (
                 <div>
-                  <h3 className="text-xl font-bold text-saffron mb-4 flex items-center gap-2">
+                  <h3 className="text-xl font-bold text-primary mb-4 flex items-center gap-2">
                     <FaVrCardboard />
                     360° Virtual Tour
                   </h3>
@@ -176,7 +161,7 @@ export default function VirtualDarshan() {
                     <p>Take an immersive virtual tour of our temple:</p>
                     <ul className="space-y-2 text-sm">
                       <li className="flex items-center space-x-2">
-                        <FaUniversity className="text-saffron" />
+                        <FaUniversity className="text-primary" />
                         <span>Main sanctum and deity darshan</span>
                       </li>
                       <li className="flex items-center space-x-2">
@@ -184,7 +169,7 @@ export default function VirtualDarshan() {
                         <span>Beautiful temple architecture</span>
                       </li>
                       <li className="flex items-center space-x-2">
-                        <FaPalette className="text-saffron" />
+                        <FaPalette className="text-primary" />
                         <span>Sacred artwork and decorations</span>
                       </li>
                     </ul>
@@ -202,13 +187,13 @@ export default function VirtualDarshan() {
 
               {activeTab === 'gallery' && (
                 <div>
-                  <h3 className="text-xl font-bold text-saffron mb-4 flex items-center gap-2">
+                  <h3 className="text-xl font-bold text-primary mb-4 flex items-center gap-2">
                     <FaImages />
                     Deity Photo Gallery
                   </h3>
                   <div className="space-y-4 text-gray-700 dark:text-gray-200">
                     <p>View high-quality photographs of our deities:</p>
-                
+
                     <motion.button
                       className="w-full bg-gradient-to-r from-green-600 to-emerald-600 text-white font-bold py-3 rounded-lg mt-4 flex items-center justify-center gap-2 shadow-lg hover:shadow-green-500/30 transition-all duration-300"
                       whileHover={{ scale: 1.02 }}
@@ -231,13 +216,13 @@ export default function VirtualDarshan() {
             viewport={{ once: true }}
             className="relative"
           >
-            <div className="bg-white/10 dark:bg-gradient-to-br dark:from-gray-900/80 dark:to-black/80 rounded-2xl overflow-hidden border border-orange-200 dark:border-purple-400 border-opacity-60 dark:border-opacity-30 backdrop-blur-xl shadow-xl">
+            <div className="bg-white/10 dark:bg-gradient-to-br dark:from-gray-900/80 dark:to-black/80 rounded-2xl overflow-hidden border border-primary dark:border-purple-400 border-opacity-60 dark:border-opacity-30 backdrop-blur-xl shadow-xl">
               <div className="aspect-video bg-gradient-to-br from-orange-100/80 to-amber-100/80 dark:from-saffron/20 dark:to-gold/20 flex items-center justify-center relative">
                 <div className="text-center">
                   <p className="text-gray-800 dark:text-white font-semibold">Virtual Darshan Preview</p>
                   <p className="text-gray-600 dark:text-gray-300 text-sm mt-2">Live streaming available during aarti times</p>
                 </div>
-                
+
                 {/* Play Button Overlay */}
                 <motion.button
                   className="absolute inset-0 bg-black/30 flex items-center justify-center hover:bg-black/40 transition-colors duration-300"
@@ -247,7 +232,7 @@ export default function VirtualDarshan() {
                   </div>
                 </motion.button>
               </div>
-              
+
               <div className="p-6">
                 <h3 className="font-bold text-gray-800 dark:text-white mb-2 flex items-center gap-2">
                   <FaEye />
@@ -255,7 +240,7 @@ export default function VirtualDarshan() {
                 </h3>
                 <div className="flex items-center justify-between">
                   <div>
-                    <div className="text-saffron font-semibold">Evening Aarti</div>
+                    <div className="text-primary font-semibold">Evening Aarti</div>
                     <div className="text-gray-600 dark:text-gray-400 text-sm">Today at 7:30 PM</div>
                   </div>
                   <div className="text-right">
@@ -277,7 +262,7 @@ export default function VirtualDarshan() {
               viewport={{ once: true }}
               className="mt-6 bg-saffron/10 rounded-xl p-4 border border-saffron/40 dark:border-saffron/20 border-opacity-60 dark:border-opacity-100 shadow-lg"
             >
-              <h4 className="font-semibold text-saffron mb-2 flex items-center gap-2">
+              <h4 className="font-semibold text-primary mb-2 flex items-center gap-2">
                 <FaInfoCircle />
                 How to Join Virtual Darshan
               </h4>
@@ -298,7 +283,7 @@ export default function VirtualDarshan() {
             >
               <div className="flex justify-center items-center space-x-8 text-sm text-gray-600 dark:text-gray-400">
                 <div className="flex items-center space-x-2">
-                  <FaTv className="text-saffron" />
+                  <FaTv className="text-primary" />
                   <span>HD Streaming</span>
                 </div>
                 <div className="flex items-center space-x-2">
@@ -306,7 +291,7 @@ export default function VirtualDarshan() {
                   <span>360° Experience</span>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <HiSparkles className="text-saffron" />
+                  <HiSparkles className="text-primary" />
                   <span>Live Daily</span>
                 </div>
               </div>

@@ -12,34 +12,34 @@ import Image from 'next/image';
 
 export default function Testimonials() {
   const testimonials = [
-    { 
-      name: 'Ramesh Kumar', 
+    {
+      name: 'Ramesh Kumar',
       location: 'Jodhpur, Rajasthan',
-      quote: 'Visiting Hare Krishna Marwar Mandir has completely transformed my life. The serene atmosphere and the teachings of Lord Krishna inspire me every day to live with love, compassion, and devotion.', 
+      quote: 'Visiting Hare Krishna Marwar Mandir has completely transformed my life. The serene atmosphere and the teachings of Lord Krishna inspire me every day to live with love, compassion, and devotion.',
       img: '/images/srila-prabhupada-hkm.webp',
       rating: 5,
       role: 'Regular Devotee'
     },
-    { 
-      name: 'Meera Sharma', 
+    {
+      name: 'Meera Sharma',
       location: 'Mumbai, Maharashtra',
-      quote: 'The Bhagavad Gita sessions here are enlightening. I feel spiritually nourished and find practical guidance for facing life’s challenges with clarity and peace', 
+      quote: 'The Bhagavad Gita sessions here are enlightening. I feel spiritually nourished and find practical guidance for facing life’s challenges with clarity and peace',
       img: '/images/srila-prabhupada-hkm.webp',
       rating: 5,
       role: 'Visiting Devotee'
     },
-    { 
-      name: 'Arjun Patel', 
+    {
+      name: 'Arjun Patel',
       location: 'Ahmedabad, Gujarat',
-      quote: 'Participating in Annadana Seva has taught me the joy of selfless service. Feeding others with prasadam brings immense happiness and a sense of connection to Lord Krishna.', 
+      quote: 'Participating in Annadana Seva has taught me the joy of selfless service. Feeding others with prasadam brings immense happiness and a sense of connection to Lord Krishna.',
       img: '/images/srila-prabhupada-hkm.webp',
       rating: 5,
       role: 'Temple Volunteer'
     },
-    { 
-      name: 'Priya Agarwal', 
+    {
+      name: 'Priya Agarwal',
       location: 'Delhi, India',
-      quote: 'Hare Krishna Marwar Mandir is more than a temple; it’s a spiritual home. The youth programs here helped me develop skills while staying grounded in Krishna Consciousness.', 
+      quote: 'Hare Krishna Marwar Mandir is more than a temple; it’s a spiritual home. The youth programs here helped me develop skills while staying grounded in Krishna Consciousness.',
       img: '/images/srila-prabhupada-hkm.webp',
       rating: 5,
       role: 'Temple Patron'
@@ -58,8 +58,8 @@ export default function Testimonials() {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
           className="text-center mb-16"
-        > 
-          <h3 className="text-3xl md:text-4xl font-bold gradient-text-saffron-gold mb-4">
+        >
+          <h3 className="text-3xl md:text-4xl font-bold gradient-text mb-4">
             What Devotees Say
           </h3>
           <p className="text-gray-700 dark:text-gray-300 text-lg max-w-2xl mx-auto">
@@ -82,7 +82,7 @@ export default function Testimonials() {
           {testimonials.map((testimonial, i) => (
             <SwiperSlide key={i}>
               <div
-                    className="
+                className="
                     p-8 rounded-2xl 
                     bg-white/20 dark:bg-white/5 
                     border border-white/30 dark:border-white/10 
@@ -94,10 +94,10 @@ export default function Testimonials() {
               >
                 {/* Quote */}
                 <div className="relative mb-6">
-                  <div className="absolute -top-4 -left-6 text-2xl text-saffron opacity-50 dark:opacity-30">
+                  <div className="absolute -top-4 -left-6 text-2xl text-primary opacity-50 dark:opacity-30">
                     <BiSolidQuoteLeft />
                   </div>
-                  <div className="absolute -bottom-4 -right-2 text-2xl text-saffron opacity-50 dark:opacity-30">
+                  <div className="absolute -bottom-4 -right-2 text-2xl text-primary opacity-50 dark:opacity-30">
                     <BiSolidQuoteRight />
                   </div>
                   <p className="text-gray-700 dark:text-gray-100 text-lg italic leading-relaxed relative z-10">
@@ -179,9 +179,9 @@ export default function Testimonials() {
               transition={{ duration: 0.6, delay: 1 + (i * 0.1) }}
               viewport={{ once: true }}
               whileHover={{ scale: 1.05 }}
-              className="text-center p-4 bg-white/70 dark:bg-gradient-to-br dark:from-purple-900/80 dark:to-indigo-900/80 rounded-xl border border-orange-200 dark:border-gold border-opacity-60 dark:border-opacity-20 backdrop-blur-sm shadow-lg hover:shadow-xl hover:border-saffron hover:border-opacity-80 dark:hover:border-opacity-40 transition-all duration-300"
+              className="text-center p-4 bg-white/70 dark:bg-gradient-to-br dark:from-purple-900/80 dark:to-indigo-900/80 rounded-xl border border-primary dark:border-gold border-opacity-60 dark:border-opacity-20 backdrop-blur-sm shadow-lg hover:shadow-xl hover:border-saffron hover:border-opacity-80 dark:hover:border-opacity-40 transition-all duration-300"
             >
-              <div className="text-md md:text-2xl font-bold text-saffron glow">{stat.number}</div>
+              <div className="text-md md:text-2xl font-bold text-primary glow">{stat.number}</div>
               <div className="text-gray-700 dark:text-gray-300 text-xs">{stat.label}</div>
             </motion.div>
           ))}

@@ -110,23 +110,6 @@ const VaishnavaCalendar = () => {
           </a>
         </div>
 
-        {/* Filter */}
-        {/* <div className="mb-6 flex items-center gap-4 bg-white p-4 rounded-lg shadow-sm">
-          <Filter className="w-5 h-5 text-orange-600" />
-          <label className="font-semibold text-gray-700">Filter by Month:</label>
-          <select 
-            value={selectedMonth}
-            onChange={(e) => setSelectedMonth(e.target.value)}
-            className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
-          >
-            {months.map(month => (
-              <option key={month} value={month}>
-                {month === 'all' ? 'All Months' : month}
-              </option>
-            ))}
-          </select>
-        </div> */}
-
         {/* Calendar Table */}
         <div className="bg-white rounded-xl shadow-lg overflow-hidden">
           <div className="overflow-x-auto">

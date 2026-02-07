@@ -18,8 +18,7 @@ export default function Donations() {
             <CurrentCampaigns />
             <HowToDonate />
             <DonationForm />
-            {/* <TaxBenefits /> */}
-            <DonorTestimonials />
+            {/* <DonorTestimonials /> */}
             <DonationsCallToAction />
         </div>
     </>

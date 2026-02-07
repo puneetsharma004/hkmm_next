@@ -1,24 +1,20 @@
 "use client";
 
 import { motion } from 'framer-motion';
-import { 
-  FaGift, 
-  FaBullseye, 
-  FaHeart, 
-  FaUniversity, 
-  FaUtensils, 
-  FaCalendarAlt, 
-  FaBook, 
-  FaHandshake, 
-  FaQuoteLeft, 
-  FaQuoteRight, 
+import {
+  FaUniversity,
+  FaUtensils,
+  FaCalendarAlt,
+  FaBook,
+  FaHandshake,
+  FaQuoteLeft,
+  FaQuoteRight,
   FaCheck,
   FaFileInvoice,
   FaChartLine,
   FaCertificate,
   FaShieldAlt
 } from 'react-icons/fa';
-import { HiSparkles } from 'react-icons/hi';
 
 export default function WhyDonate() {
   const impactAreas = [
@@ -55,15 +51,9 @@ export default function WhyDonate() {
   ];
 
   return (
-    <section className="relative py-16 px-4 overflow-hidden bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50 dark:bg-black">
-      {/* Light/Dark Gradient Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-orange-100/50 via-amber-100/50 to-yellow-100/50 dark:from-black dark:via-purple-950 dark:to-indigo-950"></div>
-      
-      {/* Animated Background Glow */}
-      <div className="absolute inset-0">
-        <div className="absolute top-20 left-20 w-80 h-80 bg-gradient-to-r from-purple-400/30 to-indigo-400/30 dark:bg-purple-600 rounded-full opacity-40 dark:opacity-15 blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-20 w-96 h-96 bg-gradient-to-r from-saffron/30 to-orange-400/30 dark:bg-orange-600 rounded-full opacity-30 dark:opacity-10 blur-3xl animate-pulse delay-1000"></div>
-      </div>
+    <section className="relative py-16 px-4 overflow-hidden bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50">
+      {/* Light Gradient Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-orange-100/50 via-amber-100/50 to-yellow-100/50"></div>
 
       <div className="relative max-w-6xl mx-auto z-10">
         {/* Section Header */}
@@ -74,11 +64,11 @@ export default function WhyDonate() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          
-          <h2 className="text-3xl md:text-4xl font-bold gradient-text-saffron-gold mb-4">
+
+          <h2 className="text-3xl md:text-4xl font-bold gradient-text mb-4">
             Why Your Donation Matters
           </h2>
-          <p className="text-gray-700 dark:text-gray-300 text-lg max-w-3xl mx-auto">
+          <p className="text-gray-700 text-lg max-w-3xl mx-auto">
             In Vedic tradition, charity (dana) is considered one of the highest virtues. Your contribution helps us serve Krishna and humanity
           </p>
         </motion.div>
@@ -93,21 +83,21 @@ export default function WhyDonate() {
             viewport={{ once: true }}
             className="space-y-6"
           >
-            <div className="bg-white/10 dark:bg-gradient-to-br dark:from-gray-900/80 dark:to-black/80 rounded-2xl p-8 border border-orange-200 dark:border-purple-400 border-opacity-60 dark:border-opacity-30 backdrop-blur-xl shadow-xl">
-              <h3 className="text-2xl font-bold text-saffron mb-6">The Power of Giving</h3>
-              <div className="space-y-4 text-gray-700 dark:text-gray-200 leading-relaxed">
+            <div className="bg-white/10rounded-2xl p-8 border border-primary border-opacity-60 backdrop-blur-xl shadow-xl">
+              <h3 className="text-2xl font-bold text-primary mb-6">The Power of Giving</h3>
+              <div className="space-y-4 text-gray-700 leading-relaxed">
                 <p>
-                  Every contribution to our temple is an offering to Lord Krishna and serves multiple divine purposes. 
+                  Every contribution to our temple is an offering to Lord Krishna and serves multiple divine purposes.
                   Your donation helps maintain the sacred space where thousands find peace, spiritual guidance, and community.
                 </p>
                 <p>
-                  From the daily aartis that awaken devotion to the free meals that nourish the needy, every rupee is 
-                  invested in creating positive impact. When you donate, you become part of a spiritual family working 
+                  From the daily aartis that awaken devotion to the free meals that nourish the needy, every rupee is
+                  invested in creating positive impact. When you donate, you become part of a spiritual family working
                   together to spread love, compassion, and Krishna consciousness.
                 </p>
                 <p>
-                  As the Bhagavad Gita teaches us, charity given with faith and without expectation of return purifies 
-                  the heart and brings spiritual merit. Your generosity not only supports our mission but also elevates 
+                  As the Bhagavad Gita teaches us, charity given with faith and without expectation of return purifies
+                  the heart and brings spiritual merit. Your generosity not only supports our mission but also elevates
                   your own consciousness.
                 </p>
               </div>
@@ -119,18 +109,18 @@ export default function WhyDonate() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
               viewport={{ once: true }}
-              className="bg-saffron/10 rounded-xl p-6 border border-saffron/40 dark:border-saffron/20 border-opacity-60 dark:border-opacity-100 shadow-lg"
+              className="bg-primary/10 rounded-xl p-6 border border-primary/40 border-opacity-60 shadow-lg"
             >
-              <div className="text-4xl text-saffron mb-4">
+              <div className="text-4xl text-primary mb-4">
                 <FaQuoteLeft />
               </div>
-              <blockquote className="text-gray-800 dark:text-white italic text-lg mb-4">
-                "Charity given out of duty, without expectation of return, at the proper time and place, 
+              <blockquote className="text-gray-800 italic text-lg mb-4">
+                "Charity given out of duty, without expectation of return, at the proper time and place,
                 and to a worthy person is considered to be in the mode of goodness."
               </blockquote>
               <div className="flex justify-end items-center space-x-2">
-                <p className="text-saffron font-semibold">– Bhagavad Gita 17.20</p>
-                <FaQuoteRight className="text-saffron" />
+                <p className="text-primary font-semibold">– Bhagavad Gita 17.20</p>
+                <FaQuoteRight className="text-primary" />
               </div>
             </motion.div>
           </motion.div>
@@ -143,7 +133,7 @@ export default function WhyDonate() {
             viewport={{ once: true }}
             className="space-y-6"
           >
-            <h3 className="text-2xl font-bold text-gold mb-6">How Your Donation is Used</h3>
+            <h3 className="text-2xl font-bold text-primary mb-6">How Your Donation is Used</h3>
             {impactAreas.map((area, index) => (
               <motion.div
                 key={index}
@@ -151,20 +141,20 @@ export default function WhyDonate() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="bg-white/10 dark:bg-gradient-to-r dark:from-indigo-900/80 dark:to-purple-900/80 rounded-xl p-4 border border-orange-200 dark:border-gold border-opacity-60 dark:border-opacity-20 backdrop-blur-sm hover:border-saffron hover:border-opacity-80 dark:hover:border-opacity-40 transition-all duration-300 group shadow-lg"
+                className="bg-white/10 rounded-xl p-4 border border-primary border-opacity-60 backdrop-blur-sm hover:border-primary hover:border-opacity-80 transition-all duration-300 group shadow-lg"
               >
                 <div className="flex items-start space-x-4">
-                  <div className="text-3xl text-saffron group-hover:scale-110 transition-transform duration-300">
+                  <div className="text-3xl text-primary group-hover:scale-110 transition-transform duration-300">
                     {area.icon}
                   </div>
                   <div className="flex-1">
                     <div className="flex items-center justify-between mb-2">
-                      <h4 className="font-bold text-gray-800 dark:text-white group-hover:text-saffron transition-colors duration-300">
+                      <h4 className="font-bold text-gray-800 group-hover:text-primary transition-colors duration-300">
                         {area.title}
                       </h4>
-                      <span className="text-gold font-bold text-lg">{area.percentage}</span>
+                      <span className="text-primary font-bold text-lg">{area.percentage}</span>
                     </div>
-                    <p className="text-gray-600 dark:text-gray-300 text-sm group-hover:text-gray-700 dark:group-hover:text-gray-100 transition-colors duration-300">
+                    <p className="text-gray-600 group-hover:text-gray-700 transition-colors duration-300">
                       {area.description}
                     </p>
                   </div>
@@ -178,28 +168,28 @@ export default function WhyDonate() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.6 }}
               viewport={{ once: true }}
-              className="bg-white/10 dark:bg-gradient-to-br dark:from-gray-900/80 dark:to-black/80 rounded-xl p-6 border border-orange-200 dark:border-saffron border-opacity-60 dark:border-opacity-30 shadow-xl"
+              className="bg-white/10 rounded-xl p-6 border border-primary border-opacity-60 shadow-xl"
             >
-              <h4 className="font-bold text-saffron mb-4 flex items-center gap-2">
+              <h4 className="font-bold text-primary mb-4 flex items-center gap-2">
                 <FaShieldAlt />
                 100% Transparency
               </h4>
               <div className="grid grid-cols-2 gap-4 text-sm">
                 <div className="flex items-center space-x-2">
                   <FaCheck className="text-green-500" />
-                  <span className="text-gray-700 dark:text-gray-300">Detailed financial reports</span>
+                  <span className="text-gray-700">Detailed financial reports</span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <FaCheck className="text-green-500" />
-                  <span className="text-gray-700 dark:text-gray-300">Regular progress updates</span>
+                  <span className="text-gray-700">Regular progress updates</span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <FaCheck className="text-green-500" />
-                  <span className="text-gray-700 dark:text-gray-300">Audited accounts</span>
+                  <span className="text-gray-700">Audited accounts</span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <FaCheck className="text-green-500" />
-                  <span className="text-gray-700 dark:text-gray-300">Donation certificates</span>
+                  <span className="text-gray-700">Donation certificates</span>
                 </div>
               </div>
             </motion.div>
@@ -214,22 +204,22 @@ export default function WhyDonate() {
           viewport={{ once: true }}
           className="text-center"
         >
-          <div className="bg-saffron/10 rounded-2xl p-8 border border-saffron/40 dark:border-saffron/20 border-opacity-60 dark:border-opacity-100 shadow-lg max-w-4xl mx-auto">
-            <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-4">Join Our Mission Today</h3>
-            <p className="text-gray-700 dark:text-gray-200 text-lg mb-6">
+          <div className="bg-primary/10 rounded-2xl p-8 border border-primary/40 border-opacity-60 shadow-lg max-w-4xl mx-auto">
+            <h3 className="text-2xl font-bold text-gray-800 mb-4">Join Our Mission Today</h3>
+            <p className="text-gray-700 text-lg mb-6">
               Your donation, no matter the size, makes a real difference in preserving our spiritual heritage and serving the community.
             </p>
-            <div className="flex justify-center items-center space-x-8 text-sm text-gray-600 dark:text-gray-400">
+            <div className="flex justify-center items-center space-x-8 text-sm text-gray-600">
               <div className="flex items-center space-x-2">
-                <FaFileInvoice className="text-saffron" />
+                <FaFileInvoice className="text-primary" />
                 <span>Tax Benefits Available</span>
               </div>
               <div className="flex items-center space-x-2">
-                <FaChartLine className="text-gold" />
+                <FaChartLine className="text-primary" />
                 <span>Impact Tracking</span>
               </div>
               <div className="flex items-center space-x-2">
-                <FaCertificate className="text-saffron" />
+                <FaCertificate className="text-primary" />
                 <span>Instant Receipts</span>
               </div>
             </div>
