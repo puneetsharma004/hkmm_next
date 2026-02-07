@@ -30,7 +30,7 @@ export default function GalleryPreview() {
           <h3 className="text-3xl md:text-4xl font-bold gradient-text mb-4">
             Temple Gallery
           </h3>
-          <p className="text-gray-700 dark:text-gray-300 text-lg max-w-2xl mx-auto">
+          <p className="text-gray-700 text-lg max-w-2xl mx-auto">
             Glimpses of divine moments, festivals, and the spiritual beauty of our temple
           </p>
         </motion.div>
@@ -58,7 +58,7 @@ export default function GalleryPreview() {
               className="relative group cursor-pointer"
             >
               {/* Image Container */}
-              <div className="relative overflow-hidden rounded-2xl shadow-xl border-2 border-primary dark:border-purple-400 border-opacity-60 dark:border-opacity-30 group-hover:border-saffron group-hover:border-opacity-80 dark:group-hover:border-opacity-60 transition-all duration-300">
+              <div className="relative overflow-hidden rounded-2xl shadow-xl border-2 border-primary border-opacity-60 group-hover:border-primary group-hover:border-opacity-80 transition-all duration-300">
                 <Image
                   src={img}
                   width={100}
@@ -72,14 +72,14 @@ export default function GalleryPreview() {
 
                 {/* Hover Icon */}
                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="bg-saffron text-white dark:text-black p-3 rounded-full shadow-xl glow-button">
+                  <div className="bg-primary text-white p-3 rounded-full shadow-xl glow-button">
                     <span className="text-2xl"><CiSearch /></span>
                   </div>
                 </div>
               </div>
 
               {/* Glow Effect */}
-              <div className="absolute inset-0 rounded-2xl shadow-lg group-hover:shadow-saffron/40 dark:group-hover:shadow-saffron/30 group-hover:shadow-2xl transition-shadow duration-300"></div>
+              <div className="absolute inset-0 rounded-2xl shadow-lg group-hover:shadow-primary/40 group-hover:shadow-2xl transition-shadow duration-300"></div>
             </motion.div>
           ))}
         </motion.div>
@@ -98,7 +98,7 @@ export default function GalleryPreview() {
               scale: 1.05,
             }}
             whileTap={{ scale: 0.95 }}
-            className="inline-flex items-center bg-saffron text-white font-medium px-8 py-3.5 rounded-xl shadow-sm hover:shadow-md focus:outline-none focus:ring-2 focus:ring-saffron/50 focus:ring-offset-2 transition-all duration-200 group"
+            className="inline-flex items-center bg-primary text-white font-medium px-8 py-3.5 rounded-xl shadow-sm hover:shadow-md focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-2 transition-all duration-200 group"
           >
             <span className="mr-3">View Full Gallery</span>
             <motion.span
@@ -114,7 +114,7 @@ export default function GalleryPreview() {
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.8 }}
             viewport={{ once: true }}
-            className="mt-4 text-gray-600 dark:text-gray-400 text-sm"
+            className="mt-4 text-gray-600 text-sm"
           >
             Discover more divine moments • Festival celebrations • Temple architecture
           </motion.p>

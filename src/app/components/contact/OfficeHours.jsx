@@ -150,7 +150,7 @@ export default function OfficeHours() {
               </div>
 
               <div>
-                <h4 className="font-semibold text-gold mb-4">Available Services:</h4>
+                <h4 className="font-semibold text-primary mb-4">Available Services:</h4>
                 <ul className="space-y-2">
                   {schedule.services.map((service, serviceIndex) => (
                     <li key={serviceIndex} className="flex items-center space-x-2">

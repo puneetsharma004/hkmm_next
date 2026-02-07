@@ -18,7 +18,7 @@ export default function TempleArchitecture() {
 
       {/* Animated Background Glow */}
       <div className="absolute inset-0">
-        <div className="absolute top-20 left-20 w-80 h-80 bg-gradient-to-r from-saffron/30 to-orange-400/30 rounded-full opacity-40 blur-3xl animate-pulse delay-700"></div>
+        <div className="absolute top-20 left-20 w-80 h-80 bg-gradient-to-r from-primary/30 to-orange-400/30 rounded-full opacity-40 blur-3xl animate-pulse delay-700"></div>
       </div>
 
       <div className="relative max-w-6xl mx-auto z-10">

@@ -62,7 +62,7 @@ export default function Testimonials() {
           <h3 className="text-3xl md:text-4xl font-bold gradient-text mb-4">
             What Devotees Say
           </h3>
-          <p className="text-gray-700 dark:text-gray-300 text-lg max-w-2xl mx-auto">
+          <p className="text-gray-700 text-lg max-w-2xl mx-auto">
             Hear from our beloved devotees about their spiritual journey with us
           </p>
         </motion.div>
@@ -84,23 +84,23 @@ export default function Testimonials() {
               <div
                 className="
                     p-8 rounded-2xl 
-                    bg-white/20 dark:bg-white/5 
-                    border border-white/30 dark:border-white/10 
+                    bg-white/20 
+                    border border-white/30 
                     backdrop-blur-xl 
                     transition-all duration-300 
                     hover:-translate-y-1 
-                    hover:bg-white/30 dark:hover:bg-white/10
-                    hover:border-saffron/60"
+                    hover:bg-white/30
+                    hover:border-primary/60"
               >
                 {/* Quote */}
                 <div className="relative mb-6">
-                  <div className="absolute -top-4 -left-6 text-2xl text-primary opacity-50 dark:opacity-30">
+                  <div className="absolute -top-4 -left-6 text-2xl text-primary opacity-50">
                     <BiSolidQuoteLeft />
                   </div>
-                  <div className="absolute -bottom-4 -right-2 text-2xl text-primary opacity-50 dark:opacity-30">
+                  <div className="absolute -bottom-4 -right-2 text-2xl text-primary opacity-50">
                     <BiSolidQuoteRight />
                   </div>
-                  <p className="text-gray-700 dark:text-gray-100 text-lg italic leading-relaxed relative z-10">
+                  <p className="text-gray-700 text-lg italic leading-relaxed relative z-10">
                     {testimonial.quote}
                   </p>
                 </div>
@@ -112,16 +112,16 @@ export default function Testimonials() {
                     alt={testimonial.name}
                     width={100}
                     height={100}
-                    className="w-16 h-16 rounded-full border-4 border-saffron shadow-lg"
+                    className="w-16 h-16 rounded-full border-4 border-primary shadow-lg"
                   />
                   <div>
-                    <h4 className="font-bold text-gray-800 dark:text-white text-lg">
+                    <h4 className="font-bold text-gray-800 text-lg">
                       {testimonial.name}
                     </h4>
-                    <p className="text-primary dark:text-gold text-sm font-medium">
+                    <p className="text-primary text-sm font-medium">
                       {testimonial.role}
                     </p>
-                    <p className="text-gray-600 dark:text-gray-400 text-xs">
+                    <p className="text-gray-600 text-xs">
                       {testimonial.location}
                     </p>
                   </div>
@@ -130,62 +130,6 @@ export default function Testimonials() {
             </SwiperSlide>
           ))}
         </Swiper>
-
-
-        {/* Call to Action */}
-        {/* <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
-          viewport={{ once: true }}
-          className="text-center"
-        >
-          <div className="bg-saffron/10 p-8 rounded-2xl border border-saffron/50 dark:border-saffron/20 border-opacity-60 dark:border-opacity-100 backdrop-blur-sm max-w-2xl mx-auto shadow-lg ">
-            <h4 className="text-2xl font-bold text-gray-800 dark:text-white mb-4">Share Your Experience</h4>
-            <p className="text-gray-700 dark:text-gray-300 mb-6">
-              We'd love to hear about your spiritual journey with us. Your words inspire others to join our divine family.
-            </p>
-            
-            <motion.button
-              whileHover={{ 
-                scale: 1.05,
-                boxShadow: "0 10px 30px rgba(255, 153, 51, 0.3)"
-              }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-saffron text-white dark:text-black font-bold px-6 py-3 rounded-full shadow-xl hover:shadow-saffron/50 transition-all duration-300 glow-button"
-            >
-              Submit Your Testimonial
-            </motion.button>
-          </div>
-        </motion.div> */}
-
-        {/* Trust Indicators */}
-        {/* <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1 }}
-          viewport={{ once: true }}
-          className="grid grid-cols-3 gap-6 mt-12 max-w-2xl mx-auto"
-        >
-          {[
-            { number: '1000+', label: 'Happy Devotees', },
-            { number: '15+', label: 'Years of Service', },
-            { number: '50+', label: 'Community Events', }
-          ].map((stat, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, delay: 1 + (i * 0.1) }}
-              viewport={{ once: true }}
-              whileHover={{ scale: 1.05 }}
-              className="text-center p-4 bg-white/70 dark:bg-gradient-to-br dark:from-purple-900/80 dark:to-indigo-900/80 rounded-xl border border-primary dark:border-gold border-opacity-60 dark:border-opacity-20 backdrop-blur-sm shadow-lg hover:shadow-xl hover:border-saffron hover:border-opacity-80 dark:hover:border-opacity-40 transition-all duration-300"
-            >
-              <div className="text-md md:text-2xl font-bold text-primary glow">{stat.number}</div>
-              <div className="text-gray-700 dark:text-gray-300 text-xs">{stat.label}</div>
-            </motion.div>
-          ))}
-        </motion.div> */}
       </div>
     </section>
   );

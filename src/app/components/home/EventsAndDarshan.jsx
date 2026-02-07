@@ -84,7 +84,7 @@ export default function EventsAndDarshan() {
                   transition={{ duration: 0.6, delay: i * 0.2 }}
                   viewport={{ once: true }}
                   whileHover={{ y: -10, transition: { duration: 0.3 } }}
-                  className="bg-white/10 rounded-2xl overflow-hidden shadow-2xl border border-primary border-opacity-60 backdrop-blur-xl group hover:border-saffron hover:border-opacity-80 hover:shadow-2xl hover:shadow-saffron/20 transition-all duration-300"
+                  className="bg-white/10 rounded-2xl overflow-hidden shadow-2xl border border-primary border-opacity-60 backdrop-blur-xl group hover:border-primary hover:border-opacity-80 hover:shadow-2xl hover:shadow-primary/20 transition-all duration-300"
                 >
                   {/* Event Image */}
                   <div className="relative overflow-hidden">
@@ -357,7 +357,7 @@ export default function EventsAndDarshan() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.6 }}
                 viewport={{ once: true }}
-                className="mt-8 p-6 bg-saffron/10 rounded-xl border border-saffron/40 border-opacity-60 text-center shadow-lg"
+                className="mt-8 p-6 bg-primary/10 rounded-xl border border-primary/40 border-opacity-60 text-center shadow-lg"
               >
                 <p className="text-gray-800 mb-2">
                   <span className="text-primary font-semibold flex items-center gap-1 justify-center"><GiByzantinTemple /> Temple Opens:</span> 08:30 AM - 08:30 PM (Daily)

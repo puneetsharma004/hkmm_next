@@ -119,14 +119,14 @@ export default function SpecialPrograms() {
                     transition={{ duration: 0.6, delay: programIndex * 0.1 }}
                     viewport={{ once: true }}
                     whileHover={{ y: -5, scale: 1.01 }}
-                    className="bg-white/10 rounded-2xl p-6 border border-primary border-opacity-60 backdrop-blur-xl hover:border-saffron hover:border-opacity-80 hover:shadow-saffron/20 transition-all duration-300 group shadow-xl"
+                    className="bg-white/10 rounded-2xl p-6 border border-primary border-opacity-60 backdrop-blur-xl hover:border-primary hover:border-opacity-80 hover:shadow-primary/20 transition-all duration-300 group shadow-xl"
                   >
                     <div className="flex items-start justify-between mb-4">
                       <h4 className="text-xl font-bold text-gray-800 group-hover:text-primary transition-colors duration-300">
                         {program.name}
                       </h4>
                       {program.registration && (
-                        <span className="bg-saffron text-primary text-xs font-bold px-2 py-1 rounded-full flex items-center gap-1 shadow-lg">
+                        <span className="bg-primary text-primary text-xs font-bold px-2 py-1 rounded-full flex items-center gap-1 shadow-lg">
                           <FaUserGraduate />
                           REGISTER
                         </span>
@@ -139,7 +139,7 @@ export default function SpecialPrograms() {
                         <span>{program.schedule}</span>
                       </div>
                       <div className="flex items-center space-x-2 text-sm text-gray-600">
-                        <FaClock className="text-gold" />
+                        <FaClock className="text-primary" />
                         <span>{program.duration}</span>
                       </div>
                       <div className="flex items-center space-x-2 text-sm text-gray-600">
@@ -147,7 +147,7 @@ export default function SpecialPrograms() {
                         <span>{program.instructor}</span>
                       </div>
                       <div className="flex items-center space-x-2 text-sm text-gray-600">
-                        <FaChartBar className="text-gold" />
+                        <FaChartBar className="text-primary" />
                         <span>{program.level}</span>
                       </div>
                     </div>
@@ -160,7 +160,7 @@ export default function SpecialPrograms() {
                       {program.registration ? (
                         <>
                           <motion.button
-                            className="flex-1 bg-primary text-primary border font-semibold py-2 px-4 rounded-lg text-sm hover:shadow-lg hover:shadow-saffron/30 transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer"
+                            className="flex-1 bg-primary text-primary border font-semibold py-2 px-4 rounded-lg text-sm hover:shadow-lg hover:shadow-primary/30 transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer"
                             whileHover={{ scale: 1.02 }}
                             whileTap={{ scale: 0.98 }}
                           >
@@ -168,7 +168,7 @@ export default function SpecialPrograms() {
                             Register Now
                           </motion.button>
                           <motion.button
-                            className="px-4 py-2 border border-saffron text-primary rounded-lg text-sm hover:bg-saffron hover:text-primary/50 transition-all duration-300 flex items-center gap-2"
+                            className="px-4 py-2 border border-primary text-primary rounded-lg text-sm hover:bg-primary hover:text-primary/50 transition-all duration-300 flex items-center gap-2"
                             whileHover={{ scale: 1.02 }}
                             whileTap={{ scale: 0.98 }}
                           >
@@ -209,7 +209,7 @@ export default function SpecialPrograms() {
               <span>Expert Instructors</span>
             </div>
             <div className="flex items-center space-x-2">
-              <FaUsers className="text-gold" />
+              <FaUsers className="text-primary" />
               <span>Small Groups</span>
             </div>
             <div className="flex items-center space-x-2">

@@ -211,7 +211,7 @@ export default function SevaOptions() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
           viewport={{ once: true }}
-          className="mt-16 bg-primary/10 rounded-2xl p-8 border border-primary/40 border-opacity-60 dark:border-opacity-100 backdrop-blur-sm text-center shadow-lg"
+          className="mt-16 bg-primary/10 rounded-2xl p-8 border border-primary/40 border-opacity-60 backdrop-blur-sm text-center shadow-lg"
         >
           <h3 className="text-2xl font-bold text-gray-800 mb-4">Can't find the right seva option?</h3>
           <p className="text-gray-700 mb-6 max-w-2xl mx-auto">

@@ -117,8 +117,8 @@ export default function CurrentCampaigns() {
                 viewport={{ once: true }}
                 className={`rounded-2xl shadow-2xl overflow-hidden transition-all duration-300 group ${
                   campaign.urgent 
-                    ? 'bg-gradient-to-br from-red-100/90 to-orange-100/90 border-2 border-red-400 dark:border-red-500 border-opacity-60 dark:border-opacity-50' 
-                    : 'bg-white/10 border-primary border-opacity-60 dark:border-opacity-30 hover:border-primary hover:border-opacity-80'
+                    ? 'bg-gradient-to-br from-red-100/90 to-orange-100/90 border-2 border-red-400 border-opacity-60 ' 
+                    : 'bg-white/10 border-primary border-opacity-60 hover:border-primary hover:border-opacity-80'
                 } backdrop-blur-xl`}
               >
                 <div className="grid lg:grid-cols-2 gap-8">

@@ -83,7 +83,7 @@ export default function Accommodation() {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="bg-gradient-to-br from-saffron/20 to-gold/20 rounded-2xl p-8 border border-saffron/60 border-opacity-80 backdrop-blur-xl hover:border-opacity-90 transition-all duration-300 group shadow-xl"
+                className="bg-gradient-to-br from-primary/20 to-primary/20 rounded-2xl p-8 border border-primary/60 border-opacity-80 backdrop-blur-xl hover:border-opacity-90 transition-all duration-300 group shadow-xl"
               >
                 <div className="text-center mb-6">
                   <div className="text-5xl mb-4 text-primary flex justify-center items-center">{room.icon}</div>
@@ -99,7 +99,7 @@ export default function Accommodation() {
 
                 <div className="space-y-4">
                   <div>
-                    <h5 className="font-semibold text-gold mb-2">Amenities:</h5>
+                    <h5 className="font-semibold text-primary mb-2">Amenities:</h5>
                     <ul className="space-y-1">
                       {room.amenities.map((amenity, amenityIndex) => (
                         <li key={amenityIndex} className="flex items-center space-x-2">
@@ -122,7 +122,7 @@ export default function Accommodation() {
                   </div>
 
                   <motion.button
-                    className="w-full bg-primary cursor-pointer text-white font-bold py-3 rounded-lg hover:shadow-lg hover:shadow-saffron/30 transition-all duration-300"
+                    className="w-full bg-primary cursor-pointer text-white font-bold py-3 rounded-lg hover:shadow-lg hover:shadow-primary/30 transition-all duration-300"
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                   >
@@ -172,7 +172,7 @@ export default function Accommodation() {
               <span>Temple Stay</span>
             </div>
             <div className="flex items-center space-x-2">
-              <FaMapMarkerAlt className="text-gold" />
+              <FaMapMarkerAlt className="text-primary" />
               <span>Nearby Options</span>
             </div>
             <div className="flex items-center space-x-2">

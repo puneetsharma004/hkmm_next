@@ -13,7 +13,7 @@ import { GiReceiveMoney } from 'react-icons/gi';
 export default function DonationsPageHeader() {
   return (
     <section className="relative py-20 px-4 overflow-hidden bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50">
-      {/* Light/Dark Gradient Background */}
+      {/* Light Gradient Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-orange-100/50 via-amber-100/50 to-yellow-100/50"></div>
       <div className="relative max-w-6xl mx-auto z-10 text-center">
         {/* Breadcrumb */}

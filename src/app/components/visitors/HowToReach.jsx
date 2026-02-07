@@ -65,13 +65,13 @@ export default function HowToReach() {
 
   return (
     <section className="relative py-16 px-4 overflow-hidden bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50">
-      {/* Light/Dark Gradient Background */}
+      {/* Light Gradient Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-orange-100/50 via-amber-100/50 to-yellow-100/50"></div>
 
       {/* Animated Background Glow */}
       <div className="absolute inset-0">
-        <div className="absolute top-20 right-20 w-80 h-80 bg-gradient-to-r from-primary/30 to-orange-400/30 rounded-full opacity-40 dark:opacity-15 blur-3xl animate-pulse delay-500"></div>
-        <div className="absolute bottom-20 left-20 w-96 h-96 bg-gradient-to-r from-purple-400/25 to-indigo-400/25 rounded-full opacity-30 dark:opacity-10 blur-3xl animate-pulse delay-1500"></div>
+        <div className="absolute top-20 right-20 w-80 h-80 bg-gradient-to-r from-primary/30 to-orange-400/30 rounded-full opacity-40 blur-3xl animate-pulse delay-500"></div>
+        <div className="absolute bottom-20 left-20 w-96 h-96 bg-gradient-to-r from-purple-400/25 to-indigo-400/25 rounded-full opacity-30 blur-3xl animate-pulse delay-1500"></div>
       </div>
 
       <div className="relative max-w-6xl mx-auto z-10">

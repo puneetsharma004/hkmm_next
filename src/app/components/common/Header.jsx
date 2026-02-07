@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useRouter, usePathname } from "next/navigation";
 import { FaHandHoldingHeart } from "react-icons/fa";
-import ThemeToggle from "./ThemeToggle";
 import clsx from "clsx";
 import Image from "next/image";
 

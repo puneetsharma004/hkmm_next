@@ -97,7 +97,7 @@ export default function PhotoGallery() {
                 onClick={() => setSelectedCategory(category.id)}
                 className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 flex items-center space-x-2 shadow-lg cursor-pointer ${selectedCategory === category.id
                   ? 'text-primary'
-                  : 'bg-white/10 text-gray-700 border border-primary border-opacity-60 hover:border-saffron hover:border-opacity-80'
+                  : 'bg-white/10 text-gray-700 border border-primary border-opacity-60 hover:border-primary hover:border-opacity-80'
                   }`}
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -131,7 +131,7 @@ export default function PhotoGallery() {
               className="group relative cursor-pointer"
               onClick={() => setSelectedImage(image)}
             >
-              <div className="relative overflow-hidden rounded-2xl shadow-2xl border-2 border-primary border-opacity-60 group-hover:border-saffron group-hover:border-opacity-80 transition-all duration-300">
+              <div className="relative overflow-hidden rounded-2xl shadow-2xl border-2 border-primary border-opacity-60 group-hover:border-primary group-hover:border-opacity-80 transition-all duration-300">
                 <Image
                   width={100} height={100}
                   src={image.src}
@@ -146,7 +146,7 @@ export default function PhotoGallery() {
                     <p className="text-gray-300 text-xs mb-2">{image.description}</p>
                     <div className="flex items-center justify-between">
                       <span className="text-primary text-xs font-semibold">{image.date}</span>
-                      <div className="bg-saffron text-white p-2 rounded-full shadow-lg">
+                      <div className="bg-primary text-white p-2 rounded-full shadow-lg">
                         <FaSearch className="text-xs" />
                       </div>
                     </div>
@@ -215,7 +215,7 @@ export default function PhotoGallery() {
               <span>Professional Photography</span>
             </div>
             <div className="flex items-center space-x-2">
-              <FaEye className="text-gold" />
+              <FaEye className="text-primary" />
               <span>High Resolution</span>
             </div>
             <div className="flex items-center space-x-2">

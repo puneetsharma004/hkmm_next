@@ -75,7 +75,7 @@ export default function HeroSlider() {
   const isMobile = useIsMobile();
 
   return (
-    <div className="relative w-full h-screen overflow-hidden bg-amber-50 dark:bg-gray-900">
+    <div className="relative w-full h-screen overflow-hidden bg-amber-50">
       <style jsx global>{`
         .swiper-button-prev,
         .swiper-button-next {
