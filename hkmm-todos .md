@@ -1,4 +1,4 @@
-fix padding of the title
+fix padding of the title through out the website
 
 
 
@@ -10,5 +10,21 @@ Aarti Participation Guidelines (*fix icons*)
 
 
 
-free up common section from dark, primary, and primary
+fix clicks on gallery image in homepage
+
+
+
+fix lighthouse in gallery page photos and videos
+
+
+
+when ever user click on the link of socials, open it in new page
+
+
+
+from footer remove sitemap
+
+
+
+add pages of in footer of terms and condition and privacy policies 
 

@@ -17,7 +17,7 @@ import {
 } from 'react-icons/fa';
 import { HiSparkles } from 'react-icons/hi';
 import { IoCalendar } from "react-icons/io5";
-import { supabase } from '../../lib/supabase';
+import { supabase } from '@/lib/supabase';
 import Image from 'next/image';
 
 export default function MajorFestivals() {

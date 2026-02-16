@@ -19,6 +19,8 @@ import {
 } from 'react-icons/fa';
 import { IoShieldCheckmarkSharp } from "react-icons/io5";
 import { HiSparkles } from 'react-icons/hi';
+import toast from "react-hot-toast";
+import Image from "next/image";
 
 export default function HowToDonate() {
   const [selectedMethod, setSelectedMethod] = useState('online');
@@ -58,15 +60,19 @@ export default function HowToDonate() {
     { icon: <FaKey />, title: 'No Data Storage', description: 'Your info stays safe' }
   ];
 
-  const copyToClipboard = (text) => {
-    navigator.clipboard.writeText(text);
-    // You can add a toast notification here
+  const copyToClipboard =async (text) => {
+    try {
+      await navigator.clipboard.writeText(text);
+      toast.success("Copied to clipboard!");
+    } catch (err) {
+      toast.error("Failed to copy!");
+    }
   };
 
   return (
-    <section className="relative py-16 px-4 overflow-hidden bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50">
+    <section className="relative py-16 px-4 overflow-hidden bg-linear-to-br from-orange-50 via-amber-50 to-yellow-50">
       {/* Light Gradient Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-orange-100/50 via-amber-100/50 to-yellow-100/50"></div>
+      <div className="absolute inset-0 bg-linear-to-br from-orange-100/50 via-amber-100/50 to-yellow-100/50"></div>
 
 
       <div className="relative max-w-6xl mx-auto z-10">
@@ -150,12 +156,21 @@ export default function HowToDonate() {
               <div>
                 <h4 className="font-semibold text-primary mb-3">Benefits:</h4>
                 <div className="space-y-2">
-                  {paymentMethods.find(m => m.id === selectedMethod)?.benefits.map((benefit, index) => (
-                    <div key={index} className="flex items-center space-x-2">
-                      <FaCheck className="text-primary" />
-                      <span className="text-gray-600text-sm">{benefit}</span>
-                    </div>
-                  ))}
+                  {paymentMethods
+                      .find(m => m.id === selectedMethod)
+                      ?.benefits.map((benefit, index) => (
+                          <div
+                              key={index}
+                              className="flex items-start justify-between gap-4"
+                          >
+                            {/* Left */}
+                            <div className="flex items-center space-x-2">
+                              <FaCheck className="text-primary mt-1" />
+                              <span className="text-gray-700 text-sm">{benefit}</span>
+                            </div>
+                          </div>
+                      ))}
+
                 </div>
               </div>
             </div>
@@ -168,7 +183,7 @@ export default function HowToDonate() {
                 initial={{ opacity: 0, x: 50 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5 }}
-                className="bg-gradient-to-br from-blue-100/80 to-indigo-100/80 rounded-2xl p-6 border border-blue-300 border-opacity-60 backdrop-blur-sm shadow-lg"
+                className="bg-linear-to-br from-blue-100/80 to-indigo-100/80 rounded-2xl p-6 border border-blue-300 border-opacity-60 backdrop-blur-sm shadow-lg"
               >
                 <h4 className="font-bold text-blue-700 flex items-center gap-2">
                   <FaUniversity />
@@ -206,14 +221,6 @@ export default function HowToDonate() {
                     <span className="text-gray-800">{bankDetails.branch}</span>
                   </div>
                 </div>
-
-                <motion.button
-                  className="w-full mt-4 bg-primary text-white font-semibold py-2 rounded-lg hover:shadow-lg hover:shadow-primary/30 transition-all duration-300 outline-none cursor-pointer"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  Copy All Bank Details
-                </motion.button>
               </motion.div>
             )}
 
@@ -222,7 +229,7 @@ export default function HowToDonate() {
                 initial={{ opacity: 0, x: 50 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5 }}
-                className="bg-gradient-to-br from-cyan-100/80 to-blue-100/80 rounded-2xl p-6 border border-cyan-300 border-opacity-60 backdrop-blur-sm shadow-lg"
+                className="bg-linear-to-br from-cyan-100/80 to-blue-100/80 rounded-2xl p-6 border border-cyan-300 border-opacity-60 backdrop-blur-sm shadow-lg"
               >
                 <h4 className="font-bold text-cyan-700 mb-4 flex items-center gap-2">
                   <FaGlobe />
@@ -250,7 +257,7 @@ export default function HowToDonate() {
 
                 <div className="mt-4 p-3 bg-yellow-100 rounded-lg border border-yellow-400 border-opacity-50">
                   <p className="text-yellow-700 text-xs flex items-start gap-2">
-                    <FaExclamationTriangle className="mt-0.5 flex-shrink-0" />
+                    <FaExclamationTriangle className="mt-0.5 shrink-0" />
                     International transfers may take 3-5 business days and incur additional fees from your bank.
                   </p>
                 </div>
@@ -262,7 +269,7 @@ export default function HowToDonate() {
                 initial={{ opacity: 0, x: 50 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5 }}
-                className="bg-gradient-to-br from-green-100/80 to-emerald-100/80 rounded-2xl p-6 border border-green-300 border-opacity-60backdrop-blur-sm shadow-lg"
+                className="bg-linear-to-br from-green-100/80 to-emerald-100/80 rounded-2xl p-6 border border-green-300 border-opacity-60backdrop-blur-sm shadow-lg"
               >
                 <h4 className="font-bold text-green-700 mb-4 flex items-center gap-2">
                   <FaCreditCard />
@@ -294,7 +301,7 @@ export default function HowToDonate() {
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="bg-gradient-to-br from-green-100/80 to-emerald-100/80 rounded-2xl p-6 border border-green-300 border-opacity-60 backdrop-blur-sm shadow-lg"
+              className="bg-linear-to-br from-green-100/80 to-emerald-100/80 rounded-2xl p-6 border border-green-300 border-opacity-60 backdrop-blur-sm shadow-lg"
             >
               <h4 className="font-bold text-green-700 mb-4 flex items-center gap-2">
                 <FaLock />

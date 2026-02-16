@@ -149,7 +149,7 @@ export default function DonationsCallToAction() {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
                 className={`rounded-2xl p-6 border backdrop-blur-xl transition-all duration-300 group shadow-lg outline-none ${need.urgent
-                  ? 'bg-gradient-to-br from-red-100/90 to-orange-100/90 border-red-400 border-opacity-60'
+                  ? 'bg-linear-to-br from-red-100/90 to-orange-100/90 border-red-400 border-opacity-60'
                   : 'bg-white/10 border-primary border-opacity-60 hover:border-primary hover:border-opacity-80'
                   }`}
               >

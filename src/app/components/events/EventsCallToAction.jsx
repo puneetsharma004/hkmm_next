@@ -1,14 +1,14 @@
 "use client";
 
+import { toast } from "react-hot-toast";
+import { useState } from "react";
+import Link from "next/link";
+
 import { motion } from 'framer-motion';
 import {
-  FaTheaterMasks,
-  FaCalendarAlt,
   FaMobileAlt,
   FaEdit,
-  FaHandshake,
   FaPray,
-  FaDoorOpen,
   FaEnvelope,
   FaMapMarkerAlt,
   FaPhone,
@@ -22,6 +22,12 @@ import { MdAddCall } from "react-icons/md";
 import { PiHandsPrayingFill } from 'react-icons/pi';
 
 export default function EventsCallToAction() {
+
+  const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [subscribed, setSubscribed] = useState(false);
+
+
   const quickActions = [
     {
       title: 'Join Virtual Darshan',
@@ -49,10 +55,44 @@ export default function EventsCallToAction() {
     }
   ];
 
+  const handleSubmit = async () => {
+    if (!email) {
+      toast.error("Please enter email");
+      return;
+    }
+
+    try {
+      setLoading(true);
+
+      const res = await fetch("/api/newsletter/subscribe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        toast.error(data.error || "Failed");
+        return;
+      }
+      toast.success(data.message);
+      setSubscribed(true);
+      setEmail("");
+    } catch (err) {
+      toast.error(err.message);
+    } finally {
+      setLoading(false);
+      setSubscribed(false)
+    }
+  };
+
+
+
   return (
-    <section className="relative py-20 px-4 overflow-hidden bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50">
+    <section className="relative py-20 px-4 overflow-hidden bg-linear-to-br from-orange-50 via-amber-50 to-yellow-50">
       {/* Light Gradient Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-orange-100/50 via-amber-100/50 to-yellow-100/50"></div>
+      <div className="absolute inset-0 bg-linear-to-br from-orange-100/50 via-amber-100/50 to-yellow-100/50"></div>
 
 
       <div className="relative max-w-6xl mx-auto z-10">
@@ -69,7 +109,7 @@ export default function EventsCallToAction() {
           </h2>
 
           <p className="text-xl md:text-2xl text-gray-700 mb-8 leading-relaxed max-w-4xl mx-auto">
-            Join thousands of devotees in experiencing Krishna's divine love through our darshan, events, and community programs
+            Join thousands of devotees in experiencing Krishna&#39;s divine love through our darshan, events, and community programs
           </p>
 
           <motion.div
@@ -128,7 +168,7 @@ export default function EventsCallToAction() {
               viewport={{ once: true }}
               whileHover={{ y: -10, scale: 1.03 }}
               className={`relative rounded-2xl p-6 border backdrop-blur-xl transition-all duration-300 group shadow-lg ${action.urgent
-                ? 'bg-gradient-to-br from-primary/20 to-primary/20 border-primary border-opacity-80 shadow-primary/30'
+                ? 'bg-linear-to-br from-primary/20 to-primary/20 border-primary border-opacity-80 shadow-primary/30'
                 : 'bg-white/10 border-primary border-opacity-60 hover:border-opacity-80'
                 }`}
             >
@@ -143,7 +183,7 @@ export default function EventsCallToAction() {
                 </motion.div>
               )}
 
-              <div className={`w-16 h-16 bg-gradient-to-r ${action.color} rounded-2xl flex items-center justify-center text-white text-2xl mb-4 mx-auto group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
+              <div className={`w-16 h-16 bg-linear-to-r ${action.color} rounded-2xl flex items-center justify-center text-white text-2xl mb-4 mx-auto group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
                 {action.icon}
               </div>
 
@@ -177,12 +217,16 @@ export default function EventsCallToAction() {
           <div className="max-w-md mx-auto">
             <div className="flex flex-col sm:flex-row gap-3">
               <input
-                type="email"
-                placeholder="Enter your email address"
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="Enter your email address"
                 className="flex-1 px-4 py-3 rounded-lg bg-white border border-primary border-opacity-60 text-gray-800 placeholder-gray-500 focus:outline-none focus:border-primary focus:border-opacity-80 transition-all duration-300"
               />
               <motion.button
-                className="px-6 py-3 bg-primary text-primary border cursor-pointer font-semibold rounded-lg hover:shadow-lg hover:shadow-primary/30 transition-all duration-300 flex items-center gap-2"
+                  onClick={handleSubmit}
+                  disabled={loading || subscribed}
+                className="px-6 py-3 bg-primary text-white border outline-none cursor-pointer font-semibold rounded-lg hover:shadow-lg hover:shadow-primary/30 transition-all duration-300 flex items-center gap-2"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
@@ -191,8 +235,16 @@ export default function EventsCallToAction() {
               </motion.button>
             </div>
             <p className="text-xs text-gray-600 mt-3 text-center">
-              We respect your privacy. Unsubscribe at any time.
+              We respect your privacy.{" "}
+              <Link
+                  href="/unsubscribe-manually"
+                  className="text-primary font-medium hover:underline cursor-pointer"
+              >
+                Unsubscribe
+              </Link>{" "}
+              at any time.
             </p>
+
           </div>
         </motion.div>
 
@@ -252,7 +304,7 @@ export default function EventsCallToAction() {
         >
           <div className="bg-primary/10 rounded-2xl p-8 border border-primary/40 border-opacity-60 shadow-lg max-w-4xl mx-auto">
             <p className="text-gray-700 italic text-lg mb-4">
-              "Wherever you are, whatever you do, remember Krishna and His divine love"
+              &#34;Wherever you are, whatever you do, remember Krishna and His divine love&#34;
             </p>
             <div className="flex items-center justify-center space-x-4">
               <PiHandsPrayingFill className="text-2xl text-primary" />

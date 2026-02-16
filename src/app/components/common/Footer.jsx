@@ -21,6 +21,7 @@ import {
   GiSunset,
   GiDoor
 } from 'react-icons/gi';
+import Link from "next/link";
 
 const footerPages = [
   {link: "/contact", label: ""}
@@ -189,22 +190,24 @@ export default function Footer() {
                 { href: "/gallery", text: "Gallery", icon: FaBlog },
                 { href: "/donations", text: "Donations", icon: FaHandHoldingHeart },
               ].map((link, index) => (
-                <motion.a
-                  key={index}
-                  href={link.href}
-                  className="flex items-center gap-2 py-1 px-2 rounded-md text-gray-700 transition-all hover:bg-primary/50 hover:text-primary"
-                  variants={itemVariants}
-                  whileHover="hover"
-                  linkvariants={linkvariants}
-                >
-                  <motion.span
-                    whileHover={{ rotate: 10, scale: 1.1 }}
-                    className="text-primary"
+                <Link key={index}
+                      href={link.href}>
+                  <motion.div
+
+                      className="flex items-center gap-2 py-1 px-2 rounded-md text-gray-700 transition-all hover:bg-primary/50 hover:text-primary"
+                      variants={itemVariants}
+                      whileHover="hover"
+                      linkvariants={linkvariants}
                   >
-                    <link.icon />
-                  </motion.span>
-                  {link.text}
-                </motion.a>
+                    <motion.span
+                        whileHover={{ rotate: 10, scale: 1.1 }}
+                        className="text-primary"
+                    >
+                      <link.icon />
+                    </motion.span>
+                    {link.text}
+                  </motion.div>
+                </Link>
               ))}
             </motion.div>
           </motion.div>
@@ -322,13 +325,13 @@ export default function Footer() {
             className="text-gray-700 italic text-sm"
             variants={itemVariants}
           >
-            "सर्वधर्मान्परित्यज्य मामेकं शरणं व्रज" - भगवद्गीता
+            &#34;सर्वधर्मान्परित्यज्य मामेकं शरणं व्रज&#34; - भगवद्गीता
           </motion.p>
           <motion.p
             className="text-xs text-gray-600 mt-1"
             variants={itemVariants}
           >
-            "Abandon all varieties of religion and just surrender unto Me" - Bhagavad Gita
+            &#34;Abandon all varieties of religion and just surrender unto Me&#34; - Bhagavad Gita
           </motion.p>
         </motion.div>
       </div>
@@ -349,21 +352,21 @@ export default function Footer() {
 
             {/* Additional Links */}
             <motion.div
-              className="flex justify-center space-x-4 text-xs text-gray-600"
+              className="flex justify-center text-xs text-gray-600"
               variants={containerVariants}
             >
-              {["Contact Us", "Privacy Policy", "Terms of Service", "Sitemap"].map((link, index) => (
-                <React.Fragment key={index}>
-                  <motion.a
-                    href="#"
+              {[{name:"Privacy Policy", to:"/privacy-policy"}, {name:"Terms of Service", to:"/terms-and-condition"}].map((link, index) => (
+                <Link key={index} href={link.to}>
+                  <motion.span
+
                     className="hover:text-primary transition-colors"
                     variants={itemVariants}
                     whileHover={{ y: -1 }}
                   >
-                    {link}
-                  </motion.a>
-                  {index < 3 && <span className="text-primary">•</span>}
-                </React.Fragment>
+                    {link.name}
+                  </motion.span>
+                  {index < 1 && <span className="text-primary mx-2">•</span>}
+                </Link>
               ))}
             </motion.div>
           </motion.div>

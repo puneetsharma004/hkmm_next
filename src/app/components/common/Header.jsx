@@ -6,6 +6,7 @@ import { useRouter, usePathname } from "next/navigation";
 import { FaHandHoldingHeart } from "react-icons/fa";
 import clsx from "clsx";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -26,10 +27,6 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close mobile menu on route change
-  useEffect(() => {
-    setIsMobileMenuOpen(false);
-  }, [pathname]);
 
   const navigationItems = [
     { name: "Home", href: "/" },
@@ -63,7 +60,6 @@ export default function Header() {
       style={{ 
         marginRight: isScrolled ? '1rem' : '0',
         marginLeft: isScrolled ? '1rem' : '0',
-        marginRight: isScrolled ? '1rem' : '0',
         borderRadius: isScrolled ? '1rem' : '0', // Rounded only when scrolled
         boxShadow: isScrolled
           ? '0 8px 20px rgba(0,0,0,0.2)'
@@ -113,29 +109,31 @@ export default function Header() {
             {navigationItems.map((item, index) => {
               const isActive = isActivePage(item.href);
               return (
-                <motion.a
-                  key={item.name}
-                  href={item.href}
-                  // Using clsx
-                  className={clsx(
-                    'px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 outline-none',
-                    {
-                      'shadow-md text-white': isActive,
-                      'hover:shadow-sm': !isActive,
-                      'text-[#003366]': isScrolled,
-                      'text-[#003366]': !isScrolled
-                    }
-                  )}
-                  style={{
-                    backgroundColor: isActive ? '#AF1E2E' : 'transparent',
-                  }}
-                  initial={{ opacity: 0, y: -20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.3, delay: index * 0.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  {item.name}
-                </motion.a>
+                  <Link
+                      key={item.name}
+                      href={item.href}
+                  >
+                    <motion.span
+
+                        // Using clsx
+                        className={clsx(
+                            'px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 outline-none',
+                            {
+                              'shadow-md text-white': isActive,
+                              'hover:shadow-sm': !isActive,
+                            }
+                        )}
+                        style={{
+                          backgroundColor: isActive ? '#AF1E2E' : 'transparent',
+                        }}
+                        initial={{ opacity: 0, y: -20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.3, delay: index * 0.05 }}
+                        whileTap={{ scale: 0.95 }}
+                    >
+                      {item.name}
+                    </motion.span>
+                  </Link>
               );
             })}
           </nav>
@@ -204,33 +202,32 @@ export default function Header() {
             {navigationItems.map((item, index) => {
               const isActive = isActivePage(item.href);
               return (
-                <motion.a
-                  key={item.name}
-                  href={item.href}
-                  className={clsx(`px-4 py-3 rounded-lg text-sm font-medium transition-colors duration-200 outline-none`,
-                    {
-                      'shadow-md text-[#FFFFFF]': isActive,
-                      'hover:shadow-sm': !isActive,
-                      'text-[#003366]': isScrolled,
-                      'text-[#003366]': !isScrolled
-                    })
-                  }
-                  style={{
-                    backgroundColor: isActive ? '#AF1E2E' : 'transparent',
-                  }}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.2, delay: index * 0.05 }}
-                  whileHover={{ 
-                    x: 5,
-                    backgroundColor: isActive ? '#AF1E2E' : (isScrolled ? 'rgba(255, 255, 255, 0.1)' : '#AF1E2E'),
-                  }}
-                  whileTap={{ scale: 0.98 }}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  {item.name}
-                  
-                </motion.a>
+                  <Link key={item.name}
+                        href={item.href}>
+                    <motion.div
+                        className={clsx(`px-4 py-3 rounded-lg text-sm font-medium transition-colors duration-200 outline-none`,
+                            {
+                              'shadow-md text-[#FFFFFF]': isActive,
+                              'hover:shadow-sm': !isActive,
+                            })
+                        }
+                        style={{
+                          backgroundColor: isActive ? '#AF1E2E' : 'transparent',
+                        }}
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.2, delay: index * 0.05 }}
+                        whileHover={{
+                          x: 5,
+                          backgroundColor: isActive ? '#AF1E2E' : (isScrolled ? 'rgba(255, 255, 255, 0.1)' : '#AF1E2E'),
+                        }}
+                        whileTap={{ scale: 0.98 }}
+                        onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      {item.name}
+                    </motion.div>
+                  </Link>
+
               );
             })}
           </nav>

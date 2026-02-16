@@ -13,7 +13,7 @@ import {
 } from 'react-icons/fa';
 import { HiSparkles } from 'react-icons/hi';
 
-export default function EventsPageHeader() {
+export default function EventsHero() {
   return (
     <section className="relative py-20 px-4 overflow-hidden bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50">
       {/* Light Gradient Background */}

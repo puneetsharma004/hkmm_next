@@ -6,7 +6,7 @@ import Announcements from "./components/common/AnnouncementBar";
 import IntroLoader from "./components/common/IntroLoader";
 import WhatsAppButton from "./components/common/Whatsapp";
 import SmoothScrolling from "./components/common/SmoothScrolling";
-
+import { Toaster } from "react-hot-toast";
 
 
 const geistSans = Geist({
@@ -30,7 +30,12 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+
           <SmoothScrolling>
+              <Toaster
+                  position="top-center"
+                  reverseOrder={false}
+              />
             <IntroLoader />
             <Announcements/>
             <Header />

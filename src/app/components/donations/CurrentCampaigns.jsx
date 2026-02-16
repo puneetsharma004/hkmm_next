@@ -20,7 +20,7 @@ import {
   FaTimes
 } from 'react-icons/fa';
 import { GiCow, GiWaterDrop } from 'react-icons/gi';
-import { supabase } from '../../lib/supabase';
+import { supabase } from '@/lib/supabase';
 import Image from 'next/image';
 
 export default function CurrentCampaigns() {

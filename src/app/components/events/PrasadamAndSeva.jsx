@@ -23,7 +23,7 @@ import {
 import { HiSparkles } from 'react-icons/hi';
 import { FaHandHoldingHeart } from "react-icons/fa";
 import { useEffect, useState } from 'react';
-import { supabase } from '../../lib/supabase';
+import { supabase } from '@/lib/supabase';
 
 export default function PrasadamAndSeva() {
   const prasadamSchedule = [
@@ -147,7 +147,7 @@ export default function PrasadamAndSeva() {
             Prasadam Distribution & Seva Opportunities
           </h2>
           <p className="text-gray-700 text-lg max-w-3xl mx-auto">
-            Experience the joy of sharing Krishna's mercy through prasadam and join our community service
+            Experience the joy of sharing Krishna&#39;s mercy through prasadam and join our community service
           </p>
         </motion.div>
 
@@ -227,7 +227,7 @@ export default function PrasadamAndSeva() {
                 className="bg-white/10 rounded-2xl p-6 border border-primary border-opacity-60 backdrop-blur-xl hover:border-primary hover:border-opacity-80 hover:shadow-primary/20 transition-all duration-300 group shadow-xl"
               >
                 <div className="flex items-start space-x-4 mb-4">
-                  <div className={`w-16 h-16 bg-gradient-to-r ${seva.color} rounded-2xl flex items-center justify-center text-white text-2xl shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                  <div className={`w-16 h-16 bg-linear-to-r ${seva.color} rounded-2xl flex items-center justify-center text-white text-2xl shadow-lg group-hover:scale-110 transition-transform duration-300`}>
                     {seva.icon}
                   </div>
                   <div className="flex-1">
@@ -261,7 +261,7 @@ export default function PrasadamAndSeva() {
                 </div>
 
                 <motion.button
-                  className="w-full bg-primary text-primary border font-semibold py-3 rounded-lg hover:shadow-lg hover:shadow-primary/30 transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer"
+                  className="w-full bg-primary text-white border font-semibold py-3 rounded-lg hover:shadow-lg hover:shadow-primary/30 transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >
@@ -325,7 +325,7 @@ export default function PrasadamAndSeva() {
 
                 <motion.button
                   className={`w-full font-semibold py-3 rounded-lg transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer ${tier.popular
-                    ? 'bg-primary text-primary border hover:shadow-lg hover:shadow-primary/30'
+                    ? 'bg-primary text-white border hover:shadow-lg hover:shadow-primary/30'
                     : 'border border-primary text-primary hover:bg-primary hover:text-primary/50'
                     }`}
                   whileHover={{ scale: 1.02 }}

@@ -1,5 +1,5 @@
 import React from 'react'
-import DonationsPageHeader from '../components/donations/DonationPageHeader'
+import DonationsPageHero from '../components/donations/DonationPageHero'
 import WhyDonate from '../components/donations/WhyDonate'
 import SevaOptions from '../components/donations/SevaOptions'
 import CurrentCampaigns from '../components/donations/CurrentCampaigns'
@@ -12,7 +12,7 @@ export default function Donations() {
   return (
     <>
         <div className="bg-black">
-            <DonationsPageHeader />
+            <DonationsPageHero />
             <WhyDonate />
             <SevaOptions />
             <CurrentCampaigns />

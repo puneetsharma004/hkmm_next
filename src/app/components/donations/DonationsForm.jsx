@@ -3,8 +3,6 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import {
-  FaPrayingHands,
-  FaTimes,
   FaCreditCard,
   FaUniversity,
   FaUtensils,
@@ -15,14 +13,11 @@ import {
   FaUniversalAccess,
   FaUser,
   FaRupeeSign,
-  FaCalendarCheck,
-  FaReceipt,
   FaArrowLeft,
   FaArrowRight,
-  FaPray,
   FaHeart,
 } from 'react-icons/fa';
-import { HiSparkles } from 'react-icons/hi';
+import Image from "next/image";
 
 export default function DonationForm() {
   const [formData, setFormData] = useState({
@@ -166,8 +161,8 @@ export default function DonationForm() {
     if (step === 1 && validateStep1()) {
       setStep(2);
     } else if (step === 2 && validateStep2()) {
-      // ✅ SHOW CONFIRMATION MODAL INSTEAD OF DIRECT REDIRECT
-      setShowConfirmModal(true);
+      // Directly move to payment step
+      setStep(3);
     }
   };
 
@@ -286,463 +281,502 @@ export default function DonationForm() {
   };
 
   return (
-    <section id="donation-form" className="relative py-16 px-4 overflow-hidden bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50">
-      {/* Background elements remain the same */}
-      <div className="absolute inset-0 bg-gradient-to-br from-orange-100/50 via-amber-100/50 to-yellow-100/50 "></div>
+      <>
+        <section className="relative py-16 px-4 overflow-hidden bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50">
+          {/* background */}
+          <div className="absolute inset-0 bg-gradient-to-br from-orange-100/50 via-amber-100/50 to-yellow-100/50" />
 
+          <div className="relative max-w-4xl mx-auto z-10 text-center">
 
-      <div className="relative max-w-4xl mx-auto z-10">
-        {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-3xl md:text-4xl font-bold gradient-text mb-4">
-            Make Your Donation
-          </h2>
-          <p className="text-gray-700 text-lg">
-            Complete this simple form to contribute to our spiritual mission
-          </p>
-        </motion.div>
+            {/* Heading */}
+            <h2 className="text-3xl md:text-4xl font-bold gradient-text mb-3">
+              Quick Donate via QR
+            </h2>
 
-        {/* Progress Indicator */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="mb-8"
-        >
-          <div className="flex items-center justify-center space-x-4">
-            {[1, 2, 3].map((stepNumber) => (
-              <div key={stepNumber} className="flex items-center">
-                <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold transition-all duration-300 shadow-lg ${step >= stepNumber
-                  ? 'bg-primary text-white'
-                  : 'bg-gray-300 text-gray-600'
-                  }`}>
-                  {stepNumber}
-                </div>
-                {stepNumber < 3 && (
-                  <div className={`w-16 h-1 mx-2 transition-all duration-300 ${step > stepNumber ? 'bg-primary' : 'bg-gray-300'
-                    }`} />
-                )}
-              </div>
-            ))}
-          </div>
-          <div className="flex justify-center mt-2 space-x-16 text-sm text-gray-600">
-            <span className={step >= 1 ? 'text-primary font-medium' : ''}>Details</span>
-            <span className={step >= 2 ? 'text-primary font-medium' : ''}>Amount</span>
-            <span className={step >= 3 ? 'text-primary font-medium' : ''}>Payment</span>
-          </div>
-        </motion.div>
+            <p className="text-gray-700 mb-10">
+              Scan & contribute instantly to support our spiritual mission
+            </p>
 
-        {/* Donation Form */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          viewport={{ once: true }}
-          className="bg-white/10 rounded-2xl p-8 border border-primary border-opacity-60 backdrop-blur-xl shadow-2xl"
-        >
-          <form onSubmit={handleSubmit}>
-            {/* Step 1: Personal Details */}
-            {step === 1 && (
-              <motion.div
-                initial={{ opacity: 0, x: 50 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5 }}
-                className="space-y-6"
-              >
-                <h3 className="text-xl font-bold text-gray-800 mb-6 flex items-center gap-2">
-                  <FaUser />
-                  Personal Information
-                </h3>
+            {/* QR Card */}
+            <div className="max-w-sm mx-auto bg-white/80 backdrop-blur rounded-2xl shadow-xl border border-primary/30 p-6">
 
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Full Name *
-                    </label>
-                    <input
-                      type="text"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleInputChange}
-                      className={`w-full px-4 py-3 bg-white border rounded-lg text-gray-800 placeholder-gray-500 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all duration-300 ${errors.name ? 'border-red-500' : 'border-gray-300'
-                        }`}
-                      placeholder="Enter your full name"
-                    />
-                    {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
-                  </div>
+              <h3 className="font-semibold text-primary mb-4">
+                Scan & Pay Instantly
+              </h3>
 
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Email Address *
-                    </label>
-                    <input
-                      type="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      className={`w-full px-4 py-3 bg-white border rounded-lg text-gray-800 placeholder-gray-500 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all duration-300 ${errors.email ? 'border-red-500' : 'border-gray-300'
-                        }`}
-                      placeholder="your.email@example.com"
-                    />
-                    {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
-                  </div>
-                </div>
+              <Image
+                  src="/bank-qr.jpg"
+                  alt="Temple UPI QR"
+                  width={220}
+                  height={220}
+                  className="mx-auto object-contain mb-4"
+              />
 
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Phone Number *
-                    </label>
-                    <div className="flex">
-                      {/* Fixed country code display */}
-                      <div className="inline-flex items-center px-3 py-3 bg-gray-100 border border-r-0 border-gray-300 rounded-l-lg text-gray-700 font-medium">
-                        +91
-                      </div>
-                      {/* 10-digit phone input */}
-                      <input
-                        type="tel"
-                        name="phone"
-                        value={formData.phone}
-                        onChange={(e) => {
-                          // Only allow numbers, max 10 digits
-                          const value = e.target.value.replace(/[^0-9]/g, '').slice(0, 10);
-                          setFormData(prev => ({ ...prev, phone: value }));
-                          // Clear error when user starts typing
-                          if (errors.phone) {
-                            setErrors(prev => ({ ...prev, phone: '' }));
-                          }
-                        }}
-                        className={`flex-1 px-4 py-3 bg-white border border-l-0 rounded-r-lg text-gray-800 placeholder-gray-500 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all duration-300 ${errors.phone ? 'border-red-500' : 'border-gray-300'
-                          }`}
-                        placeholder="91161 39371
-"
-                        maxLength="10"
-                      />
-                    </div>
-                    {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone}</p>}
-                  </div>
+              {/* UPI ID */}
+              <div className="bg-gray-100 rounded-lg px-3 py-2 flex items-center justify-between text-sm">
+        <span className="font-mono text-gray-700">
+          temple@upi
+        </span>
 
-
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      City *
-                    </label>
-                    <input
-                      type="text"
-                      name="city"
-                      value={formData.city}
-                      onChange={handleInputChange}
-                      className={`w-full px-4 py-3 bg-white border rounded-lg text-gray-800 placeholder-gray-500 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all duration-300 ${errors.city ? 'border-red-500' : 'border-gray-300'
-                        }`}
-                      placeholder="Enter your city"
-                    />
-                    {errors.city && <p className="text-red-500 text-sm mt-1">{errors.city}</p>}
-                  </div>
-                </div>
-
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      State *
-                    </label>
-                    <input
-                      type="text"
-                      name="state"
-                      value={formData.state}
-                      onChange={handleInputChange}
-                      className={`w-full px-4 py-3 bg-white border rounded-lg text-gray-800 placeholder-gray-500 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all duration-300 ${errors.state ? 'border-red-500' : 'border-gray-300'
-                        }`}
-                      placeholder="Enter your state"
-                    />
-                    {errors.state && <p className="text-red-500 text-sm mt-1">{errors.state}</p>}
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Pincode *
-                    </label>
-                    <input
-                      type="text"
-                      name="pincode"
-                      value={formData.pincode}
-                      onChange={handleInputChange}
-                      className={`w-full px-4 py-3 bg-white border rounded-lg text-gray-800 placeholder-gray-500 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all duration-300 ${errors.pincode ? 'border-red-500' : 'border-gray-300'
-                        }`}
-                      placeholder="123456"
-                      maxLength="6"
-                    />
-                    {errors.pincode && <p className="text-red-500 text-sm mt-1">{errors.pincode}</p>}
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Address *
-                  </label>
-                  <textarea
-                    name="address"
-                    value={formData.address}
-                    onChange={handleInputChange}
-                    rows="3"
-                    className={`w-full px-4 py-3 bg-white border rounded-lg text-gray-800 placeholder-gray-500 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all duration-300 ${errors.address ? 'border-red-500' : 'border-gray-300'
-                      }`}
-                    placeholder="Enter your complete address"
-                  />
-                  {errors.address && <p className="text-red-500 text-sm mt-1">{errors.address}</p>}
-                </div>
-
-                <div className="flex items-center space-x-4">
-                  <label className="flex items-center">
-                    <input
-                      type="checkbox"
-                      name="anonymous"
-                      checked={formData.anonymous}
-                      onChange={handleInputChange}
-                      className="mr-2 text-primary focus:ring-primary rounded"
-                    />
-                    <span className="text-gray-700">Make this an anonymous donation</span>
-                  </label>
-                </div>
-              </motion.div>
-            )}
-
-            {/* Step 2: Amount and Purpose */}
-            {step === 2 && (
-              <motion.div
-                initial={{ opacity: 0, x: 50 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5 }}
-                className="space-y-6"
-              >
-                <h3 className="text-xl font-bold text-gray-800 mb-6 flex items-center gap-2">
-                  <FaRupeeSign />
-                  Donation Details
-                </h3>
-
-                {/* Suggested Amounts */}
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-4">
-                    Select Amount *
-                  </label>
-                  <div className="grid grid-cols-3 md:grid-cols-6 gap-3 mb-4">
-                    {suggestedAmounts.map((amount) => (
-                      <motion.button
-                        key={amount}
-                        type="button"
-                        onClick={() => setFormData(prev => ({ ...prev, amount: amount.toString(), customAmount: '' }))}
-                        className={`py-3 px-4 rounded-lg font-semibold transition-all duration-300 shadow-lg cursor-pointer outline-none ${formData.amount === amount.toString()
-                          ? 'bg-primary text-white'
-                          : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-                          }`}
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                      >
-                        ₹{amount.toLocaleString()}
-                      </motion.button>
-                    ))}
-                  </div>
-
-                  {/* Custom Amount */}
-                  <input
-                    type="number"
-                    name="customAmount"
-                    value={formData.customAmount}
-                    onChange={(e) => {
-                      handleInputChange(e);
-                      if (e.target.value) {
-                        setFormData(prev => ({ ...prev, amount: '' }));
-                      }
-                    }}
-                    className={`w-full px-4 py-3 bg-white border rounded-lg text-gray-800 placeholder-gray-500 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all duration-300 ${errors.amount ? 'border-red-500' : 'border-gray-300'
-                      }`}
-                    placeholder="Or enter custom amount (₹)"
-                    min="10"
-                  />
-                  {errors.amount && <p className="text-red-500 text-sm mt-1">{errors.amount}</p>}
-                </div>
-
-                {/* Purpose Selection */}
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-4">
-                    Donation Purpose *
-                  </label>
-                  <div className="grid md:grid-cols-2 gap-3">
-                    {donationPurposes.map((purpose) => (
-                      <motion.label
-                        key={purpose.id}
-                        className={`flex items-center p-4 rounded-lg cursor-pointer transition-all duration-300 shadow-lg ${formData.purpose === purpose.id
-                          ? 'bg-primary border-2 border-primary text-white'
-                          : 'bg-gray-100 border border-gray-300 hover:border-gray-400'
-                          }`}
-                        whileHover={{ scale: 1.02 }}
-                      >
-                        <input
-                          type="radio"
-                          name="purpose"
-                          value={purpose.id}
-                          checked={formData.purpose === purpose.id}
-                          onChange={handleInputChange}
-                          className="sr-only"
-                        />
-                        <span className="text-2xl mr-3">{purpose.icon}</span>
-                        <span className="font-medium">{purpose.name}</span>
-                      </motion.label>
-                    ))}
-                  </div>
-                  {errors.purpose && <p className="text-red-500 text-sm mt-1">{errors.purpose}</p>}
-                </div>
-              </motion.div>
-            )}
-
-            {/* Step 3: Payment Confirmation */}
-            {step === 3 && (
-              <motion.div
-                initial={{ opacity: 0, x: 50 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5 }}
-                className="space-y-6"
-              >
-                <h3 className="text-xl font-bold text-gray-800 mb-6 flex items-center gap-2">
-                  <FaCreditCard />
-                  Payment Confirmation
-                </h3>
-
-                {/* Payment Options */}
-                <div className="grid md:grid-cols-3 gap-4">
-                  {[
-                    { id: 'online', name: 'Online Payment', icon: <FaCreditCard />, desc: 'Cards, UPI, Net Banking' },
-                    { id: 'bank', name: 'Bank Transfer', icon: <FaUniversalAccess />, desc: 'NEFT, RTGS, IMPS' },
-                    { id: 'international', name: 'International', icon: <FaGlobe />, desc: 'PayPal, Wire Transfer' }
-                  ].map((method) => (
-                    <motion.label
-                      key={method.id}
-                      className={`p-6 rounded-lg cursor-pointer transition-all duration-300 shadow-lg ${formData.paymentMethod === method.id
-                        ? 'bg-gradient-to-r from-primary/20 to-primary/20 border-2 border-primary'
-                        : 'bg-gray-100 border border-gray-300 hover:border-gray-400'
-                        }`}
-                      whileHover={{ scale: 1.02 }}
-                    >
-                      <input
-                        type="radio"
-                        name="paymentMethod"
-                        value={method.id}
-                        checked={formData.paymentMethod === method.id}
-                        onChange={handleInputChange}
-                        className="sr-only"
-                      />
-                      <div className="text-center">
-                        <div className="text-3xl mb-2 text-primary">{method.icon}</div>
-                        <div className="font-semibold text-gray-800 mb-1">{method.name}</div>
-                        <div className="text-sm text-gray-600">{method.desc}</div>
-                      </div>
-                    </motion.label>
-                  ))}
-                </div>
-
-                {/* Receipt Option */}
-                <div className="flex items-center space-x-4">
-                  <label className="flex items-center">
-                    <input
-                      type="checkbox"
-                      name="receipt"
-                      checked={formData.receipt}
-                      onChange={handleInputChange}
-                      className="mr-2 text-primary focus:ring-primary rounded"
-                    />
-                    <span className="text-gray-700 flex items-center gap-2">
-                      <FaReceipt />
-                      Email me the donation receipt (for tax benefits)
-                    </span>
-                  </label>
-                </div>
-
-                {/* Summary */}
-                <div className="bg-primary/10 rounded-lg p-6 border border-primary/40 border-opacity-60 shadow-lg">
-                  <h4 className="font-bold text-gray-800 mb-4 flex items-center gap-2">
-                    <FaHeart />
-                    Donation Summary
-                  </h4>
-                  <div className="space-y-2 text-sm">
-                    <div className="flex justify-between">
-                      <span className="text-gray-600">Name:</span>
-                      <span className="text-gray-800 font-medium">{formData.anonymous ? 'Anonymous' : formData.name}</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-gray-600">Amount:</span>
-                      <span className="text-gray-800 font-bold">₹{(formData.customAmount || formData.amount || '0').toLocaleString()}</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-gray-600">Purpose:</span>
-                      <span className="text-gray-800">{donationPurposes.find(p => p.id === formData.purpose)?.name || 'Not selected'}</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-gray-600">Recurring:</span>
-                      <span className="text-gray-800">{formData.recurring ? 'Monthly' : 'One-time'}</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-gray-600">Payment Method:</span>
-                      <span className="text-gray-800 capitalize">{formData.paymentMethod}</span>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            )}
-
-            {/* Navigation Buttons */}
-            <div className="flex justify-between mt-8">
-              {step > 1 && (
-                <motion.button
-                  type="button"
-                  onClick={handlePrevious}
-                  className="px-6 py-3 border border-gray-300 text-gray-700 rounded-lg hover:border-gray-400 hover:text-gray-800 transition-all duration-300 flex items-center gap-2 shadow-lg outline-none"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
+                <button
+                    onClick={() => copyToClipboard("temple@upi")}
+                    className="text-primary font-medium"
                 >
-                  <FaArrowLeft />
-                  Previous
-                </motion.button>
-              )}
-
-              <div className="ml-auto">
-                {step < 3 ? (
-                  <motion.button
-                    type="button"
-                    onClick={handleNext}
-                    disabled={step === 1 ? !isStep1Valid() : !isStep2Valid()}
-                    className={`px-8 py-3 font-bold rounded-lg transition-all duration-300 flex items-center gap-2 outline-none ${(step === 1 ? isStep1Valid() : isStep2Valid())
-                      ? 'bg-primary bg-green-700 text-white hover:shadow-lg hover:shadow-primary/30 cursor-pointer'
-                      : 'bg-gray-700 text-gray-500 cursor-not-allowed '
-                      }`}
-                    whileHover={(step === 1 ? isStep1Valid() : isStep2Valid()) ? { scale: 1.02 } : {}}
-                    whileTap={(step === 1 ? isStep1Valid() : isStep2Valid()) ? { scale: 0.98 } : {}}
-                  >
-                    Continue
-                    <FaArrowRight />
-                  </motion.button>
-                ) : (
-                  <motion.button
-                    type="submit"
-                    className="px-8 py-3 bg-gradient-to-r from-green-500 to-emerald-600 text-white font-bold rounded-lg hover:shadow-lg hover:shadow-green-500/30 transition-all duration-300 flex items-center gap-2 outline-none"
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                  >
-                    <FaPray />
-                    Proceed to Payment Gateway
-                  </motion.button>
-                )}
+                  Copy
+                </button>
               </div>
-            </div>
-          </form>
-        </motion.div>
 
-      </div>
-    </section>
+              <p className="text-xs text-gray-500 mt-3">
+                Works with any UPI app
+              </p>
+            </div>
+
+            {/* Divider */}
+            <div className="mt-10 text-gray-600">
+              Prefer card or net banking?
+              <span className="block font-medium text-primary mt-1">
+        Fill the form below
+      </span>
+            </div>
+
+          </div>
+        </section>
+
+        <section id="donation-form" className="relative py-16 px-4 overflow-hidden bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50">
+          {/* Background elements remain the same */}
+          <div className="absolute inset-0 bg-gradient-to-br from-orange-100/50 via-amber-100/50 to-yellow-100/50 "></div>
+
+
+          <div className="relative max-w-4xl mx-auto z-10">
+            {/* Section Header */}
+            <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+                viewport={{ once: true }}
+                className="text-center mb-16"
+            >
+              <h2 className="text-3xl md:text-4xl font-bold gradient-text mb-4">
+                Make Your Donation
+              </h2>
+              <p className="text-gray-700 text-lg">
+                Complete this simple form to contribute to our spiritual mission
+              </p>
+            </motion.div>
+
+            {/* Progress Indicator */}
+            <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                viewport={{ once: true }}
+                className="mb-8"
+            >
+              <div className="flex items-center justify-center space-x-4">
+                {[1, 2, 3].map((stepNumber) => (
+                    <div key={stepNumber} className="flex items-center">
+                      <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold transition-all duration-300 shadow-lg ${step >= stepNumber
+                          ? 'bg-primary text-white'
+                          : 'bg-gray-300 text-gray-600'
+                      }`}>
+                        {stepNumber}
+                      </div>
+                      {stepNumber < 3 && (
+                          <div className={`w-16 h-1 mx-2 transition-all duration-300 ${step > stepNumber ? 'bg-primary' : 'bg-gray-300'
+                          }`} />
+                      )}
+                    </div>
+                ))}
+              </div>
+              <div className="flex justify-center mt-2 space-x-16 text-sm text-gray-600">
+                <span className={step >= 1 ? 'text-primary font-medium' : ''}>Details</span>
+                <span className={step >= 2 ? 'text-primary font-medium' : ''}>Amount</span>
+                <span className={step >= 3 ? 'text-primary font-medium' : ''}>Payment</span>
+              </div>
+            </motion.div>
+
+            {/* Donation Form */}
+            <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                viewport={{ once: true }}
+                className="bg-white/10 rounded-2xl p-8 border border-primary border-opacity-60 backdrop-blur-xl shadow-2xl"
+            >
+              <form onSubmit={handleSubmit}>
+                {/* Step 1: Personal Details */}
+                {step === 1 && (
+                    <motion.div
+                        initial={{ opacity: 0, x: 50 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.5 }}
+                        className="space-y-6"
+                    >
+                      <h3 className="text-xl font-bold text-gray-800 mb-6 flex items-center gap-2">
+                        <FaUser />
+                        Personal Information
+                      </h3>
+
+                      <div className="grid md:grid-cols-2 gap-6">
+                        <div>
+                          <label className="block text-sm font-medium text-gray-700 mb-2">
+                            Full Name *
+                          </label>
+                          <input
+                              type="text"
+                              name="name"
+                              value={formData.name}
+                              onChange={handleInputChange}
+                              className={`w-full px-4 py-3 bg-white border rounded-lg text-gray-800 placeholder-gray-500 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all duration-300 ${errors.name ? 'border-red-500' : 'border-gray-300'
+                              }`}
+                              placeholder="Enter your full name"
+                          />
+                          {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
+                        </div>
+
+                        <div>
+                          <label className="block text-sm font-medium text-gray-700 mb-2">
+                            Email Address *
+                          </label>
+                          <input
+                              type="email"
+                              name="email"
+                              value={formData.email}
+                              onChange={handleInputChange}
+                              className={`w-full px-4 py-3 bg-white border rounded-lg text-gray-800 placeholder-gray-500 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all duration-300 ${errors.email ? 'border-red-500' : 'border-gray-300'
+                              }`}
+                              placeholder="your.email@example.com"
+                          />
+                          {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
+                        </div>
+                      </div>
+
+                      <div className="grid md:grid-cols-2 gap-6">
+                        <div>
+                          <label className="block text-sm font-medium text-gray-700 mb-2">
+                            Phone Number *
+                          </label>
+                          <div className="flex">
+                            {/* Fixed country code display */}
+                            <div className="inline-flex items-center px-3 py-3 bg-gray-100 border border-r-0 border-gray-300 rounded-l-lg text-gray-700 font-medium">
+                              +91
+                            </div>
+                            {/* 10-digit phone input */}
+                            <input
+                                type="tel"
+                                name="phone"
+                                value={formData.phone}
+                                onChange={(e) => {
+                                  // Only allow numbers, max 10 digits
+                                  const value = e.target.value.replace(/[^0-9]/g, '').slice(0, 10);
+                                  setFormData(prev => ({ ...prev, phone: value }));
+                                  // Clear error when user starts typing
+                                  if (errors.phone) {
+                                    setErrors(prev => ({ ...prev, phone: '' }));
+                                  }
+                                }}
+                                className={`flex-1 px-4 py-3 bg-white border border-l-0 rounded-r-lg text-gray-800 placeholder-gray-500 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all duration-300 ${errors.phone ? 'border-red-500' : 'border-gray-300'
+                                }`}
+                                placeholder="91161 39371
+"
+                                maxLength="10"
+                            />
+                          </div>
+                          {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone}</p>}
+                        </div>
+
+
+                        <div>
+                          <label className="block text-sm font-medium text-gray-700 mb-2">
+                            City *
+                          </label>
+                          <input
+                              type="text"
+                              name="city"
+                              value={formData.city}
+                              onChange={handleInputChange}
+                              className={`w-full px-4 py-3 bg-white border rounded-lg text-gray-800 placeholder-gray-500 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all duration-300 ${errors.city ? 'border-red-500' : 'border-gray-300'
+                              }`}
+                              placeholder="Enter your city"
+                          />
+                          {errors.city && <p className="text-red-500 text-sm mt-1">{errors.city}</p>}
+                        </div>
+                      </div>
+
+                      <div className="grid md:grid-cols-2 gap-6">
+                        <div>
+                          <label className="block text-sm font-medium text-gray-700 mb-2">
+                            State *
+                          </label>
+                          <input
+                              type="text"
+                              name="state"
+                              value={formData.state}
+                              onChange={handleInputChange}
+                              className={`w-full px-4 py-3 bg-white border rounded-lg text-gray-800 placeholder-gray-500 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all duration-300 ${errors.state ? 'border-red-500' : 'border-gray-300'
+                              }`}
+                              placeholder="Enter your state"
+                          />
+                          {errors.state && <p className="text-red-500 text-sm mt-1">{errors.state}</p>}
+                        </div>
+
+                        <div>
+                          <label className="block text-sm font-medium text-gray-700 mb-2">
+                            Pincode *
+                          </label>
+                          <input
+                              type="text"
+                              name="pincode"
+                              value={formData.pincode}
+                              onChange={handleInputChange}
+                              className={`w-full px-4 py-3 bg-white border rounded-lg text-gray-800 placeholder-gray-500 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all duration-300 ${errors.pincode ? 'border-red-500' : 'border-gray-300'
+                              }`}
+                              placeholder="123456"
+                              maxLength="6"
+                          />
+                          {errors.pincode && <p className="text-red-500 text-sm mt-1">{errors.pincode}</p>}
+                        </div>
+                      </div>
+
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                          Address *
+                        </label>
+                        <textarea
+                            name="address"
+                            value={formData.address}
+                            onChange={handleInputChange}
+                            rows="3"
+                            className={`w-full px-4 py-3 bg-white border rounded-lg text-gray-800 placeholder-gray-500 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all duration-300 ${errors.address ? 'border-red-500' : 'border-gray-300'
+                            }`}
+                            placeholder="Enter your complete address"
+                        />
+                        {errors.address && <p className="text-red-500 text-sm mt-1">{errors.address}</p>}
+                      </div>
+
+                      <div className="flex items-center space-x-4">
+                        <label className="flex items-center">
+                          <input
+                              type="checkbox"
+                              name="anonymous"
+                              checked={formData.anonymous}
+                              onChange={handleInputChange}
+                              className="mr-2 text-primary focus:ring-primary rounded"
+                          />
+                          <span className="text-gray-700">Make this an anonymous donation</span>
+                        </label>
+                      </div>
+                    </motion.div>
+                )}
+
+                {/* Step 2: Amount and Purpose */}
+                {step === 2 && (
+                    <motion.div
+                        initial={{ opacity: 0, x: 50 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.5 }}
+                        className="space-y-6"
+                    >
+                      <h3 className="text-xl font-bold text-gray-800 mb-6 flex items-center gap-2">
+                        <FaRupeeSign />
+                        Donation Details
+                      </h3>
+
+                      {/* Suggested Amounts */}
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-4">
+                          Select Amount *
+                        </label>
+                        <div className="grid grid-cols-3 md:grid-cols-6 gap-3 mb-4">
+                          {suggestedAmounts.map((amount) => (
+                              <motion.button
+                                  key={amount}
+                                  type="button"
+                                  onClick={() => setFormData(prev => ({ ...prev, amount: amount.toString(), customAmount: '' }))}
+                                  className={`py-3 px-4 rounded-lg font-semibold transition-all duration-300 shadow-lg cursor-pointer outline-none ${formData.amount === amount.toString()
+                                      ? 'bg-primary text-white'
+                                      : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+                                  }`}
+                                  whileHover={{ scale: 1.05 }}
+                                  whileTap={{ scale: 0.95 }}
+                              >
+                                ₹{amount.toLocaleString()}
+                              </motion.button>
+                          ))}
+                        </div>
+
+                        {/* Custom Amount */}
+                        <input
+                            type="number"
+                            name="customAmount"
+                            value={formData.customAmount}
+                            onChange={(e) => {
+                              handleInputChange(e);
+                              if (e.target.value) {
+                                setFormData(prev => ({ ...prev, amount: '' }));
+                              }
+                            }}
+                            className={`w-full px-4 py-3 bg-white border rounded-lg text-gray-800 placeholder-gray-500 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all duration-300 ${errors.amount ? 'border-red-500' : 'border-gray-300'
+                            }`}
+                            placeholder="Or enter custom amount (₹)"
+                            min="10"
+                        />
+                        {errors.amount && <p className="text-red-500 text-sm mt-1">{errors.amount}</p>}
+                      </div>
+
+                      {/* Purpose Selection */}
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-4">
+                          Donation Purpose *
+                        </label>
+                        <div className="grid md:grid-cols-2 gap-3">
+                          {donationPurposes.map((purpose) => (
+                              <motion.label
+                                  key={purpose.id}
+                                  className={`flex items-center p-4 rounded-lg cursor-pointer transition-all duration-300 shadow-lg ${formData.purpose === purpose.id
+                                      ? 'bg-primary border-2 border-primary text-white'
+                                      : 'bg-gray-100 border border-gray-300 hover:border-gray-400'
+                                  }`}
+                                  whileHover={{ scale: 1.02 }}
+                              >
+                                <input
+                                    type="radio"
+                                    name="purpose"
+                                    value={purpose.id}
+                                    checked={formData.purpose === purpose.id}
+                                    onChange={handleInputChange}
+                                    className="sr-only"
+                                />
+                                <span className="text-2xl mr-3">{purpose.icon}</span>
+                                <span className="font-medium">{purpose.name}</span>
+                              </motion.label>
+                          ))}
+                        </div>
+                        {errors.purpose && <p className="text-red-500 text-sm mt-1">{errors.purpose}</p>}
+                      </div>
+                    </motion.div>
+                )}
+
+                {/* Step 3: Payment Confirmation */}
+                {step === 3 && (
+                    <motion.div
+                        initial={{ opacity: 0, x: 50 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.5 }}
+                        className="space-y-6"
+                    >
+                      <h3 className="text-xl font-bold text-gray-800 mb-6 flex items-center gap-2">
+                        <FaCreditCard />
+                        Payment Confirmation
+                      </h3>
+
+                      {/* Payment Options */}
+                      <div className="grid md:grid-cols-3 gap-4">
+                        {[
+                          { id: 'online', name: 'Online Payment', icon: <FaCreditCard />, desc: 'Cards, UPI, Net Banking' },
+                          { id: 'bank', name: 'Bank Transfer', icon: <FaUniversalAccess />, desc: 'NEFT, RTGS, IMPS' },
+                          { id: 'international', name: 'International', icon: <FaGlobe />, desc: 'PayPal, Wire Transfer' }
+                        ].map((method) => (
+                            <motion.label
+                                key={method.id}
+                                className='p-6 rounded-lg transition-all duration-300 shadow-lg bg-linear-to-r from-primary/20 to-primary/20 border-2 border-primary'
+                            >
+                              <input
+                                  type="radio"
+                                  name="paymentMethod"
+                                  value={method.id}
+                                  className="sr-only"
+                              />
+                              <div className="text-center">
+                                <div className="text-3xl mb-2 text-center text-primary">{method.icon}</div>
+                                <div className="font-semibold text-gray-800 mb-1">{method.name}</div>
+                                <div className="text-sm text-gray-600">{method.desc}</div>
+                              </div>
+                            </motion.label>
+                        ))}
+                      </div>
+
+                      {/* Summary */}
+                      <div className="bg-primary/10 rounded-lg p-6 border border-primary/40 border-opacity-60 shadow-lg">
+                        <h4 className="font-bold text-gray-800 mb-4 flex items-center gap-2">
+                          <FaHeart />
+                          Donation Summary
+                        </h4>
+                        <div className="space-y-2 text-sm">
+                          <div className="flex justify-between">
+                            <span className="text-gray-600">Name:</span>
+                            <span className="text-gray-800 font-medium">{formData.anonymous ? 'Anonymous' : formData.name}</span>
+                          </div>
+                          <div className="flex justify-between">
+                            <span className="text-gray-600">Amount:</span>
+                            <span className="text-gray-800 font-bold">₹{(formData.customAmount || formData.amount || '0').toLocaleString()}</span>
+                          </div>
+                          <div className="flex justify-between">
+                            <span className="text-gray-600">Purpose:</span>
+                            <span className="text-gray-800">{donationPurposes.find(p => p.id === formData.purpose)?.name || 'Not selected'}</span>
+                          </div>
+                          <div className="flex justify-between">
+                            <span className="text-gray-600">Recurring:</span>
+                            <span className="text-gray-800">{formData.recurring ? 'Monthly' : 'One-time'}</span>
+                          </div>
+                          <div className="flex justify-between">
+                            <span className="text-gray-600">Payment Method:</span>
+                            <span className="text-gray-800 capitalize">{formData.paymentMethod}</span>
+                          </div>
+                        </div>
+                      </div>
+                    </motion.div>
+                )}
+
+                {/* Navigation Buttons */}
+                <div className="flex justify-between mt-8">
+                  {step > 1 && (
+                      <motion.button
+                          type="button"
+                          onClick={handlePrevious}
+                          className="px-6 py-3 cursor-pointer border border-gray-300 text-gray-700 rounded-lg hover:border-gray-400 hover:text-gray-800 transition-all duration-300 flex items-center gap-2 shadow-lg outline-none"
+                          whileHover={{ scale: 1.02 }}
+                          whileTap={{ scale: 0.98 }}
+                      >
+                        <FaArrowLeft />
+                        Previous
+                      </motion.button>
+                  )}
+
+                  <div className="ml-auto">
+                    {step < 3 ? (
+                        <motion.button
+                            type="button"
+                            onClick={handleNext}
+                            disabled={step === 1 ? !isStep1Valid() : !isStep2Valid()}
+                            className={`px-8 py-3 font-bold rounded-lg transition-all duration-300 flex items-center gap-2 outline-none ${(step === 1 ? isStep1Valid() : isStep2Valid())
+                                ? 'bg-primary bg-green-700 text-white hover:shadow-lg hover:shadow-primary/30 cursor-pointer'
+                                : 'bg-gray-700 text-gray-500 cursor-not-allowed '
+                            }`}
+                            whileHover={(step === 1 ? isStep1Valid() : isStep2Valid()) ? { scale: 1.02 } : {}}
+                            whileTap={(step === 1 ? isStep1Valid() : isStep2Valid()) ? { scale: 0.98 } : {}}
+                        >
+                          Continue
+                          <FaArrowRight />
+                        </motion.button>
+                    ) : (
+                        <motion.button
+                            type="submit"
+                            className="px-8 py-3 cursor-pointer bg-linear-to-r from-green-500 to-emerald-600 text-white font-bold rounded-lg hover:shadow-lg hover:shadow-green-500/30 transition-all duration-300 flex items-center gap-2 outline-none"
+                            whileHover={{ scale: 1.02 }}
+                            whileTap={{ scale: 0.98 }}
+                        >
+                          Proceed to Payment Gateway
+                        </motion.button>
+                    )}
+                  </div>
+                </div>
+              </form>
+            </motion.div>
+
+          </div>
+        </section>
+
+      </>
   );
 }

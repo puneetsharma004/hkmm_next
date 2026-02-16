@@ -2,7 +2,7 @@
 
 
 import React from 'react'
-import GalleryPageHeader from '../components/gallery/GalleryPageHeader'
+import GalleryPageHero from '../components/gallery/GalleryPageHero'
 import PhotoGallery from '../components/gallery/PhotoGallery'
 import VideoGallery from '../components/gallery/VideoGallery'
 import SocialMediaFeed from '../components/gallery/SocialMediaFeed'
@@ -13,7 +13,7 @@ export default function About() {
   return (
     <>
        <div className="bg-black">
-      <GalleryPageHeader />
+      <GalleryPageHero />
       <PhotoGallery />
       <VideoGallery />
       <SocialMediaFeed />

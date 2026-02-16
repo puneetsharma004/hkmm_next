@@ -12,7 +12,7 @@ import {
 } from 'react-icons/fa';
 import { FaShieldHeart } from "react-icons/fa6";
 
-export default function ContactPageHeader() {
+export default function ContactPageHero() {
   return (
     <section className="relative py-20 px-4 overflow-hidden bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50">
       {/* Light Gradient Background */}

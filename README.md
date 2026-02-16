@@ -86,7 +86,7 @@ hkm_frontend_next
       │  ├─ Header.jsx
       │  ├─ HeroSlider.jsx
       │  ├─ Loader.jsx
-      │  ├─ PageHeader.jsx
+      │  ├─ PageHero.jsx
       │  ├─ QuickLinks.jsx
       │  ├─ SmoothScrolling.jsx
       │  ├─ ThankYouPage.jsx

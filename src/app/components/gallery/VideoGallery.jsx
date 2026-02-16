@@ -18,7 +18,7 @@ import {
   FaPlayCircle
 } from 'react-icons/fa';
 import { HiSparkles } from 'react-icons/hi';
-import { supabase } from '../../lib/supabase';
+import { supabase } from '@/lib/supabase';
 
 export default function VideoGallery() {
   const [selectedCategory, setSelectedCategory] = useState('all');

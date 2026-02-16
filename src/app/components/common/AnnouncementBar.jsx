@@ -4,7 +4,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa6';
-import { supabase } from '../../lib/supabase';
+import { supabase } from '@/lib/supabase';
 
 
 

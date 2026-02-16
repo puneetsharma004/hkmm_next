@@ -126,7 +126,7 @@ export default function SpecialPrograms() {
                         {program.name}
                       </h4>
                       {program.registration && (
-                        <span className="bg-primary text-primary text-xs font-bold px-2 py-1 rounded-full flex items-center gap-1 shadow-lg">
+                        <span className="bg-primary text-white text-xs font-bold px-2 py-1 rounded-full flex items-center gap-1 shadow-lg">
                           <FaUserGraduate />
                           REGISTER
                         </span>
@@ -160,7 +160,7 @@ export default function SpecialPrograms() {
                       {program.registration ? (
                         <>
                           <motion.button
-                            className="flex-1 bg-primary text-primary border font-semibold py-2 px-4 rounded-lg text-sm hover:shadow-lg hover:shadow-primary/30 transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer"
+                            className="flex-1 bg-primary text-white border font-semibold py-2 px-4 rounded-lg text-sm hover:shadow-lg hover:shadow-primary/30 transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer"
                             whileHover={{ scale: 1.02 }}
                             whileTap={{ scale: 0.98 }}
                           >

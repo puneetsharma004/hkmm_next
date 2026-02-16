@@ -2,7 +2,7 @@
 
 import { motion, AnimatePresence } from 'framer-motion';
 import { useEffect, useState } from 'react';
-import { supabase } from '../../lib/supabase';
+import { supabase } from '@/lib/supabase';
 import { GiByzantinTemple } from "react-icons/gi";
 import ContributeSection from '../common/ContributeSection';
 import { FaChevronDown, FaChevronUp } from "react-icons/fa6";

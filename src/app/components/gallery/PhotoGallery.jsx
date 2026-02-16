@@ -16,7 +16,7 @@ import {
 } from 'react-icons/fa';
 import { HiSparkles } from 'react-icons/hi';
 import { FaSun } from "react-icons/fa6";
-import { supabase } from '../../lib/supabase';
+import { supabase } from '@/lib/supabase';
 import Image from 'next/image';
 // import { RemoveScroll } from 'react-remove-scroll';
 

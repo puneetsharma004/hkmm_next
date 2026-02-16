@@ -1,5 +1,5 @@
 import React from 'react'
-import ContactPageHeader from '../components/contact/ContactPageHeader'
+import ContactPageHero from '../components/contact/ContactPageHero'
 import ContactInformation from '../components/contact/ContactInformation'
 import ContactForm from '../components/contact/ContactForm'
 import MapAndDirections from '../components/contact/MapAndDirections'
@@ -10,7 +10,7 @@ export default function Contact() {
   return (
     <>
         <div className="bg-black">
-            <ContactPageHeader />
+            <ContactPageHero />
             <ContactInformation />
             <ContactForm />
             <MapAndDirections />

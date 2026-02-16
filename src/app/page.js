@@ -6,6 +6,7 @@ import EventsAndDarshan from "./components/home/EventsAndDarshan";
 import GalleryPreview from "./components/home/GalleryPreview";
 import Testimonials from "./components/home/Testimonials";
 import WelcomeSection from "./components/home/WelcomeSection";
+import PrivacyHero from "./components/privacy-policy/PrivacyHero";
 
 
 async function Home() {
@@ -18,6 +19,7 @@ async function Home() {
       <GalleryPreview />
       <Testimonials />
       <Announcements />
+      <PrivacyHero />
     </>
   );
 }

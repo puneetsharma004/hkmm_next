@@ -1,6 +1,6 @@
 "use client";
 import { motion } from 'framer-motion';
-import { supabase } from '../../lib/supabase';
+import { supabase } from '@/lib/supabase';
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
 
