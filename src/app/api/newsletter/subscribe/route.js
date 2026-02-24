@@ -83,7 +83,7 @@ export async function POST(req) {
     const unsubUrl = `${process.env.NEXT_PUBLIC_APP_URL}/api/newsletter/unsubscribe?token=${unsubToken}`;
 
     await resend.emails.send({
-        from: "Newsletter <newsletter@guptgovardhandham.org",
+        from: "newsletter@guptgovardhandham.org",
         //replace with email parameter
         to: email,
         subject: "Confirm your subscription",
