@@ -44,7 +44,7 @@ export async function POST(req) {
             const verifyUrl = `${process.env.NEXT_PUBLIC_APP_URL}/api/newsletter/verify?token=${verifyToken}`;
 
             await resend.emails.send({
-                from: "delivered@resend.dev",
+                from: "guptgovardhandham.org",
                 to: email,
                 subject: "Confirm subscription again",
                 html: `<a href="${verifyUrl}">Verify</a>`,
@@ -80,8 +80,10 @@ export async function POST(req) {
 
     const verifyUrl = `${process.env.NEXT_PUBLIC_APP_URL}/api/newsletter/verify?token=${verifyToken}`;
 
+    const unsubUrl = `${process.env.NEXT_PUBLIC_APP_URL}/api/newsletter/unsubscribe?token=${unsubToken}`;
+
     await resend.emails.send({
-        from: "delivered@resend.dev",
+        from: "guptgovardhandham.org",
         //replace with email parameter
         to: email,
         subject: "Confirm your subscription",
@@ -89,6 +91,12 @@ export async function POST(req) {
       <h2>Confirm subscription</h2>
       <p>Click below:</p>
       <a href="${verifyUrl}">Verify Email</a>
+
+      <hr />
+      <p style="font-size:12px;color:gray">
+        If you don’t want to receive emails,
+        <a href="${unsubUrl}">unsubscribe here</a>.
+      </p>
     `,
     });
 
