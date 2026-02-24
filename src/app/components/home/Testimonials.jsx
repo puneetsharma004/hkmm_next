@@ -15,7 +15,7 @@ export default function Testimonials() {
     {
       name: 'Ramesh Kumar',
       location: 'Jodhpur, Rajasthan',
-      quote: 'Visiting Hare Krishna Marwar Mandir has completely transformed my life. The serene atmosphere and the teachings of Lord Krishna inspire me every day to live with love, compassion, and devotion.',
+      quote: 'Visiting Gupt Govardhan Dham has completely transformed my life. The serene atmosphere and the teachings of Lord Krishna inspire me every day to live with love, compassion, and devotion.',
       img: '/images/srila-prabhupada-hkm.webp',
       rating: 5,
       role: 'Regular Devotee'
@@ -39,7 +39,7 @@ export default function Testimonials() {
     {
       name: 'Priya Agarwal',
       location: 'Delhi, India',
-      quote: 'Hare Krishna Marwar Mandir is more than a temple; it’s a spiritual home. The youth programs here helped me develop skills while staying grounded in Krishna Consciousness.',
+      quote: 'Gupt Govardhan Dham is more than a temple; it’s a spiritual home. The youth programs here helped me develop skills while staying grounded in Krishna Consciousness.',
       img: '/images/srila-prabhupada-hkm.webp',
       rating: 5,
       role: 'Temple Patron'

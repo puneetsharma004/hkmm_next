@@ -20,7 +20,7 @@ export default function TempleHistory() {
     { year: '2011', event: 'Foundation of Akshaya Patra Kitchen & Hostel laid in Jodhpur at Ratanada', icon: <FaTools /> },
     { year: '2017', event: 'Major expansion and Started Building Chaitanya Kunj (The Spiritual Oasis) in front of IIT Jodhpur, Karwar', icon: <FaUniversity /> },
     { year: '2022', event: 'Sanctioned Land by Jodhpur Development Authority for Cultural Centre & Kitchen', icon: <FaBuilding /> },
-    { year: '2023', event: 'Started Construction of Hare Krishna Marwar Mandir', icon: <FaMobile /> },
+    { year: '2023', event: 'Started Construction of Gupt Govardhan Dham', icon: <FaMobile /> },
   ];
 
   return (
@@ -66,7 +66,7 @@ export default function TempleHistory() {
               <h3 className="text-2xl font-bold text-primary mb-4">Our Sacred Beginning</h3>
               <div className="space-y-4 text-gray-700 leading-relaxed">
                 <p>
-                  Hare Krishna Marwar Mandir is a spiritual initiative inspired by His Divine Grace A.C. Bhaktivedanta Swami Srila Prabhupada, dedicated to spreading Krishna Consciousness and Vedic cultural values in the land of Marwar.
+                  Gupt Govardhan Dham is a spiritual initiative inspired by His Divine Grace A.C. Bhaktivedanta Swami Srila Prabhupada, dedicated to spreading Krishna Consciousness and Vedic cultural values in the land of Marwar.
 
                 </p>
                 <p>

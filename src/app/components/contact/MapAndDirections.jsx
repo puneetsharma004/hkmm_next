@@ -65,7 +65,7 @@ export default function MapAndDirections() {
               <div className="aspect-video bg-gradient-to-br from-orange-100/80 to-amber-100/80 flex items-center justify-center relative">
                 {/* Google Maps embed (responsive iframe) - uses lat/lng coordinates */}
                 <iframe
-                  title="Hare Krishna Marwar Mandir - Map"
+                  title="Gupt Govardhan Dham - Map"
                   src="https://maps.google.com/maps?q=26.2863,73.0392&z=15&output=embed"
                   className="w-full h-full border-0"
                   loading="lazy"
@@ -90,7 +90,7 @@ export default function MapAndDirections() {
               <div className="p-6 bg-gray-100/80">
                 <div className="flex items-center justify-between">
                   <div>
-                    <h3 className="font-bold text-gray-800 text-lg">Hare Krishna Marwar Mandir</h3>
+                    <h3 className="font-bold text-gray-800 text-lg">Gupt Govardhan Dham</h3>
                     <p className="text-gray-600 text-sm">Chopasani, Near Vastra Mantralay, Jodhpur, RJ PIN: 342024</p>
                   </div>
 

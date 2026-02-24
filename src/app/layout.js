@@ -20,8 +20,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Hare Krishna Marwar Mandir Jodhpur",
-  description: "Official Website of Hare Krishna Marwar Mandir Jodhpur",
+  title: "Gupt Govardhan Dham Jodhpur",
+  description: "Official Website of Gupt Govardhan Dham Jodhpur",
 };
 
 export default function RootLayout({ children }) {
@@ -31,18 +31,18 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
 
-          <SmoothScrolling>
-              <Toaster
-                  position="top-center"
-                  reverseOrder={false}
-              />
-            <IntroLoader />
-            <Announcements/>
-            <Header />
-            {children}
-            <WhatsAppButton />
-            <Footer/>
-          </SmoothScrolling>
+        <SmoothScrolling>
+          <Toaster
+            position="top-center"
+            reverseOrder={false}
+          />
+          <IntroLoader />
+          <Announcements />
+          <Header />
+          {children}
+          <WhatsAppButton />
+          <Footer />
+        </SmoothScrolling>
 
       </body>
     </html>

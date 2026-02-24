@@ -44,14 +44,15 @@ export async function POST(req) {
             const verifyUrl = `${process.env.NEXT_PUBLIC_APP_URL}/api/newsletter/verify?token=${verifyToken}`;
 
             await resend.emails.send({
-                from: "Newsletter <newsletter@guptgovardhandham.org",
+                from: "Temple Updates <no-reply@newsletter.guptgovardhandham.org>",
+                //replace with email parameter
                 to: email,
                 subject: "Confirm subscription again",
                 html: `<a href="${verifyUrl}">Verify</a>`,
             });
 
             return Response.json({
-                message: "Welcome back! Please verify again ✨",
+                message: "Welcome back! Please verify again",
             });
         }
     }
@@ -70,9 +71,16 @@ export async function POST(req) {
         })
         .select();
 
-    console.log("INSERT DATA:", data);
-    console.log("INSERT ERROR:", error);
+    const { data: mailData, error: mailError } =
+        await resend.emails.send({
+            from: 'Acme <onboarding@resend.dev>',
+            to: email,
+            subject: "Confirm your subscription",
+            html: `<p>Test</p>`
+        });
 
+    console.log("MAIL DATA:", mailData);
+    console.log("MAIL ERROR:", mailError);
     if (error) {
         return Response.json({ error: error.message }, { status: 500 });
     }
@@ -83,7 +91,7 @@ export async function POST(req) {
     const unsubUrl = `${process.env.NEXT_PUBLIC_APP_URL}/api/newsletter/unsubscribe?token=${unsubToken}`;
 
     await resend.emails.send({
-        from: "newsletter@guptgovardhandham.org",
+        from: "Temple Updates <no-reply@newsletter.guptgovardhandham.org>",
         //replace with email parameter
         to: email,
         subject: "Confirm your subscription",

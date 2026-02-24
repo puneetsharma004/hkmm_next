@@ -40,7 +40,7 @@ export default function WelcomeSection() {
           <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6 leading-tight">
             Welcome to
             <span className="block gradient-text mt-2">
-              Hare Krishna Marwar Mandir
+              Gupt Govardhan Dham
             </span>
           </h2>
         </motion.div>
@@ -60,7 +60,7 @@ export default function WelcomeSection() {
               <div className="w-full lg:w-1/2 lg:max-w-2xl">
                 <div className="aspect-video">
                   <iframe className="w-full h-full rounded-lg shadow-lg" src="https://www.youtube.com/embed/Ul1mUVnE1r4?si=RYqUMiGeB1Jq3GgQ"
-                    title="Hare Krishna Marwar Mandir"
+                    title="Gupt Govardhan Dham"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin"
                     allowFullScreen />
                 </div>
@@ -70,7 +70,7 @@ export default function WelcomeSection() {
                   <iframe
                     className="w-full h-full rounded-lg shadow-lg"
                     src="https://www.youtube.com/embed/Czg2XVn8hTI?si=9Ur35i4c8-JEqOZN"
-                    title="Hare Krishna Marwar Mandir"
+                    title="Gupt Govardhan Dham"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     referrerPolicy="strict-origin-when-cross-origin"
                     allowFullScreen
@@ -90,7 +90,7 @@ export default function WelcomeSection() {
               <div className="text-base md:text-lg leading-relaxed text-gray-700">
                 {/* First paragraph - Always visible */}
                 <p>
-                  In the royal city of Jodhpur, renowned for its rich heritage and timeless architecture, Hare Krishna Marwar Mandir is envisioned as a magnificent spiritual landmark — a sanctuary of devotion, culture, and divine harmony.
+                  In the royal city of Jodhpur, renowned for its rich heritage and timeless architecture, Gupt Govardhan Dham is envisioned as a magnificent spiritual landmark — a sanctuary of devotion, culture, and divine harmony.
                 </p>
 
                 {/* Remaining paragraphs - Expandable on mobile, always visible on desktop */}
@@ -108,7 +108,7 @@ export default function WelcomeSection() {
                           Spread across serene acres of land, this grand temple complex will beautifully blend the artistic essence of Rajasthani and Marwari architecture with refined modern design, symbolizing a perfect union of tradition and innovation.
                         </p>
                         <p className="mt-4">
-                          Dedicated to the glorification of Lord Krishna, the Hare Krishna Marwar Mandir aims to serve as a center for spiritual awakening, cultural celebration, and social upliftment. This monumental project will stand as a radiant testament to the enduring glory of India's spiritual and architectural heritage.
+                          Dedicated to the glorification of Lord Krishna, the Gupt Govardhan Dham aims to serve as a center for spiritual awakening, cultural celebration, and social upliftment. This monumental project will stand as a radiant testament to the enduring glory of India's spiritual and architectural heritage.
                         </p>
                       </motion.div>
                     )}

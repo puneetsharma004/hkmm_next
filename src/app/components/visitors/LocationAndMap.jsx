@@ -113,7 +113,7 @@ export default function LocationAndMap() {
               <div className="p-6">
                 <div className="flex items-center justify-between">
                   <div>
-                    <h3 className="font-bold text-gray-800 mb-1">Hare Krishna Marwar Mandir</h3>
+                    <h3 className="font-bold text-gray-800 mb-1">Gupt Govardhan Dham</h3>
                     <p className="text-gray-600 text-sm">{templeLocation.landmark}</p>
                   </div>
                   <motion.button
@@ -166,7 +166,7 @@ export default function LocationAndMap() {
                   <FaUniversity className="text-2xl text-primary mt-1" />
                   <div>
                     <div className="font-semibold text-gray-800">Temple Name</div>
-                    <div className="text-gray-600">Hare Krishna Marwar Mandir</div>
+                    <div className="text-gray-600">Gupt Govardhan Dham</div>
                   </div>
                 </div>
 

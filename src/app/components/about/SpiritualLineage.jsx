@@ -67,7 +67,7 @@ export default function SpiritualLineage() {
               <h3 className="text-2xl font-bold text-primary mb-4">Hare Krishna Movement Global Network</h3>
               <div className="space-y-4 text-gray-700 leading-relaxed">
                 <p>
-                  Hare Krishna Marwar Mandir, Jodhpur, is a part of the worldwide Hare Krishna Movement, founded in 1965 by His Divine Grace A.C. Bhaktivedanta Swami Srila Prabhupada.
+                  Gupt Govardhan Dham, Jodhpur, is a part of the worldwide Hare Krishna Movement, founded in 1965 by His Divine Grace A.C. Bhaktivedanta Swami Srila Prabhupada.
                 </p>
                 <p>
                   With a global presence of over 800 temples and centers, the movement is dedicated to sharing the timeless wisdom of the Vedas, spreading devotion to Lord Krishna, and promoting spiritual harmony and cultural upliftment across the world.

@@ -75,7 +75,7 @@ export default function CulturalImportance() {
             <div className="space-y-4 text-gray-700 leading-relaxed">
               <h3 className="text-2xl font-bold text-primary mb-6 text-left">Heart of the Community</h3>
               <p>
-                For over two decades, the Hare Krishna Marwar Mandir has served as the spiritual and cultural heart of Jodhpur's devotional community. Our temple plays a vital role in preserving the rich heritage of the Marwar region while fostering spiritual growth and community unity.
+                For over two decades, the Gupt Govardhan Dham has served as the spiritual and cultural heart of Jodhpur's devotional community. Our temple plays a vital role in preserving the rich heritage of the Marwar region while fostering spiritual growth and community unity.
               </p>
               <p>
                 We host numerous festivals that bring together people from all walks of life, creating bridges between different communities and promoting the universal message of love and peace that Lord Krishna represents.

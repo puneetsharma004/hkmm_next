@@ -138,14 +138,14 @@ export default function EventsAndDarshan() {
 
             {/* Subheading */}
             <h3 className="text-xl md:text-2xl font-semibold text-gray-600 mt-2">
-              Hare Krishna Marwar Mandir, Jodhpur
+              Gupt Govardhan Dham, Jodhpur
             </h3>
 
             {/* Content */}
             <div className="my-4 pr-2">
               {/* First paragraph - Always visible */}
               <p className="text-gray-700 leading-relaxed border-t border-gray-200 pt-3 mb-1 text-justify">
-                Hare Krishna Marwar Mandir is a spiritual organization devoted to uplifting human life by offering opportunities for true happiness, inner peace, good health, and all noble qualities through the practice of God Consciousness.
+                Gupt Govardhan Dham is a spiritual organization devoted to uplifting human life by offering opportunities for true happiness, inner peace, good health, and all noble qualities through the practice of God Consciousness.
               </p>
 
               {/* Second paragraph - Expandable on mobile, always visible on desktop */}
@@ -160,7 +160,7 @@ export default function EventsAndDarshan() {
                       className="overflow-hidden"
                     >
                       <p className="text-gray-700 leading-relaxed border-t border-gray-200 pt-1 text-justify">
-                        Registered as a trust and guided by the teachings of His Divine Grace A.C. Bhaktivedanta Swami Prabhupada, the revered Founder-Acharya of the worldwide Hare Krishna Movement, the Mandir follows his vision of spreading spiritual knowledge, culture, and devotion in society. Inspired by Srila Prabhupada's mission, the devotees at Hare Krishna Marwar Mandir conduct all activities in harmony with the Bhagavad Gita, Vedic wisdom, and Krishna consciousness, fostering spiritual growth for individuals and the community alike.
+                        Registered as a trust and guided by the teachings of His Divine Grace A.C. Bhaktivedanta Swami Prabhupada, the revered Founder-Acharya of the worldwide Hare Krishna Movement, the Mandir follows his vision of spreading spiritual knowledge, culture, and devotion in society. Inspired by Srila Prabhupada's mission, the devotees at Gupt Govardhan Dham conduct all activities in harmony with the Bhagavad Gita, Vedic wisdom, and Krishna consciousness, fostering spiritual growth for individuals and the community alike.
                       </p>
                     </motion.div>
                   )}
