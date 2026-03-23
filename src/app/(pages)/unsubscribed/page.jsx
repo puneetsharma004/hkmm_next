@@ -55,7 +55,7 @@ export default function UnsubscribedPage() {
                     className="flex flex-col sm:flex-row gap-4 justify-center"
                 >
                     <Link
-                        href="/"
+                        href="/public"
                         className="px-6 py-3 rounded-xl bg-primary text-white font-medium hover:scale-105 transition-transform flex items-center justify-center gap-2 shadow-lg"
                     >
                         <FaHome />
