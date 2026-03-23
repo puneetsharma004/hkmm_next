@@ -19,7 +19,10 @@ const schema = z.object({
 });
 
 export default function RegisterPage() {
-    const { slug } = useParams();
+
+    const params = useParams();
+    console.log("All params:", params);
+    const slug = params?.slug?.toLowerCase();
     const event = events[slug?.toLowerCase()];
     const price = event?.price ?? 50;
 
@@ -49,13 +52,25 @@ export default function RegisterPage() {
                     contact: formData.phone,
                 },
                 handler: async function (response) {
+                    // 1. Verify payment signature
                     await axios.post("/api/verify-payment", response);
+
+                    // 2. Save registration to Supabase
                     await axios.post("/api/register", {
                         ...formData,
                         gender: "Male",
                         slug,
+                        eventTitle: event?.title,
+                        amount: price,
                         paymentId: response.razorpay_payment_id,
                     });
+
+                    // 3. Save to sessionStorage so success page can read name + paymentId
+                    sessionStorage.setItem("reg_name", formData.name);
+                    sessionStorage.setItem("reg_paymentId", response.razorpay_payment_id);
+                    sessionStorage.setItem("reg_email", formData.email);
+
+                    // 4. Go to success page
                     window.location.href = `/event/${slug}/success`;
                 },
             };
@@ -81,6 +96,8 @@ export default function RegisterPage() {
         { name: "college", placeholder: "College / University", type: "text" },
         { name: "city",    placeholder: "City",            type: "text" },
     ];
+
+
 
     return (
         <div className="min-h-screen flex items-center justify-center p-4 bg-secondary-gradient">

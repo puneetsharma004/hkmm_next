@@ -23,16 +23,16 @@ export default async function EventPage({ params }) {
         <main className="smooth-scroll-container">
 
             {/* 1. Hero */}
-            <EventHero event={event} />
+            <EventHero event={event} slug={slug} />
 
             {/* 2. Details */}
-            <EventDetails event={event} />
+            <EventDetails event={event} slug={slug} />
 
             {/* 3. Organizer */}
-            <EventOrganizer event={event} />
+            <EventOrganizer event={event} slug={slug} />
 
             {/* 4. CTA */}
-            <EventCTA event={event} />
+            <EventCTA event={event} slug={normalizedSlug}/>
 
         </main>
     );

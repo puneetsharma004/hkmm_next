@@ -5,6 +5,8 @@ import { motion } from "framer-motion";
 import { FaCheckCircle } from "react-icons/fa";
 
 export default function EventCTA({ event, slug }) {
+    const router = useRouter();
+
     const benefits = [
         "Entry to full event",
         "Bhajan & Kirtan experience",
@@ -14,7 +16,6 @@ export default function EventCTA({ event, slug }) {
         "Community networking",
     ];
 
-    const router = useRouter();
 
     return (
         <section
