@@ -23,7 +23,7 @@ export default function EventOrganizer({ event }) {
     ];
 
     return (
-        <section className="relative py-20 px-4 bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50 overflow-hidden section">
+        <section className="relative py-20 px-4 bg-gradient-primary0 overflow-hidden section">
 
             {/* Background Glow */}
             <div className="absolute inset-0">

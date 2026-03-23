@@ -6,13 +6,8 @@ import { FaMapMarkerAlt } from "react-icons/fa";
 
 export default function EventHero({ event }) {
     return (
-        <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50">
+        <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden bg-gradient-primary">
 
-            {/* Background Glow */}
-            <div className="absolute inset-0">
-                <div className="absolute top-20 right-10 w-80 h-80 bg-primary/30 rounded-full blur-3xl opacity-30 animate-pulse"></div>
-                <div className="absolute bottom-10 left-10 w-72 h-72 bg-orange-400/30 rounded-full blur-3xl opacity-30 animate-pulse delay-1000"></div>
-            </div>
 
             {/* Content */}
             <div className="relative z-10 max-w-4xl text-center px-4">

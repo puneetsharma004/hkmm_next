@@ -20,7 +20,7 @@ export default function EventCTA({ event, slug }) {
     return (
         <section
             id="register"
-            className="relative py-20 px-4 bg-gradient-to-br from-orange-100 via-amber-100 to-yellow-100 overflow-hidden section"
+            className="relative py-20 px-4 bg-gradient-primary overflow-hidden section"
         >
 
             {/* Background Glow */}

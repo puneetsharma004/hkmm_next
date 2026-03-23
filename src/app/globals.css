@@ -136,6 +136,10 @@ html {
     background: linear-gradient(135deg, var(--secondary), var(--tertiary));
   }
 
+  .bg-gradient-primary0 {
+    @apply bg-gradient-to-br from-[var(--tertiary)] via-[var(--secondary)] to-[var(--primary)]/20;
+  }
+
   .bg-gradient-primary {
     @apply bg-gradient-to-br from-[var(--primary)]/20 via-[var(--secondary)] to-[var(--tertiary)];
   }
