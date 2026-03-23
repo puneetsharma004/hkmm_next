@@ -1,4 +1,6 @@
 import { supabase } from "@/lib/supabase";
+import QRCode from "qrcode";
+import axios from "axios";
 
 export async function POST(req) {
     try {
@@ -7,7 +9,6 @@ export async function POST(req) {
 
         const verifyUrl = `${process.env.NEXT_PUBLIC_APP_URL}/event/${data.slug}/verify/${data.paymentId}`;
 
-        // 1. Save to Supabase
         const { error: dbError } = await supabase
             .from("event_registrations")
             .insert({
@@ -25,26 +26,30 @@ export async function POST(req) {
             });
 
         if (dbError) {
-            console.error("❌ Supabase insert error:", dbError);
-            return Response.json(
-                { success: false, error: "DB error: " + dbError.message },
-                { status: 500 }
-            );
+            console.error("❌ Supabase error:", dbError);
+            return Response.json({ success: false, error: dbError.message }, { status: 500 });
         }
 
         console.log("✅ Supabase insert success");
 
-        // 2. Send WhatsApp
+        // Generate QR as base64 PNG
+        const qrBase64 = await QRCode.toDataURL(verifyUrl, {
+            width: 400,
+            margin: 2,
+            color: { dark: "#AF1E2E", light: "#ffffff" },
+        });
+
+        // Send WhatsApp (non-fatal if fails)
         try {
-            await sendWhatsAppMessage(
+            await sendWhatsAppWithQR(
                 data.phone,
                 data.name,
                 verifyUrl,
-                data.eventTitle
+                data.eventTitle,
+                qrBase64
             );
             console.log("✅ WhatsApp sent");
         } catch (waErr) {
-            // Don't fail the whole request if WhatsApp fails
             console.error("⚠️ WhatsApp error (non-fatal):", waErr);
         }
 
@@ -52,39 +57,74 @@ export async function POST(req) {
 
     } catch (err) {
         console.error("❌ Register route crash:", err);
-        return Response.json(
-            { success: false, error: err.message },
-            { status: 500 }
-        );
+        return Response.json({ success: false, error: err.message }, { status: 500 });
     }
 }
 
-async function sendWhatsAppMessage(phone, name, verifyUrl, eventTitle) {
-    const formattedPhone = `91${phone}`;
+async function sendWhatsAppWithQR(phone, name, verifyUrl, eventTitle, qrBase64) {
+    const cleanPhone = phone.replace(/^0+/, "");
+    const formattedPhone = cleanPhone.startsWith("91")
+        ? cleanPhone
+        : `91${cleanPhone}`;
 
-    const message = `🙏 *Hare Krishna, ${name}!*\n\n✅ Your registration for *${eventTitle}* is confirmed!\n\n🎟️ *Your Entry Pass:*\n${verifyUrl}\n\nOpen this link to show your QR code at the venue.\n\nSave this message!\n\n_— FOLK Spirituals Jodhpur_ 🌸`;
+    console.log("Sending WhatsApp to:", formattedPhone);
 
-    const res = await fetch(
-        `https://graph.facebook.com/v19.0/${process.env.WHATSAPP_PHONE_NUMBER_ID}/messages`,
-        {
-            method: "POST",
-            headers: {
-                "Authorization": `Bearer ${process.env.WHATSAPP_ACCESS_TOKEN}`,
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
+    const token = process.env.WHATSAPP_ACCESS_TOKEN;
+    const phoneNumberId = process.env.WHATSAPP_PHONE_NUMBER_ID;
+
+    // Convert base64 to buffer
+    const base64Data = qrBase64.replace(/^data:image\/png;base64,/, "");
+    const buffer = Buffer.from(base64Data, "base64");
+
+    // Step 1 — Upload media
+    const formData = new FormData();
+    formData.append("file", buffer, {
+        filename: "entry-pass.png",
+        contentType: "image/png",
+    });
+    formData.append("type", "image/png");
+    formData.append("messaging_product", "whatsapp");
+
+    try {
+        const uploadRes = await axios.post(
+            `https://graph.facebook.com/v19.0/${phoneNumberId}/media`,
+            formData,
+            {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                    ...formData.getHeaders(), // IMPORTANT
+                },
+            }
+        );
+
+        console.log("Media upload response:", uploadRes.data);
+
+        const mediaId = uploadRes.data.id;
+
+        // Step 2 — Send message
+        const msgRes = await axios.post(
+            `https://graph.facebook.com/v19.0/${phoneNumberId}/messages`,
+            {
                 messaging_product: "whatsapp",
                 to: formattedPhone,
-                type: "text",
-                text: { body: message },
-            }),
-        }
-    );
+                type: "image",
+                image: {
+                    id: mediaId,
+                    caption: ` *Hare Krishna, ${name}!*\n\n✅ Registration confirmed for *${eventTitle}*!\n\n📍 Show this QR code at the venue entry gate.\n\n🔗 Or open: ${verifyUrl}\n\n_Save this message! — FOLK Spirituals Jodhpur_ 🌸`,
+                },
+            },
+            {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                    "Content-Type": "application/json",
+                },
+            }
+        );
 
-    const result = await res.json();
-    console.log("WhatsApp API response:", result);
+        console.log("WhatsApp message response:", msgRes.data);
 
-    if (!res.ok) {
-        throw new Error(`WhatsApp API failed: ${JSON.stringify(result)}`);
+    } catch (error) {
+        console.error("WhatsApp Error:", error.response?.data || error.message);
+        throw error;
     }
 }

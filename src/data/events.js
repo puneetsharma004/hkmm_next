@@ -15,6 +15,6 @@ export const events = {
             "Fun Activities & Prizes"
         ],
         instagram: "https://instagram.com/folkspirituals_jodhpur",
-        whatsappGroup: "https://chat.whatsapp.com/ID4bCpbBnmEKwgNEa4pXle?mode=gi_t", // 👈 add this
+        whatsappGroup: "https://chat.whatsapp.com/Kbbtw58nFtP7H7XlW2xPCw?mode=gi_t",
     }
 };

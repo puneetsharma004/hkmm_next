@@ -75,7 +75,7 @@ export default function FolkSpiritualsEventBanner() {
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
                             onClick={() => router.push(`/event/ram-navami-2026`)}
-                            className="flex items-center gap-2 bg-primary text-white font-bold px-7 py-3 rounded-full shadow-lg hover:shadow-primary/40 transition-all duration-300 text-sm"
+                            className="flex items-center gap-2 cursor-pointer bg-primary outline-none text-white font-bold px-7 py-3 rounded-full shadow-lg hover:shadow-primary/40 transition-all duration-300 text-sm"
                         >
                             Register Now
                             <FaArrowRight />

@@ -37,26 +37,6 @@ export default function SuccessPage() {
 
             <div className="relative z-10 max-w-md w-full space-y-4">
 
-                {/* Success icon */}
-                <motion.div
-                    initial={{ scale: 0, opacity: 0 }}
-                    animate={{ scale: 1, opacity: 1 }}
-                    transition={{ type: "spring", stiffness: 200, damping: 15 }}
-                    className="flex justify-center"
-                >
-                    <div className="relative">
-                        <div className="w-24 h-24 rounded-full bg-green-100 flex items-center justify-center shadow-lg">
-                            <FaCheckCircle className="text-green-500 text-5xl" />
-                        </div>
-                        <motion.div
-                            className="absolute inset-0 rounded-full border-2 border-green-400"
-                            initial={{ scale: 1, opacity: 0.8 }}
-                            animate={{ scale: 2, opacity: 0 }}
-                            transition={{ duration: 1.2, repeat: Infinity }}
-                        />
-                    </div>
-                </motion.div>
-
                 {/* Main card */}
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
@@ -66,7 +46,7 @@ export default function SuccessPage() {
                 >
                     {/* Greeting */}
                     <div className="text-center mb-5">
-                        <p className="text-gray-500 text-sm mb-1">Registration Confirmed 🎉</p>
+                        <p className="text-gray-500 text-sm mb-1">Registration Confirmed</p>
                         {name && (
                             <h1 className="text-2xl font-bold text-gray-800">
                                 Welcome, {name}!
@@ -123,7 +103,7 @@ export default function SuccessPage() {
                             rel="noopener noreferrer"
                             whileHover={{ scale: 1.02 }}
                             whileTap={{ scale: 0.97 }}
-                            className="flex items-center justify-center gap-3 w-full py-4 bg-[#25D366] hover:bg-[#20c05c] text-white font-bold rounded-2xl shadow-lg shadow-green-200 transition-all duration-300 mb-2"
+                            className="flex items-center justify-center outline-none cursor-pointer gap-3 w-full py-4 bg-[#25D366] hover:bg-[#20c05c] text-white font-bold rounded-2xl shadow-lg shadow-green-200 transition-all duration-300 mb-2"
                         >
                             <FaWhatsapp className="text-2xl" />
                             Join WhatsApp Group
