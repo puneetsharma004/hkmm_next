@@ -34,6 +34,7 @@ export default function Header() {
     { name: "Events", href: "/events" },
     { name: "Gallery", href: "/gallery" },
     { name: "Donations", href: "/donations" },
+    { name: "Store", href: "/store" },
     { name: "Visit", href: "/visitor-info" },
     { name: "Contact", href: "/contact" }
   ];
