@@ -14,7 +14,8 @@ export async function POST(req) {
         const { screenshotBase64, amount } = data;
 
         if (!screenshotBase64) {
-            return Response.json({ success: false, error: "Screenshot is required" }, { status: 400 });
+            // Friendly message instead of technical "screenshot is required"
+            return Response.json({ success: false, error: "Please attach your payment screenshot so we can verify your entry. 🖼️" }, { status: 400 });
         }
 
         // 1. Prepare image for Gemini
@@ -23,9 +24,9 @@ export async function POST(req) {
         const mimeType = screenshotBase64.substring(screenshotBase64.indexOf(":") + 1, screenshotBase64.indexOf(";"));
 
         // 2. Ask Gemini to verify the screenshot and extract UTR
-
         const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
 
+        // TWEAKED PROMPT: Instructed Gemini to write a polite, user-friendly reason
         const prompt = `
             Analyze this UPI payment screenshot.
             1. Check if the payment was successful.
@@ -36,7 +37,7 @@ export async function POST(req) {
             {
                 "isValid": true or false,
                 "utr": "the 12 digit number or null",
-                "reason": "If isValid is false, explain why (e.g., 'Amount mismatch', 'Payment failed', 'No UTR found')"
+                "reason": "If isValid is false, explain why in a short, polite, user-friendly sentence (e.g., 'We couldn't find a matching amount of ₹${amount}.', 'The payment appears to be failed.', 'We couldn't clearly see the 12-digit UTR number. Please upload a clearer image.')"
             }
         `;
 
@@ -52,12 +53,14 @@ export async function POST(req) {
         try {
             verification = JSON.parse(responseText.replace(/```json/g, '').replace(/```/g, ''));
         } catch (e) {
-            console.error("Failed to parse Gemini response:", responseText);
-            return Response.json({ success: false, error: "Failed to read screenshot clearly." }, { status: 400 });
+            console.error("Failed to parse Gemini response:", responseText); // You see this
+            // User sees this:
+            return Response.json({ success: false, error: "We couldn't read the image properly. Could you please upload a clearer screenshot? 🧐" }, { status: 400 });
         }
 
         if (!verification.isValid || !verification.utr) {
-            return Response.json({ success: false, error: verification.reason || "Invalid payment screenshot." }, { status: 400 });
+            // User sees the friendly reason Gemini generated, or a polite fallback
+            return Response.json({ success: false, error: verification.reason || "We couldn't verify this payment screenshot. Please try a clearer image." }, { status: 400 });
         }
 
         const paymentId = verification.utr;
@@ -73,21 +76,22 @@ export async function POST(req) {
                 college: data.college,
                 city: data.city,
                 gender: data.gender ?? "Male",
-                payment_id: paymentId, // Save the AI extracted UTR here
+                payment_id: paymentId,
                 event_slug: data.slug,
                 event_title: data.eventTitle,
                 amount: data.amount,
                 verify_url: verifyUrl,
-                // Optional: You can also upload the base64 image to Supabase Storage here if you want to keep records
             });
 
         if (dbError) {
-            console.error("❌ Supabase error:", dbError);
-            // Handle unique constraint if UTR is already used (prevents duplicate submissions)
+            console.error("❌ Supabase error:", dbError); // You see the raw DB error
+
+            // Handle unique constraint if UTR is already used
             if(dbError.code === '23505') {
-                return Response.json({ success: false, error: "This payment screenshot has already been used." }, { status: 400 });
+                return Response.json({ success: false, error: "Looks like this payment screenshot has already been used! 🚫" }, { status: 400 });
             }
-            return Response.json({ success: false, error: dbError.message }, { status: 500 });
+            // Friendly fallback for any other database crash
+            return Response.json({ success: false, error: "Oops! Our servers are taking a quick break. Please try again in a moment. ⏳" }, { status: 500 });
         }
 
         // 4. Generate QR & Send WhatsApp Message
@@ -106,12 +110,11 @@ export async function POST(req) {
         return Response.json({ success: true, verifyUrl, paymentId });
 
     } catch (err) {
-        console.error("❌ Register route crash:", err);
-        return Response.json({ success: false, error: err.message }, { status: 500 });
+        console.error("❌ Register route crash:", err); // You see the raw crash log
+        // User sees a polite apology instead of "TypeError: Cannot read properties..."
+        return Response.json({ success: false, error: "Something went wrong on our end. Please give it another try! 🙏" }, { status: 500 });
     }
 }
-
-// ... Keep your existing sendWhatsAppWithQR function untouched below ...
 
 
 async function sendWhatsAppWithQR(phone, name, verifyUrl, eventTitle, qrBase64) {
