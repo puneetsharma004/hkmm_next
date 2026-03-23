@@ -34,7 +34,7 @@ export default function EventHero({ event }) {
                     transition={{ delay: 0.2 }}
                     className="mt-4 text-gray-700 text-lg md:text-xl"
                 >
-                    Experience devotion, community & celebration 🌸
+                    Experience devotion, community & celebration
                 </motion.p>
 
                 {/* Date + Time + Venue */}

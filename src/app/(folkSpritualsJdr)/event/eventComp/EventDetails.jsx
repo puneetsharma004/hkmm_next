@@ -49,7 +49,7 @@ export default function EventDetails({ event }) {
                         viewport={{ once: true }}
                     >
                         <h3 className="text-2xl font-semibold text-primary mb-4">
-                            Why You Should Join ✨
+                            Why You Should Join
                         </h3>
 
                         <p className="text-gray-700 mb-4 leading-relaxed">

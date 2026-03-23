@@ -48,7 +48,7 @@ export default function EventCTA({ event, slug }) {
                     transition={{ delay: 0.2 }}
                     className="text-gray-700 mb-10"
                 >
-                    Limited seats available — don’t miss this spiritual experience ✨
+                    Limited seats available — don’t miss this spiritual experience
                 </motion.p>
 
                 {/* Pricing Card */}

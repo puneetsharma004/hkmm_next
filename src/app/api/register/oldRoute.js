@@ -1,69 +1,14 @@
 import { supabase } from "@/lib/supabase";
 import QRCode from "qrcode";
 import axios from "axios";
-import { GoogleGenerativeAI } from "@google/generative-ai";
-
-// Initialize Gemini
-const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 
 export async function POST(req) {
     try {
         const data = await req.json();
-        console.log("Register API received data for:", data.name);
+        console.log("Register API received:", data);
 
-        const { screenshotBase64, amount } = data;
+        const verifyUrl = `${process.env.NEXT_PUBLIC_APP_URL}/event/${data.slug}/verify/${data.paymentId}`;
 
-        if (!screenshotBase64) {
-            return Response.json({ success: false, error: "Screenshot is required" }, { status: 400 });
-        }
-
-        // 1. Prepare image for Gemini
-        // Remove the data:image/png;base64, prefix
-        const base64String = screenshotBase64.split(",")[1];
-        const mimeType = screenshotBase64.substring(screenshotBase64.indexOf(":") + 1, screenshotBase64.indexOf(";"));
-
-        // 2. Ask Gemini to verify the screenshot and extract UTR
-
-        const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
-
-        const prompt = `
-            Analyze this UPI payment screenshot.
-            1. Check if the payment was successful.
-            2. Check if the amount paid is exactly ₹${amount} or ${amount}.
-            3. Extract the 12-digit UPI Transaction ID (sometimes called UTR or Ref No).
-            
-            Return ONLY a raw JSON object (no markdown, no backticks) with this exact structure:
-            {
-                "isValid": true or false,
-                "utr": "the 12 digit number or null",
-                "reason": "If isValid is false, explain why (e.g., 'Amount mismatch', 'Payment failed', 'No UTR found')"
-            }
-        `;
-
-        const imageParts = [{
-            inlineData: { data: base64String, mimeType }
-        }];
-
-        const result = await model.generateContent([prompt, ...imageParts]);
-        const responseText = result.response.text().trim();
-
-        // Parse Gemini's JSON response
-        let verification;
-        try {
-            verification = JSON.parse(responseText.replace(/```json/g, '').replace(/```/g, ''));
-        } catch (e) {
-            console.error("Failed to parse Gemini response:", responseText);
-            return Response.json({ success: false, error: "Failed to read screenshot clearly." }, { status: 400 });
-        }
-
-        if (!verification.isValid || !verification.utr) {
-            return Response.json({ success: false, error: verification.reason || "Invalid payment screenshot." }, { status: 400 });
-        }
-
-        const paymentId = verification.utr;
-        const verifyUrl = `${process.env.NEXT_PUBLIC_APP_URL}/event/${data.slug}/verify/${paymentId}`;
-
-        // 3. Insert into Supabase (using the extracted UTR as payment_id)
         const { error: dbError } = await supabase
             .from("event_registrations")
             .insert({
@@ -73,46 +18,48 @@ export async function POST(req) {
                 college: data.college,
                 city: data.city,
                 gender: data.gender ?? "Male",
-                payment_id: paymentId, // Save the AI extracted UTR here
+                payment_id: data.paymentId,
                 event_slug: data.slug,
                 event_title: data.eventTitle,
                 amount: data.amount,
                 verify_url: verifyUrl,
-                // Optional: You can also upload the base64 image to Supabase Storage here if you want to keep records
             });
 
         if (dbError) {
             console.error("❌ Supabase error:", dbError);
-            // Handle unique constraint if UTR is already used (prevents duplicate submissions)
-            if(dbError.code === '23505') {
-                return Response.json({ success: false, error: "This payment screenshot has already been used." }, { status: 400 });
-            }
             return Response.json({ success: false, error: dbError.message }, { status: 500 });
         }
 
-        // 4. Generate QR & Send WhatsApp Message
+        console.log("✅ Supabase insert success");
+
+        // Generate QR as base64 PNG
         const qrBase64 = await QRCode.toDataURL(verifyUrl, {
             width: 400,
             margin: 2,
             color: { dark: "#AF1E2E", light: "#ffffff" },
         });
 
+        // Send WhatsApp (non-fatal if fails)
         try {
-            await sendWhatsAppWithQR(data.phone, data.name, verifyUrl, data.eventTitle, qrBase64);
+            await sendWhatsAppWithQR(
+                data.phone,
+                data.name,
+                verifyUrl,
+                data.eventTitle,
+                qrBase64
+            );
+            console.log("✅ WhatsApp sent");
         } catch (waErr) {
             console.error("⚠️ WhatsApp error (non-fatal):", waErr);
         }
 
-        return Response.json({ success: true, verifyUrl, paymentId });
+        return Response.json({ success: true, verifyUrl });
 
     } catch (err) {
         console.error("❌ Register route crash:", err);
         return Response.json({ success: false, error: err.message }, { status: 500 });
     }
 }
-
-// ... Keep your existing sendWhatsAppWithQR function untouched below ...
-
 
 async function sendWhatsAppWithQR(phone, name, verifyUrl, eventTitle, qrBase64) {
     const cleanPhone = phone.replace(/^0+/, "");
@@ -140,7 +87,7 @@ async function sendWhatsAppWithQR(phone, name, verifyUrl, eventTitle, qrBase64) 
 
     try {
         const uploadRes = await axios.post(
-            url =  `https://graph.facebook.com/v19.0/${phoneNumberId}/media`,
+             url =  `https://graph.facebook.com/v19.0/${phoneNumberId}/media`,
             formData,
             {
                 headers: {

@@ -96,7 +96,7 @@ export default function EventOrganizer({ event }) {
                     transition={{ delay: 0.4 }}
                     className="mt-4 text-sm text-gray-600"
                 >
-                    Trusted by students across Jodhpur 🙏
+                    Trusted by students across Jodhpur
                 </motion.p>
             </div>
         </section>
