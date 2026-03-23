@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { FaMusic, FaPray, FaUtensils, FaGift } from "react-icons/fa";
 
-export default function EventAbout({ event }) {
+export default function EventDetails({ event }) {
     const highlights = [
         { icon: <FaMusic />, text: "Bhajan & Kirtan" },
         { icon: <FaPray />, text: "Spiritual Talks & Abhishekam" },

@@ -4,21 +4,15 @@ import { motion } from 'framer-motion';
 import {
   FaPray,
   FaGift,
-  FaBolt,
   FaRupeeSign,
   FaHeart,
-  FaComments,
-  FaPhone,
-  FaEnvelope,
   FaExclamationTriangle,
-  FaUsers,
   FaCalendarAlt,
   FaArrowRight,
   FaRedo,
   FaUtensils,
-  // FaHandHeart
 } from 'react-icons/fa';
-import { HiSparkles } from 'react-icons/hi';
+
 import { PiCowFill } from "react-icons/pi";
 
 export default function DonationsCallToAction() {

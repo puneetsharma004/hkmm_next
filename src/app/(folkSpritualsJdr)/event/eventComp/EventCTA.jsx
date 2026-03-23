@@ -1,9 +1,10 @@
 "use client";
-
+// EventCTA.jsx
+import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { FaCheckCircle } from "react-icons/fa";
 
-export default function EventCTA({ event }) {
+export default function EventCTA({ event, slug }) {
     const benefits = [
         "Entry to full event",
         "Bhajan & Kirtan experience",
@@ -12,6 +13,8 @@ export default function EventCTA({ event }) {
         "Fun activities & prizes",
         "Community networking",
     ];
+
+    const router = useRouter();
 
     return (
         <section
@@ -56,7 +59,7 @@ export default function EventCTA({ event }) {
                     className="bg-white/80 backdrop-blur-md border border-primary/30 rounded-2xl shadow-xl p-8"
                 >
                     {/* Price */}
-                    <h3 className="text-5xl font-bold text-primary mb-4">
+                    <h3 className="text-5xl font-bold text-primary mb-4 ">
                         ₹{event.price}
                     </h3>
                     <p className="text-gray-600 mb-6">One-time entry fee</p>
@@ -78,10 +81,8 @@ export default function EventCTA({ event }) {
                     <motion.button
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
-                        className="w-full py-4 bg-primary text-white font-bold rounded-full shadow-lg hover:shadow-primary/40 transition-all duration-300 text-lg"
-                        onClick={() => {
-                            alert("Next step: Open form + payment gateway");
-                        }}
+                        className="w-full cursor-pointer py-2 bg-primary text-white font-bold rounded-full shadow-lg hover:shadow-primary/40 transition-all duration-300 text-lg"
+                        onClick={() => router.push(`/event/${slug}/register`)}
                     >
                         Register & Pay ₹{event.price}
                     </motion.button>

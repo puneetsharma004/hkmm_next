@@ -74,7 +74,7 @@ export default function EventHero({ event }) {
                     transition={{ delay: 0.5 }}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="mt-8 px-8 py-4 bg-primary text-white font-bold rounded-full shadow-xl hover:shadow-primary/40 transition-all duration-300"
+                    className="mt-8 ml-4 px-4 py-2 cursor-pointer bg-primary text-white font-bold rounded-full shadow-xl hover:shadow-primary/40 transition-all duration-300"
                     onClick={() => {
                         document.getElementById("register")?.scrollIntoView({
                             behavior: "smooth",

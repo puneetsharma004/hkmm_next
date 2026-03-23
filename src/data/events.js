@@ -14,6 +14,7 @@ export const events = {
             "Prasadam (Free Veg Food)",
             "Fun Activities & Prizes"
         ],
-        instagram: "https://instagram.com/folkspirituals_jodhpur"
+        instagram: "https://instagram.com/folkspirituals_jodhpur",
+        whatsappGroup: "https://chat.whatsapp.com/ID4bCpbBnmEKwgNEa4pXle?mode=gi_t", // 👈 add this
     }
 };

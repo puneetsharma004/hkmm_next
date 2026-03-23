@@ -1,26 +1,39 @@
 import { events } from "@/data/events";
+import EventHero from "@/app/(folkSpritualsJdr)/event/eventComp/EventHero";
+import EventDetails from "@/app/(folkSpritualsJdr)/event/eventComp/EventDetails";
+import EventOrganizer from "@/app/(folkSpritualsJdr)/event/eventComp/EventOrganizer";
+import EventCTA from "@/app/(folkSpritualsJdr)/event/eventComp/EventCTA";
 
-export default function EventPage({ params }) {
-    const slug = params.slug?.toLowerCase(); // ✅ normalize
-
-    const event = events[slug];
-
-    console.log("slug:", slug);
-    console.log("event:", event);
+export default async function EventPage({ params }) {
+    const { slug } = await params;
+    const normalizedSlug = slug?.toLowerCase();
+    const event = events[normalizedSlug];
 
     if (!event) {
         return (
             <div className="h-screen flex items-center justify-center">
                 <h1 className="text-2xl font-bold text-primary">
-                    Event not found: {slug}
+                    Event not found: {normalizedSlug}
                 </h1>
             </div>
         );
     }
 
     return (
-        <div>
-            <h1>{event.title}</h1>
-        </div>
+        <main className="smooth-scroll-container">
+
+            {/* 1. Hero */}
+            <EventHero event={event} />
+
+            {/* 2. Details */}
+            <EventDetails event={event} />
+
+            {/* 3. Organizer */}
+            <EventOrganizer event={event} />
+
+            {/* 4. CTA */}
+            <EventCTA event={event} />
+
+        </main>
     );
 }

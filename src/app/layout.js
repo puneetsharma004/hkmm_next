@@ -7,6 +7,7 @@ import IntroLoader from "./components/common/IntroLoader";
 import WhatsAppButton from "./components/common/Whatsapp";
 import SmoothScrolling from "./components/common/SmoothScrolling";
 import { Toaster } from "react-hot-toast";
+import Script from "next/script"
 
 
 const geistSans = Geist({
@@ -27,10 +28,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-    {/*<script src="https://checkout.razorpay.com/v1/checkout.js"></script>*/}
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+      <Script src="https://checkout.razorpay.com/v1/checkout.js" strategy="beforeInteractive" />
 
         <SmoothScrolling>
           <Toaster
