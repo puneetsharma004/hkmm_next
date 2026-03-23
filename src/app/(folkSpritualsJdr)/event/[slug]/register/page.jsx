@@ -11,6 +11,8 @@ import axios from "axios";
 import { events } from "@/data/events";
 import Image from "next/image";
 
+import { FaSpinner, FaCloudUploadAlt } from "react-icons/fa";
+
 const messages = [
     "Verifying payment screenshot...",
     "Setting up your entry pass...",
@@ -217,24 +219,42 @@ export default function RegisterPage() {
                         ))}
 
                         {/* Screenshot Upload Field */}
-                        <div>
-                            <label className="block text-sm font-medium text-gray-700 mb-1">
-                                Upload Payment Screenshot which has URT*
+                        {/* --- Payment Screenshot Upload Section --- */}
+                        <div className="flex flex-col gap-1.5 mb-6">
+                            <label className="text-sm font-bold text-gray-800 flex items-center gap-1">
+                                Payment Screenshot <span className="text-red-500">*</span>
                             </label>
-                            <input
-                                type="file"
-                                accept="image/*"
-                                onChange={handleFileChange}
-                                className="w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-primary/10 file:text-primary hover:file:bg-primary/20"
-                            />
+                            <p className="text-xs text-gray-500">
+                                Please upload an image clearly showing the 12-digit UTR number.
+                            </p>
+
+                            <div className="relative mt-1 overflow-hidden rounded-xl outline-none border-2 border-dashed border-gray-200 bg-gray-50/50 hover:bg-primary/5 hover:border-primary/40 transition-all duration-300">
+                                <input
+                                    type="file"
+                                    accept="image/*"
+                                    onChange={handleFileChange}
+                                    className="block w-full text-sm outline-none text-gray-600 file:mr-4 file:py-3 file:px-5 file:border-0 file:text-sm file:font-bold file:bg-primary/10 file:text-primary hover:file:bg-primary hover:file:text-gray-400 file:transition-all file:cursor-pointer cursor-pointer p-1.5"
+                                />
+                            </div>
                         </div>
 
+                        {/* --- Submit Button --- */}
                         <button
                             type="submit"
                             disabled={loading}
-                            className="w-full py-4 bg-primary text-white font-bold rounded-full shadow-lg hover:shadow-primary/40 transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed"
+                            className="group relative w-full flex items-center justify-center gap-2 py-4 bg-primary text-white font-bold rounded-full shadow-lg shadow-primary/20 hover:shadow-primary/40 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300 disabled:opacity-75 disabled:hover:translate-y-0 disabled:cursor-not-allowed"
                         >
-                            {loading ? "Processing..." : `Verify & Register`}
+                            {loading ? (
+                                <>
+                                    <FaSpinner className="animate-spin text-lg" />
+                                    <span>Verifying Screenshot...</span>
+                                </>
+                            ) : (
+                                <>
+                                    <FaCloudUploadAlt className="text-xl group-hover:scale-110 transition-transform duration-300" />
+                                    <span>Verify & Register</span>
+                                </>
+                            )}
                         </button>
                     </form>
                 </div>
