@@ -10,7 +10,6 @@ import WelcomeSection from "./components/home/WelcomeSection";
 
 
 async function Home() {
-  await new Promise((res) => setTimeout(res, 3000));
   return (
     <>
       <HeroSlider />

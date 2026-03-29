@@ -44,7 +44,7 @@ export async function POST(req) {
             const verifyUrl = `${process.env.NEXT_PUBLIC_APP_URL}/api/newsletter/verify?token=${verifyToken}`;
 
             await resend.emails.send({
-                from: "Temple Updates <no-reply@newsletter.guptgovardhandham.org>",
+                from: "Temple Updates <no-reply@newsletter.harekrishnamarwar.org>",
                 //replace with email parameter
                 to: email,
                 subject: "Confirm subscription again",
@@ -91,7 +91,7 @@ export async function POST(req) {
     const unsubUrl = `${process.env.NEXT_PUBLIC_APP_URL}/api/newsletter/unsubscribe?token=${unsubToken}`;
 
     await resend.emails.send({
-        from: "Temple Updates <no-reply@newsletter.guptgovardhandham.org>",
+        from: "Temple Updates <no-reply@newsletter.harekrishnamarwar.org>",
         //replace with email parameter
         to: email,
         subject: "Confirm your subscription",

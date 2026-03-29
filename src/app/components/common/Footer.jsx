@@ -138,7 +138,7 @@ export default function Footer() {
               variants={itemVariants}
             >
               <span className="text-primary">
-                Gupt Govardhan Dham
+                Hare Krishna Marwar Mandir
               </span>
             </motion.h3>
 
@@ -225,7 +225,7 @@ export default function Footer() {
               variants={itemVariants}
             >
               <iframe
-                title="Gupt Govardhan Dham Location"
+                title="Hare Krishna Marwar Mandir Location"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d223.60221799336995!2d72.92808394879104!3d26.273491250976406!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39418f00266be169%3A0x9ca057426b5d4bec!2sHare%20Krishna%20Marwar%20Mandir%2C%20Chokha%2CChopasni%2C%20Jodhpur!5e0!3m2!1sen!2sin!4v1759394060148!5m2!1sen!2sin"
                 width="100%"
                 height="100%"
@@ -347,7 +347,7 @@ export default function Footer() {
             variants={containerVariants}
           >
             <motion.div className="mb-2 md:mb-0" variants={itemVariants}>
-              <p>© {currentYear} Gupt Govardhan Dham. All rights reserved.</p>
+              <p>© {currentYear} Hare Krishna Marwar Mandir. All rights reserved.</p>
             </motion.div>
 
             {/* Additional Links */}

@@ -1,7 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-
+  poweredByHeader: false,
+   compress: true, 
   images: {
     remotePatterns: [
       {
@@ -9,6 +10,7 @@ const nextConfig = {
         hostname: "rkrcdihogyjnpnffpakq.supabase.co",
       },
     ],
+    formats: ["image/avif", "image/webp"]
   },
 };
 

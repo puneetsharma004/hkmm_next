@@ -54,7 +54,7 @@ export default function PageHeader() {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="mt-8 text-gray-600 text-lg"
           >
-            Discover the spiritual legacy of Gupt Govardhan Dham
+            Discover the spiritual legacy of Hare Krishna Marwar Mandir
           </motion.div>
         </motion.div>
       </div>
