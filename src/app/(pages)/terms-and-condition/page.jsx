@@ -2,23 +2,6 @@
 
 import { motion } from "framer-motion";
 
-export const metadata = {
-  title: "Terms & Conditions | Hare Krishna Marwar Mandir Jodhpur",
-  description:
-    "Read the terms and conditions for using Hare Krishna Marwar Mandir website. Understand the rules, responsibilities, and guidelines for visitors and users.",
-  alternates: {
-    canonical: "https://harekrishnamarwar.org/terms-and-conditions",
-  },
-  openGraph: {
-    title: "Terms & Conditions - Hare Krishna Marwar Mandir Jodhpur",
-    description:
-      "Review the terms governing the use of Hare Krishna Marwar Mandir website and services.",
-    url: "https://harekrishnamarwar.org/terms-and-conditions",
-    siteName: "Hare Krishna Marwar Mandir",
-    type: "website",
-  },
-};
-
 export default function TermsPage() {
     return (
         <section className="relative py-20 px-4 overflow-hidden bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50">
@@ -137,7 +120,7 @@ export default function TermsPage() {
                 >
                     Questions? Contact us at{" "}
                     <span className="text-primary font-medium">
-            info@govardhandham.org
+            info@harekrishnamarwar.org
           </span>
                 </motion.div>
             </div>

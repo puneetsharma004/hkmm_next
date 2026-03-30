@@ -85,7 +85,7 @@ export async function POST(req) {
             .join("");
 
         await resend.emails.send({
-            from: "Govardhan Dham Store <orders@govardhandham.org>",
+            from: "Govardhan Dham Store <orders@harekrishnamarwar.org>",
             to:   buyerEmail,
             subject: `Order Confirmed — ${order.order_number} 🙏`,
             html: `

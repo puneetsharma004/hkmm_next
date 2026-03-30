@@ -1,23 +1,5 @@
-"use client";
-
+"use client"
 import { motion } from "framer-motion";
-
-export const metadata = {
-  title: "Privacy Policy | Hare Krishna Marwar Mandir Jodhpur",
-  description:
-    "Read the privacy policy of Hare Krishna Marwar Mandir, Jodhpur. Learn how we collect, use, and protect your personal information.",
-  alternates: {
-    canonical: "https://harekrishnamarwar.org/privacy-policy",
-  },
-  openGraph: {
-    title: "Privacy Policy - Hare Krishna Marwar Mandir Jodhpur",
-    description:
-      "Understand how Hare Krishna Marwar Mandir handles user data, privacy, and information security.",
-    url: "https://harekrishnamarwar.org/privacy-policy",
-    siteName: "Hare Krishna Marwar Mandir",
-    type: "website",
-  },
-};
 
 export default function PrivacyPolicyPage() {
     return (
@@ -159,7 +141,7 @@ export default function PrivacyPolicyPage() {
                 >
                     For questions or data requests, contact us at{" "}
                     <span className="text-primary font-medium">
-            info@govardhandham.org
+            info@harekrishnamarwar.org
           </span>
                 </motion.div>
             </div>
